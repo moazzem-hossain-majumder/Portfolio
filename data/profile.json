@@ -35,11 +35,19 @@
   ],
   "certifications": [
     {
+      "title": "Machine Learning with Python",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "MPOS9VWHSYM5",
+      "link": "https://www.coursera.org/account/accomplishments/verify/MPOS9VWHSYM5",
+      "pinned": false
+    },    
+    {
       "title": "Data Analysis with Python",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "MKH4PAM4SL3Y",
-      "link": "",
+      "link": "https://www.coursera.org/account/accomplishments/verify/MKH4PAM4SL3Y",
       "pinned": false
     },
     {
@@ -47,7 +55,7 @@
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "1I2YGT3TL6XB",
-      "link": "",
+      "link": "https://www.coursera.org/account/accomplishments/verify/1I2YGT3TL6XB",
       "pinned": false
     },
     {
@@ -55,7 +63,7 @@
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "4CTAJBTZLNU9",
-      "link": "",
+      "link": "https://www.coursera.org/account/accomplishments/verify/4CTAJBTZLNU9",
       "pinned": false
     },
     {
@@ -63,7 +71,7 @@
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "PQDW53B9YW2Y",
-      "link": "",
+      "link": "https://www.coursera.org/account/accomplishments/verify/PQDW53B9YW2Y",
       "pinned": true
     },
     {
@@ -71,7 +79,7 @@
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "726ZU9YPZ4CG",
-      "link": "",
+      "link": "https://www.coursera.org/account/accomplishments/verify/726ZU9YPZ4CG",
       "pinned": false
     },
     {
@@ -79,7 +87,7 @@
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "RLEJMSK3CKDJ",
-      "link": "",
+      "link": "https://www.coursera.org/account/accomplishments/verify/RLEJMSK3CKDJ",
       "pinned": false
     },
     {
@@ -87,7 +95,7 @@
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "I11XKHBVEZAZ",
-      "link": "",
+      "link": "https://www.coursera.org/account/accomplishments/verify/I11XKHBVEZAZ",
       "pinned": false
     },
     {
@@ -95,19 +103,19 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "943,259",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/track/73a9b10bdd5d1f5c1ce199eed457a6c0ed2c1cf9?raw=1",
       "skills": [
         "LangChain",
         "LangGraph"
       ],
-      "pinned": false
+      "pinned": true
     },
     {
       "title": "Agentic Systems with LangGraph",
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "585,511",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/f689bf493d73102824c446d340a724208bf9edf9?raw=1",
       "skills": [
         "LangGraph",
         "AI Agents"
@@ -119,7 +127,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "585,435",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/0a1d0ee81281e989e37920c7c899a27a503f8e99?raw=1",
       "skills": [
         "APIs",
         "AI Agents",
@@ -132,7 +140,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "585,387",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/2e25faa73eb31db0787a1b2d3e9e0c871a836a31?raw=1",
       "skills": [
         "RAG",
         "Embeddings",
@@ -145,7 +153,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "585,344",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/97c4c2391b581e36e892e98f0400b07c46bb6278?raw=1",
       "skills": [
         "Prompt Engineering",
         "Prompt Optimization"
@@ -157,7 +165,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "583,461",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/863375ae50bd3c8bbc3f2f42a9a1998d12364855?raw=1",
       "skills": [
         "LangSmith",
         "LLM Evaluation"
@@ -169,7 +177,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "583,205",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/3a39396016e1aa56ac22158bff0e822a1934d6be?raw=1",
       "skills": [
         "LangChain",
         "LLMs"
@@ -181,7 +189,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "48,626,242",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/4eb8116f0f1c67cd47901f0c6ef198404c5a14c9?raw=1",
       "skills": [
         "Power BI",
         "Data Visualization"
@@ -193,7 +201,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "49,567,426",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/fc27d3cc3967c642954bbde00da2cc600118a6b3?raw=1",
       "skills": [
         "PySpark",
         "Apache Spark"
@@ -205,7 +213,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "49,316,914",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/38a805abcfe77f728c762580ded53955eb84ec7d?raw=1",
       "skills": [
         "Time Series Analysis",
         "Forecasting"
@@ -217,7 +225,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "49,288,864",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/84d6f700d105077ee458be58e9701b2dc4e19211?raw=1",
       "skills": [
         "Feature Engineering",
         "Machine Learning"
@@ -229,7 +237,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "49,198,066",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/1074e3e2f439e6c9a7d42834dc4d00443dc1e3cf?raw=1",
       "skills": [
         "Supervised Learning",
         "scikit-learn"
@@ -241,7 +249,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "48,618,232",
-      "link": "",
+      "link": "https://www.datacamp.com/statement-of-accomplishment/course/70e415276e933a7d8b855ead1bc42b88c79fac5f?raw=1",
       "skills": [
         "EDA",
         "Python"
@@ -253,7 +261,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "9f40dfece11465932a2b2c6b54639f1cd1c7e08e",
-      "link": "",
+      "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/9f40dfece11465932a2b2c6b54639f1cd1c7e08e?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
       "skills": [
         "Python",
         "Data Analysis",
@@ -266,7 +274,7 @@
       "issuer": "DataCamp",
       "year": "2026",
       "credentialId": "6f81a28e25fa66dfa8bb413a9667058b06cbe566",
-      "link": "",
+      "link": "https://www.datacamp.com/completed/statement-of-accomplishment/course/6f81a28e25fa66dfa8bb413a9667058b06cbe566?utm_medium=organic_social&utm_campaign=sharewidget&utm_content=soa",
       "skills": [
         "Python",
         "Pandas"
@@ -278,7 +286,7 @@
       "issuer": "University of Helsinki",
       "year": "2026",
       "credentialId": "8iw278jj01j",
-      "link": "",
+      "link": "https://certificates.mooc.fi/validate/8iw278jj01j",
       "skills": [
         "AI Ethics",
         "Responsible AI"
@@ -290,7 +298,7 @@
       "issuer": "Cisco",
       "year": "2026",
       "credentialId": "",
-      "link": "",
+      "link": "https://www.credly.com/badges/d39ae5b0-e539-4de4-8d6e-db31d45ec1ff/linked_in_profile",
       "pinned": false
     },
     {
@@ -298,7 +306,7 @@
       "issuer": "Simplilearn",
       "year": "2026",
       "credentialId": "10343678",
-      "link": "",
+      "link": "https://certificates.simplicdn.net/share/10343678_10649587_1781371062457.pdf",
       "pinned": false
     },
     {
@@ -306,7 +314,7 @@
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "Ar5qQo7Bem3u4jDRk",
-      "link": "",
+      "link": "https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/gabev3vXhuACr48eb_SKZxezskWgmFjRvj9_6a1d2313b7f842cbd888f171_1781117580452_completion_certificate.pdf",
       "pinned": false
     },
     {
@@ -314,7 +322,7 @@
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "zqQbrsAEMtDM978zE",
-      "link": "",
+      "link": "https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_6a1d2313b7f842cbd888f171_1781078761159_completion_certificate.pdf",
       "pinned": false
     },
     {
@@ -322,7 +330,7 @@
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "SkJoBjhGM7BS4ekKP",
-      "link": "",
+      "link": "https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/Pchc5rEGyCeozqY5Z_SKZxezskWgmFjRvj9_6a1d2313b7f842cbd888f171_1781039725389_completion_certificate.pdf",
       "pinned": false
     },
     {
@@ -330,7 +338,7 @@
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "FNrkPmStDF94S627q",
-      "link": "",
+      "link": "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6a1d2313b7f842cbd888f171_1780688358088_completion_certificate.pdf",
       "pinned": false
     },
     {
@@ -338,7 +346,7 @@
       "issuer": "Kaggle",
       "year": "2026",
       "credentialId": "",
-      "link": "",
+      "link": "https://www.kaggle.com/learn/certification/moazzemhossain1510/intro-to-machine-learning",
       "pinned": false
     },
     {
