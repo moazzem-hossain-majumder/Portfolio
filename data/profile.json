@@ -1,0 +1,384 @@
+{
+  "basics": {
+    "name": "Moazzem Hossain",
+    "headline": "Aspiring AI Engineer & Data Analyst | Python | SQL | Machine Learning | Data Analysis | Data Visualization",
+    "location": "",
+    "githubUsername": "moazzem-hossain-majumder",
+    "githubUrl": "https://github.com/moazzem-hossain-majumder",
+    "linkedinUrl": "https://www.linkedin.com/in/moazzem-hossain-majumder",
+    "email": "your.email@example.com"
+  },
+  "experiences": [],
+  "education": [
+    {
+      "degree": "Bachelor of Science, Computer Science",
+      "institution": "BRAC University",
+      "period": "Jan 2023 - Jan 2027",
+      "description": "Studying Computer Science with a focus on Artificial Intelligence, Machine Learning, and Data Science."
+    },
+    {
+      "degree": "Higher Secondary School Certificate, Science",
+      "institution": "Adamjee Cantonment College",
+      "period": "Mar 2019 - Mar 2021",
+      "description": "Grade: Golden A+, GPA 5.00"
+    },
+    {
+      "degree": "Secondary School Certificate, Science",
+      "institution": "Adamjee Cantonment Public School",
+      "period": "2017 - 2019",
+      "description": "Grade: Golden A+, GPA 5.00 With General Scholarship"
+    }
+  ],
+  "certifications": [
+    {
+      "title": "Data Analysis with Python",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "MKH4PAM4SL3Y",
+      "link": ""
+    },
+    {
+      "title": "Building Generative AI-Powered Applications with Python",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "1I2YGT3TL6XB",
+      "link": ""
+    },
+    {
+      "title": "Developing AI Applications with Python and Flask",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "4CTAJBTZLNU9",
+      "link": ""
+    },
+    {
+      "title": "Python for Data Science, AI & Development",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "PQDW53B9YW2Y",
+      "link": ""
+    },
+    {
+      "title": "Generative AI: Prompt Engineering Basics",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "726ZU9YPZ4CG",
+      "link": ""
+    },
+    {
+      "title": "Generative AI: Introduction and Applications",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "RLEJMSK3CKDJ",
+      "link": ""
+    },
+    {
+      "title": "Introduction to Artificial Intelligence (AI)",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "I11XKHBVEZAZ",
+      "link": ""
+    },
+    {
+      "title": "AI Engineering with LangChain",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "943,259",
+      "link": "",
+      "skills": [
+        "LangChain",
+        "LangGraph"
+      ]
+    },
+    {
+      "title": "Agentic Systems with LangGraph",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "585,511",
+      "link": "",
+      "skills": [
+        "LangGraph",
+        "AI Agents"
+      ]
+    },
+    {
+      "title": "LLM Tool Use with LangChain",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "585,435",
+      "link": "",
+      "skills": [
+        "APIs",
+        "AI Agents",
+        "Tool Calling"
+      ]
+    },
+    {
+      "title": "Retrieval-Augmented Generation with LangChain",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "585,387",
+      "link": "",
+      "skills": [
+        "RAG",
+        "Embeddings",
+        "Vector Search"
+      ]
+    },
+    {
+      "title": "Prompt Engineering with LangChain",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "585,344",
+      "link": "",
+      "skills": [
+        "Prompt Engineering",
+        "Prompt Optimization"
+      ]
+    },
+    {
+      "title": "LLM Application Evaluation with LangSmith",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "583,461",
+      "link": "",
+      "skills": [
+        "LangSmith",
+        "LLM Evaluation"
+      ]
+    },
+    {
+      "title": "LLM Application Fundamentals with LangChain",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "583,205",
+      "link": "",
+      "skills": [
+        "LangChain",
+        "LLMs"
+      ]
+    },
+    {
+      "title": "Introduction to Power BI",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "48,626,242",
+      "link": "",
+      "skills": [
+        "Power BI",
+        "Data Visualization"
+      ]
+    },
+    {
+      "title": "Introduction to PySpark",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "49,567,426",
+      "link": "",
+      "skills": [
+        "PySpark",
+        "Apache Spark"
+      ]
+    },
+    {
+      "title": "Time Series Analysis in Python",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "49,316,914",
+      "link": "",
+      "skills": [
+        "Time Series Analysis",
+        "Forecasting"
+      ]
+    },
+    {
+      "title": "Feature Engineering for Machine Learning in Python",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "49,288,864",
+      "link": "",
+      "skills": [
+        "Feature Engineering",
+        "Machine Learning"
+      ]
+    },
+    {
+      "title": "Supervised Learning with scikit-learn",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "49,198,066",
+      "link": "",
+      "skills": [
+        "Supervised Learning",
+        "scikit-learn"
+      ]
+    },
+    {
+      "title": "Exploratory Data Analysis in Python",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "48,618,232",
+      "link": "",
+      "skills": [
+        "EDA",
+        "Python"
+      ]
+    },
+    {
+      "title": "Introduction to Statistics in Python",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "9f40dfece11465932a2b2c6b54639f1cd1c7e08e",
+      "link": "",
+      "skills": [
+        "Python",
+        "Data Analysis",
+        "Statistics"
+      ]
+    },
+    {
+      "title": "Introduction to Data Science in Python",
+      "issuer": "DataCamp",
+      "year": "2026",
+      "credentialId": "6f81a28e25fa66dfa8bb413a9667058b06cbe566",
+      "link": "",
+      "skills": [
+        "Python",
+        "Pandas"
+      ]
+    },
+    {
+      "title": "Ethics of AI",
+      "issuer": "University of Helsinki",
+      "year": "2026",
+      "credentialId": "8iw278jj01j",
+      "link": "",
+      "skills": [
+        "AI Ethics",
+        "Responsible AI"
+      ]
+    },
+    {
+      "title": "Introduction to Data Science",
+      "issuer": "Cisco",
+      "year": "2026",
+      "credentialId": "",
+      "link": ""
+    },
+    {
+      "title": "Introduction to Generative AI Studio",
+      "issuer": "Simplilearn",
+      "year": "2026",
+      "credentialId": "10343678",
+      "link": ""
+    },
+    {
+      "title": "BCG - GenAI Job Simulation",
+      "issuer": "Forage",
+      "year": "2026",
+      "credentialId": "Ar5qQo7Bem3u4jDRk",
+      "link": ""
+    },
+    {
+      "title": "Tata - GenAI Powered Data Analytics Job Simulation",
+      "issuer": "Forage",
+      "year": "2026",
+      "credentialId": "zqQbrsAEMtDM978zE",
+      "link": ""
+    },
+    {
+      "title": "BCG - Introduction to Data for Decision Makers Job Simulation",
+      "issuer": "Forage",
+      "year": "2026",
+      "credentialId": "SkJoBjhGM7BS4ekKP",
+      "link": ""
+    },
+    {
+      "title": "Deloitte Australia - Data Analytics Job Simulation",
+      "issuer": "Forage",
+      "year": "2026",
+      "credentialId": "FNrkPmStDF94S627q",
+      "link": ""
+    },
+    {
+      "title": "Intro to Machine Learning",
+      "issuer": "Kaggle",
+      "year": "2026",
+      "credentialId": "",
+      "link": ""
+    },
+    {
+      "title": "CS50's Introduction to Programming with Python",
+      "issuer": "Harvard University",
+      "year": "2023",
+      "credentialId": "",
+      "link": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "Python",
+      "category": "Language"
+    },
+    {
+      "name": "SQL",
+      "category": "Language"
+    },
+    {
+      "name": "Machine Learning",
+      "category": "AI/ML"
+    },
+    {
+      "name": "Data Analysis",
+      "category": "Data"
+    },
+    {
+      "name": "Data Visualization",
+      "category": "Data"
+    },
+    {
+      "name": "Pandas",
+      "category": "Data"
+    },
+    {
+      "name": "NumPy",
+      "category": "Data"
+    },
+    {
+      "name": "scikit-learn",
+      "category": "AI/ML"
+    },
+    {
+      "name": "LangChain",
+      "category": "AI/ML"
+    },
+    {
+      "name": "LangGraph",
+      "category": "AI/ML"
+    },
+    {
+      "name": "RAG",
+      "category": "AI/ML"
+    },
+    {
+      "name": "Power BI",
+      "category": "Data"
+    },
+    {
+      "name": "PySpark",
+      "category": "Data"
+    },
+    {
+      "name": "Statistics",
+      "category": "Data"
+    },
+    {
+      "name": "Flask",
+      "category": "Framework"
+    },
+    {
+      "name": "Git & GitHub",
+      "category": "Tool"
+    }
+  ]
+}
