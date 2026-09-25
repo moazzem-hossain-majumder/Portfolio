@@ -6,7 +6,11 @@
     "githubUsername": "moazzem-hossain-majumder",
     "githubUrl": "https://github.com/moazzem-hossain-majumder",
     "linkedinUrl": "https://www.linkedin.com/in/moazzem-hossain-majumder",
-    "email": "your.email@example.com"
+    "email": "moazzemhossain1510@gmail.com",
+    "photo": "/me.jpg",
+    "resumeUrl": "",
+    "credlyUrl": "https://www.credly.com/users/moazzem-hossain.9ea80933",
+    "siteUrl": ""
   },
   "experiences": [],
   "education": [
@@ -35,49 +39,56 @@
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "MKH4PAM4SL3Y",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Building Generative AI-Powered Applications with Python",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "1I2YGT3TL6XB",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Developing AI Applications with Python and Flask",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "4CTAJBTZLNU9",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Python for Data Science, AI & Development",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "PQDW53B9YW2Y",
-      "link": ""
+      "link": "",
+      "pinned": true
     },
     {
       "title": "Generative AI: Prompt Engineering Basics",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "726ZU9YPZ4CG",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Generative AI: Introduction and Applications",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "RLEJMSK3CKDJ",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Introduction to Artificial Intelligence (AI)",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "I11XKHBVEZAZ",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "AI Engineering with LangChain",
@@ -88,7 +99,8 @@
       "skills": [
         "LangChain",
         "LangGraph"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Agentic Systems with LangGraph",
@@ -99,7 +111,8 @@
       "skills": [
         "LangGraph",
         "AI Agents"
-      ]
+      ],
+      "pinned": true
     },
     {
       "title": "LLM Tool Use with LangChain",
@@ -111,7 +124,8 @@
         "APIs",
         "AI Agents",
         "Tool Calling"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Retrieval-Augmented Generation with LangChain",
@@ -123,7 +137,8 @@
         "RAG",
         "Embeddings",
         "Vector Search"
-      ]
+      ],
+      "pinned": true
     },
     {
       "title": "Prompt Engineering with LangChain",
@@ -134,7 +149,8 @@
       "skills": [
         "Prompt Engineering",
         "Prompt Optimization"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "LLM Application Evaluation with LangSmith",
@@ -145,7 +161,8 @@
       "skills": [
         "LangSmith",
         "LLM Evaluation"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "LLM Application Fundamentals with LangChain",
@@ -156,7 +173,8 @@
       "skills": [
         "LangChain",
         "LLMs"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Introduction to Power BI",
@@ -167,7 +185,8 @@
       "skills": [
         "Power BI",
         "Data Visualization"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Introduction to PySpark",
@@ -178,7 +197,8 @@
       "skills": [
         "PySpark",
         "Apache Spark"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Time Series Analysis in Python",
@@ -189,7 +209,8 @@
       "skills": [
         "Time Series Analysis",
         "Forecasting"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Feature Engineering for Machine Learning in Python",
@@ -200,7 +221,8 @@
       "skills": [
         "Feature Engineering",
         "Machine Learning"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Supervised Learning with scikit-learn",
@@ -211,7 +233,8 @@
       "skills": [
         "Supervised Learning",
         "scikit-learn"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Exploratory Data Analysis in Python",
@@ -222,7 +245,8 @@
       "skills": [
         "EDA",
         "Python"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Introduction to Statistics in Python",
@@ -234,7 +258,8 @@
         "Python",
         "Data Analysis",
         "Statistics"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Introduction to Data Science in Python",
@@ -245,7 +270,8 @@
       "skills": [
         "Python",
         "Pandas"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Ethics of AI",
@@ -256,63 +282,72 @@
       "skills": [
         "AI Ethics",
         "Responsible AI"
-      ]
+      ],
+      "pinned": false
     },
     {
       "title": "Introduction to Data Science",
       "issuer": "Cisco",
       "year": "2026",
       "credentialId": "",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Introduction to Generative AI Studio",
       "issuer": "Simplilearn",
       "year": "2026",
       "credentialId": "10343678",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "BCG - GenAI Job Simulation",
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "Ar5qQo7Bem3u4jDRk",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Tata - GenAI Powered Data Analytics Job Simulation",
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "zqQbrsAEMtDM978zE",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "BCG - Introduction to Data for Decision Makers Job Simulation",
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "SkJoBjhGM7BS4ekKP",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Deloitte Australia - Data Analytics Job Simulation",
       "issuer": "Forage",
       "year": "2026",
       "credentialId": "FNrkPmStDF94S627q",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "Intro to Machine Learning",
       "issuer": "Kaggle",
       "year": "2026",
       "credentialId": "",
-      "link": ""
+      "link": "",
+      "pinned": false
     },
     {
       "title": "CS50's Introduction to Programming with Python",
       "issuer": "Harvard University",
       "year": "2023",
       "credentialId": "",
-      "link": ""
+      "link": "https://certificates.cs50.io/80971ce2-bab7-478b-b165-68c275f334cd.pdf?size=letter",
+      "pinned": true
     }
   ],
   "skills": [
@@ -379,6 +414,28 @@
     {
       "name": "Git & GitHub",
       "category": "Tool"
+    }
+  ],
+  "pinnedProjects": [
+    {
+      "type": "repo",
+      "repo": "DeepSenseV2V",
+      "note": "Multi-task neural network for 60 GHz V2V mmWave beam prediction with an online conformal risk controller — cuts beam-probing overhead by 93% while holding a target miss-rate guarantee."
+    },
+    {
+      "type": "repo",
+      "repo": "Telecom-Churn-Prediction",
+      "note": "Leakage-safe churn prediction on the Cell2Cell telecom benchmark with a full literature audit; co-authored write-up on avoiding over-optimistic metrics common in prior published work."
+    },
+    {
+      "type": "repo",
+      "repo": "CoastNet-Cyclone-Early-Warning-Coastal-Relief-Network",
+      "note": "AI-driven early-warning and relief-coordination concept for cyclone-prone coastal communities in Bangladesh."
+    },
+    {
+      "type": "repo",
+      "repo": "operations-ai-agent",
+      "note": "LangChain / LangGraph powered AI agent that automates multi-step operational workflows end-to-end."
     }
   ]
 }
