@@ -90,11 +90,13 @@ export default function About({ basics, skills }) {
                   src={`https://github-readme-stats.vercel.app/api?username=${basics.githubUsername}&show_icons=true&hide_border=true&bg_color=00000000&title_color=ffd43b&text_color=currentColor&icon_color=74c0fc`}
                   alt="GitHub stats"
                   loading="lazy"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
                 <img
                   src={`https://github-readme-stats.vercel.app/api/top-langs/?username=${basics.githubUsername}&layout=compact&hide_border=true&bg_color=00000000&title_color=ffd43b&text_color=currentColor`}
                   alt="Top languages"
                   loading="lazy"
+                  onError={(e) => { e.currentTarget.style.display = "none"; }}
                 />
               </div>
             </div>

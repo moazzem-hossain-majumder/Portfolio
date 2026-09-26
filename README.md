@@ -110,9 +110,24 @@ Open `data/profile.json` → the `education` array (same pattern works for `expe
 ```
 
 Add as many entries as you like — the Education timeline renders every one, and the array order is the
-display order. If you ever fill in the `experiences` array, an **EXPERIENCE** section appears automatically
-above Education; leave it empty (`"experiences": []`) and it stays hidden — no dead sections for a fresher's
-portfolio.
+display order.
+
+**When you get your first internship/job**, add it to the `experiences` array (currently `[]`, which is why
+that section is blank/hidden right now):
+
+```json
+{
+  "role": "Data Analyst Intern",
+  "company": "Company Name",
+  "period": "Jun 2026 - Aug 2026",
+  "description": "One or two lines about what you did.",
+  "technologies": ["Python", "SQL", "Power BI"]
+}
+```
+
+The moment `experiences` has at least one entry, an **EXPERIENCE** section appears automatically above
+Education — you don't need to touch any component file or uncomment anything. `technologies` is optional
+and renders as small tags on the card.
 
 ## 5. Update your basic info
 
