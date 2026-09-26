@@ -23,6 +23,8 @@ Empty sections (e.g. `"experiences": []`) are simply hidden on the site.
 =======
 # Moazzem Hossain — Portfolio
 
+🔗 **Live:** [portfolio-ecru-ten-foaabz5yq7.vercel.app](https://portfolio-ecru-ten-foaabz5yq7.vercel.app/)
+
 Retro paper-and-stickers portfolio built with **Next.js 14 (App Router)**, plain CSS, and **Framer Motion**.
 Hosted on **Vercel**. Dark mode by default, light mode available. Repositories and their stars/language/topics
 refresh automatically from the GitHub API — everything else lives in one JSON file you edit yourself, no
