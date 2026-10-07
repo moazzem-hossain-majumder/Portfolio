@@ -2,9 +2,11 @@
 
 import { useState } from "react";
 import { motion, useScroll } from "framer-motion";
+import { getAudioEngine } from "@/utils/audio";
 
 const LINKS = [
   { href: "#home", label: "HOME" },
+  { href: "#console", label: "CONSOLE" },
   { href: "#about", label: "ABOUT" },
   { href: "#education", label: "EDUCATION" },
   { href: "#certificates", label: "CERTIFICATES" },
@@ -16,6 +18,7 @@ const LINKS = [
 export default function Navbar({ basics }) {
   const [open, setOpen] = useState(false);
   const [theme, setTheme] = useState("dark");
+  const [audioMuted, setAudioMuted] = useState(false);
   const { scrollYProgress } = useScroll();
 
   const toggleTheme = () => {
@@ -25,6 +28,12 @@ export default function Navbar({ basics }) {
     try {
       localStorage.setItem("theme", next);
     } catch {}
+  };
+
+  const toggleAudio = () => {
+    const engine = getAudioEngine();
+    const isMuted = engine.toggleMute();
+    setAudioMuted(isMuted);
   };
 
   return (
@@ -46,6 +55,14 @@ export default function Navbar({ basics }) {
               RESUME ↓
             </a>
           )}
+          <button
+            className="theme-btn"
+            onClick={toggleAudio}
+            aria-label="Toggle mechanical switch audio"
+            title={audioMuted ? "Enable Keyboard Switch Sounds" : "Mute Keyboard Switch Sounds"}
+          >
+            {audioMuted ? "🔇" : "🔊"}
+          </button>
           <button
             className="theme-btn"
             onClick={toggleTheme}

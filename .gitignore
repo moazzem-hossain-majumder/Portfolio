@@ -5,17 +5,12 @@ node_modules/
 .next/
 out/
 
-<<<<<<< HEAD
 # Production
 build/
 
 # Misc
 .DS_Store
 *.pem
-=======
-# Misc
-.DS_Store
->>>>>>> 67401d2 (Initial portfolio data setup)
 
 # Debug
 npm-debug.log*
@@ -28,10 +23,7 @@ yarn-error.log*
 
 # Vercel
 .vercel
-<<<<<<< HEAD
 
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
-=======
->>>>>>> 67401d2 (Initial portfolio data setup)

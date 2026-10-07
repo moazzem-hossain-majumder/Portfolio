@@ -1,0 +1,68 @@
+THE PORTFOLIO CONSOLE - MASTER BUILD PROMPT
+
+Use the accompanying device-reference.png as the original case artwork. The PDF includes a current implementation preview and measured positioning guide.
+
+01 / Build brief
+
+Build a fully functional, responsive personal portfolio for Debbie called The Portfolio Console. Its visual style is interactive retro-futurism with skeuomorphic mechanical keycaps and a computer-terminal display. Deliver a working website, not a static mockup. Use the attached original device PNG as the case artwork, and use the portfolio preview as a guide to the final composition.
+
+The hero is an open graphite mechanical-switch case: a long screen in the lid, an orange hinge, five large switches across the upper row, five smaller switches below, and one long horizontal switch at the lower right. Place real interactive HTML keycaps over these exact openings. Preserve the photograph's proportions, screws, perspective, recesses and hinge. Do not redraw or replace the device with a generic keyboard.
+
+Use a near-black page (#111113), a restrained top navigation, a short centred introduction, the device as the main visual focus, a slim credibility strip, and a contact section. Keep the supplied reference image separate from the interface text and controls so every key remains usable, focusable and responsive.
+
+02 / Page content and layout
+
+Header: a lowercase 'debbie.' wordmark with an orange dot; centred Work, About, Process and Services navigation; and a right-aligned Let's Talk contact link. On smaller screens, wrap navigation onto a second row without horizontal overflow.
+
+Introduction: 'Available for work', followed by 'Hi, I'm Debbie' and 'A vibe coder with a curious mind building digital experiences.' Highlight Debbie in pink. Preserve the editable display-name interaction and save that name locally on the device; default to Debbie. Do not treat a locally edited name as a global profile update.
+
+Centre the device beneath the introduction, at a maximum width of roughly 1120px within a page container of about 1320px. Scale the photo and all overlays together using the same 1536 x 1024 coordinate system. The screen, keycaps and photo must not drift apart at different viewport widths.
+
+Below the device use the repeated strip 'Trusted by 30 brands  /  50 apps built'. The wording is apps, not hubs or hopes. These figures are supplied portfolio copy, not independently verified claims; retain them for the design and confirm them before public use.
+
+Contact section: 'Good design starts with hello.' with 'Have a project in mind, a half-formed idea, or just want to say hi?' and a contact link. Do not show 'Next section' or 'Next section - Say hello'. Do not show 'Hover to explore', 'Press to open' or any similar instruction line below the device.
+
+03 / Screen typography and typing
+
+Use a recognisable computer-terminal monospace font on the device screen: Courier New, Courier, monospace. The main title is bold and warm cream (#FDE3CF), with a very subtle glow. Secondary terminal text is muted grey, and metadata/cursor are amber. Use clean sans-serif lettering elsewhere on the page.
+
+Default screen title: 'Debbie's portfolio'. Small metadata: 'DEBBIE / CREATIVE INDEX' and a status on the right. Supporting line: 'A curious mind. A world of possibilities.' Size the title around 3.35% of the device width, with a 1.1 line height, and scale it with the device. Keep the full heading inside the black screen area.
+
+On load, show a brief 350ms cursor pause, then type the title one character at a time at roughly 110ms per character. This should read like normal typing, not a fade-in, word reveal or text slide. The supporting sentence can appear immediately. Use a narrow amber blinking caret directly after the last visible character. Show TYPING during the reveal, then READY.
+
+Hovering or keyboard-focusing a key types its destination title on the screen and shows a relevant supporting description. The dedicated portfolio key types 'Explore my portfolio'. Cancel any unfinished typing when a new key is selected; never interleave old and new text or create competing timers. Ignore redundant requests for the same text. Restore the welcome title after leaving the keys, using a short 350ms delay, unless a key remains focused or a dialog is open.
+
+Keep a complete accessible label on the title while its visible characters animate. Respect reduced-motion preferences by displaying complete text immediately and disabling the blinking animation. Do not repeatedly announce each typed character through a live region.
+
+04 / Keycaps, colour and destinations
+
+Arrange the letters as P O R T F on the top row and O L I O on the first four lower keys. Add a star-marked PORTFOLIO key in the fifth lower opening and a long black LET'S TALK key at lower right. Together the letter keys spell PORTFOLIO. Use tactile rounded faces, darker sidewalls, a subtle top highlight and believable contact shadows.
+
+Palette by key, from left to right: P orange #EC6426 (base #AD4017); O amber #F8A91F (#BC7512); R cream #FDE3CF (#CAA58A); T forest green #2E573A (#193A23); F leaf green #72AC43 (#487A26). Lower row: O pink #E4A5CA (#B76F9B); L brown #66271B (#40150E); I orange; O amber; portfolio star pink; contact black #252525 (#101010). Use brown ink #66271B on light caps, cream on dark green/brown caps, and white on the contact key.
+
+Top row destinations: P / SELECTED WORK -> Selected Work; O / ABOUT ME -> About; R / MY PROCESS -> Process; T / WHAT I DO -> Services; F / EXPLORE -> Selected Work. Lower row: O / A LITTLE ABOUT ME -> About; L / THE PROCESS -> Process; I / MY APPROACH -> Services; O / SAY HELLO -> contact; star / PORTFOLIO -> Selected Work; long return-symbol / LET'S TALK -> contact.
+
+The keys must fit the switch wells individually. Match each opening's position, size and perspective; do not simply distribute them in an even grid. Keep the fitted key bases anchored in the case while the faces rise. Avoid covering the frame, screws or hinge. Use approximately -3.2 degrees of rotation and 4.8 degrees of horizontal skew, then visually check against the reference.
+
+05 / Motion and interaction
+
+Use sharp, springy mechanical movement. The final preference is the original crisp motion, not the slower 2.8-second version. Each idle pop lasts about 1.1 seconds; stagger the keys by 85ms and repeat a wave every 7 seconds. Let the faces shoot upward, briefly rebound and settle into place. Pause idle waves while the user is interacting, a dialog is open, the tab is hidden, or a key has keyboard focus.
+
+At rest, lift the face about 0.8% of device width above its base. Hover/focus lifts it to about 2.7%; the idle wave peaks near 3.8%, dips near 0.2%, rebounds near 1.3%, and settles to 0.8%. Keep the sidewall colour and shadow convincing as the face rises. Use a roughly 400ms spring transition for hover, with cubic-bezier(.22,1.5,.4,1). A press snaps downward in about 80ms. Keep the original hit area anchored so animation cannot cause hover flicker.
+
+Opening a section must work by mouse, touch and keyboard. Use real buttons for content and links for contact. A key click opens the matching modal section. Mirror the same destinations in the top navigation. Provide a clear Close button, Escape-to-close, focus trapping and focus restoration to the originating control. Clicking outside the dialog can close it. Keep visible focus outlines.
+
+Disable pop animations and movement for prefers-reduced-motion users, while preserving all navigation and useful state changes. Do not autoplay audio. Do not sacrifice key alignment, legibility or clickability for motion.
+
+06 / Content, implementation and delivery
+
+Use the current section copy as starter content: Selected Work - 'Selected website and identity concepts'; About - 'Welcome to my portfolio. A little personality. A lot of possibility.'; Process - 'We start with a conversation, shape the design together, then build and launch your website.'; Services - 'Thoughtful design, clear communication, and a website built around your business.' Do not invent completed projects, clients, case studies or testimonials.
+
+The existing hello@debbie.example contact address is a placeholder. Replace it only with a real address supplied by Debbie. Until then, clearly identify it as unfinished in the delivery notes; do not add a fake working contact form or claim messages can be delivered.
+
+Keep the implementation lightweight. A semantic HTML page, CSS and JavaScript are sufficient. Use the PNG as a static visual asset and real HTML controls for all interactions. Share coordinate-based placement between the source and any generated output. Avoid flattening labels or screen text into the image.
+
+Verify at desktop, tablet and phone sizes (for example 1440px, 768px and 390px). Confirm that every cap stays inside its matching well at rest; the raised faces have appropriate shadows; the device screen does not overflow; all sections open; Escape and focus return work; fast movement between keys cancels old typing; and reduced-motion preferences are honoured. On narrow screens, keep the header navigation readable as an alternative to the small keys.
+
+Deliver the working site, its source, the original reference asset, and a concise summary of any remaining placeholder content. Provide a preview so Debbie can judge the visual fit and animation. Do not require a specific framework or hosting vendor to reproduce the design.
+

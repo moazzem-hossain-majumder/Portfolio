@@ -1,23 +1,6 @@
 import fs from "fs";
 import path from "path";
-import { Archivo_Black, Caveat, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-
-const display = Archivo_Black({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-display",
-});
-
-const hand = Caveat({
-  subsets: ["latin"],
-  variable: "--font-hand",
-});
-
-const body = Space_Grotesk({
-  subsets: ["latin"],
-  variable: "--font-body",
-});
 
 function getProfile() {
   try {
@@ -84,6 +67,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Caveat:wght@400..700&family=Space+Grotesk:wght@300..700&display=swap"
+          rel="stylesheet"
+        />
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         {personJsonLd && (
           <script
@@ -92,7 +81,7 @@ export default function RootLayout({ children }) {
           />
         )}
       </head>
-      <body className={`${display.variable} ${hand.variable} ${body.variable}`}>
+      <body>
         {children}
       </body>
     </html>

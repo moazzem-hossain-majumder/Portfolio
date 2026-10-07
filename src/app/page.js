@@ -2,6 +2,7 @@ import fs from "fs";
 import path from "path";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import ConsoleSection from "@/components/ConsoleSection";
 import Marquee from "@/components/Marquee";
 import About from "@/components/About";
 import Timeline from "@/components/Timeline";
@@ -67,6 +68,7 @@ export default async function Home() {
       <Navbar basics={profile.basics} />
       <main>
         <Hero basics={profile.basics} stats={stats} />
+        <ConsoleSection profile={profile} basics={profile.basics} repos={repos} stats={stats} />
         <Marquee skills={profile.skills} />
         <About basics={profile.basics} skills={profile.skills} />
         {profile.experiences?.length > 0 && (
