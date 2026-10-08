@@ -35,11 +35,162 @@
   ],
   "certifications": [
     {
+      "title": "Excel Basics for Data Analysis",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "8YLBDTDTLJCR",
+      "link": "https://www.coursera.org/account/accomplishments/records/8YLBDTDTLJCR",
+      "skills": [
+        "Excel",
+        "Data Analysis",
+        "Spreadsheets"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Introduction to Data Analytics",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "1GY694LIRWS3",
+      "link": "https://www.coursera.org/account/accomplishments/records/1GY694LIRWS3",
+      "skills": [
+        "Data Analytics",
+        "Data Visualization",
+        "Data Mining"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "IBM Generative AI Engineering Professional Certificate",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "QVLOX0DU65VL",
+      "link": "https://www.coursera.org/account/accomplishments/specialization/QVLOX0DU65VL",
+      "skills": [
+        "Generative AI",
+        "LLMs",
+        "RAG",
+        "LangChain",
+        "Transformers"
+      ],
+      "pinned": true
+    },
+    {
+      "title": "Project: Generative AI Applications with RAG and LangChain",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "GJXFT9GQBVA2",
+      "link": "https://www.coursera.org/account/accomplishments/records/GJXFT9GQBVA2",
+      "skills": [
+        "Generative AI",
+        "RAG",
+        "LangChain"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Fundamentals of AI Agents Using RAG and LangChain",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "XOWUM04BM5A1",
+      "link": "https://www.coursera.org/account/accomplishments/records/XOWUM04BM5A1",
+      "skills": [
+        "AI Agents",
+        "RAG",
+        "LangChain"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Generative AI Advanced Fine-Tuning for LLMs",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "2YXFBE0J1CPC",
+      "link": "https://www.coursera.org/account/accomplishments/records/2YXFBE0J1CPC",
+      "skills": [
+        "Fine-Tuning",
+        "LLMs",
+        "Generative AI"
+      ],
+      "pinned": true
+    },
+    {
+      "title": "Generative AI Engineering and Fine-Tuning Transformers",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "C13W2IZJ0VWG",
+      "link": "https://www.coursera.org/account/accomplishments/records/C13W2IZJ0VWG",
+      "skills": [
+        "Transformers",
+        "Fine-Tuning",
+        "Hugging Face"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Generative AI Language Modeling with Transformers",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "Y5LAT96U4J98",
+      "link": "https://www.coursera.org/account/accomplishments/records/Y5LAT96U4J98",
+      "skills": [
+        "Transformers",
+        "Language Modeling",
+        "Generative AI"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Gen AI Foundational Models for NLP & Language Understanding",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "UXYH6GDVIV11",
+      "link": "https://www.coursera.org/account/accomplishments/records/UXYH6GDVIV11",
+      "skills": [
+        "NLP",
+        "Foundation Models",
+        "Generative AI"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Generative AI and LLMs: Architecture and Data Preparation",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "IATK1T1ZJUOR",
+      "link": "https://www.coursera.org/account/accomplishments/records/IATK1T1ZJUOR",
+      "skills": [
+        "LLMs",
+        "Data Preparation",
+        "Generative AI"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Introduction to Deep Learning & Neural Networks with Keras",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "ZAGK79Q24WEI",
+      "link": "https://www.coursera.org/account/accomplishments/records/ZAGK79Q24WEI",
+      "skills": [
+        "Deep Learning",
+        "Neural Networks",
+        "Keras"
+      ],
+      "pinned": false
+    },
+    {
       "title": "Machine Learning with Python",
       "issuer": "IBM",
       "year": "2026",
       "credentialId": "MPOS9VWHSYM5",
       "link": "https://www.coursera.org/account/accomplishments/verify/MPOS9VWHSYM5",
+      "skills": [
+        "Machine Learning",
+        "scikit-learn",
+        "Regression",
+        "Classification"
+      ],
       "pinned": false
     },    
     {
@@ -48,6 +199,12 @@
       "year": "2026",
       "credentialId": "MKH4PAM4SL3Y",
       "link": "https://www.coursera.org/account/accomplishments/verify/MKH4PAM4SL3Y",
+      "skills": [
+        "Data Analysis",
+        "Pandas",
+        "NumPy",
+        "Data Wrangling"
+      ],
       "pinned": false
     },
     {
@@ -56,6 +213,12 @@
       "year": "2026",
       "credentialId": "1I2YGT3TL6XB",
       "link": "https://www.coursera.org/account/accomplishments/verify/1I2YGT3TL6XB",
+      "skills": [
+        "Generative AI",
+        "Python",
+        "LLMs",
+        "Application Development"
+      ],
       "pinned": false
     },
     {
@@ -64,6 +227,12 @@
       "year": "2026",
       "credentialId": "4CTAJBTZLNU9",
       "link": "https://www.coursera.org/account/accomplishments/verify/4CTAJBTZLNU9",
+      "skills": [
+        "Flask",
+        "Python",
+        "REST APIs",
+        "AI Deployment"
+      ],
       "pinned": false
     },
     {
@@ -72,7 +241,13 @@
       "year": "2026",
       "credentialId": "PQDW53B9YW2Y",
       "link": "https://www.coursera.org/account/accomplishments/verify/PQDW53B9YW2Y",
-      "pinned": true
+      "skills": [
+        "Python",
+        "Data Science",
+        "APIs",
+        "Data Structures"
+      ],
+      "pinned": false
     },
     {
       "title": "Generative AI: Prompt Engineering Basics",
@@ -80,6 +255,11 @@
       "year": "2026",
       "credentialId": "726ZU9YPZ4CG",
       "link": "https://www.coursera.org/account/accomplishments/verify/726ZU9YPZ4CG",
+      "skills": [
+        "Prompt Engineering",
+        "LLMs",
+        "Prompt Design"
+      ],
       "pinned": false
     },
     {
@@ -88,6 +268,11 @@
       "year": "2026",
       "credentialId": "RLEJMSK3CKDJ",
       "link": "https://www.coursera.org/account/accomplishments/verify/RLEJMSK3CKDJ",
+      "skills": [
+        "Generative AI",
+        "Foundation Models",
+        "AI Applications"
+      ],
       "pinned": false
     },
     {
@@ -96,6 +281,11 @@
       "year": "2026",
       "credentialId": "I11XKHBVEZAZ",
       "link": "https://www.coursera.org/account/accomplishments/verify/I11XKHBVEZAZ",
+      "skills": [
+        "Artificial Intelligence",
+        "Machine Learning",
+        "AI Concepts"
+      ],
       "pinned": false
     },
     {
@@ -299,6 +489,11 @@
       "year": "2026",
       "credentialId": "",
       "link": "https://www.credly.com/badges/d39ae5b0-e539-4de4-8d6e-db31d45ec1ff/linked_in_profile",
+      "skills": [
+        "Data Science",
+        "Data Literacy",
+        "Analytics"
+      ],
       "pinned": false
     },
     {
@@ -307,6 +502,11 @@
       "year": "2026",
       "credentialId": "10343678",
       "link": "https://certificates.simplicdn.net/share/10343678_10649587_1781371062457.pdf",
+      "skills": [
+        "Generative AI",
+        "Prompt Design",
+        "AI Studio"
+      ],
       "pinned": false
     },
     {
@@ -315,6 +515,11 @@
       "year": "2026",
       "credentialId": "Ar5qQo7Bem3u4jDRk",
       "link": "https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/gabev3vXhuACr48eb_SKZxezskWgmFjRvj9_6a1d2313b7f842cbd888f171_1781117580452_completion_certificate.pdf",
+      "skills": [
+        "Generative AI",
+        "Financial Chatbot",
+        "Business Analysis"
+      ],
       "pinned": false
     },
     {
@@ -323,6 +528,11 @@
       "year": "2026",
       "credentialId": "zqQbrsAEMtDM978zE",
       "link": "https://www.theforage.com/completion-certificates/ifobHAoMjQs9s6bKS/gMTdCXwDdLYoXZ3wG_ifobHAoMjQs9s6bKS_6a1d2313b7f842cbd888f171_1781078761159_completion_certificate.pdf",
+      "skills": [
+        "Data Analytics",
+        "Generative AI",
+        "Predictive Analytics"
+      ],
       "pinned": false
     },
     {
@@ -331,6 +541,11 @@
       "year": "2026",
       "credentialId": "SkJoBjhGM7BS4ekKP",
       "link": "https://www.theforage.com/completion-certificates/SKZxezskWgmFjRvj9/Pchc5rEGyCeozqY5Z_SKZxezskWgmFjRvj9_6a1d2313b7f842cbd888f171_1781039725389_completion_certificate.pdf",
+      "skills": [
+        "Data Strategy",
+        "Decision Making",
+        "Business Insights"
+      ],
       "pinned": false
     },
     {
@@ -339,6 +554,11 @@
       "year": "2026",
       "credentialId": "FNrkPmStDF94S627q",
       "link": "https://www.theforage.com/completion-certificates/9PBTqmSxAf6zZTseP/io9DzWKe3PTsiS6GG_9PBTqmSxAf6zZTseP_6a1d2313b7f842cbd888f171_1780688358088_completion_certificate.pdf",
+      "skills": [
+        "Data Analytics",
+        "Data Visualization",
+        "Forensic Analytics"
+      ],
       "pinned": false
     },
     {
@@ -347,6 +567,11 @@
       "year": "2026",
       "credentialId": "",
       "link": "https://www.kaggle.com/learn/certification/moazzemhossain1510/intro-to-machine-learning",
+      "skills": [
+        "Machine Learning",
+        "scikit-learn",
+        "Model Validation"
+      ],
       "pinned": false
     },
     {
@@ -355,6 +580,12 @@
       "year": "2023",
       "credentialId": "",
       "link": "https://certificates.cs50.io/80971ce2-bab7-478b-b165-68c275f334cd.pdf?size=letter",
+      "skills": [
+        "Python",
+        "OOP",
+        "Algorithms",
+        "Unit Testing"
+      ],
       "pinned": true
     }
   ],
@@ -427,23 +658,47 @@
   "pinnedProjects": [
     {
       "type": "repo",
-      "repo": "DeepSenseV2V",
-      "note": "Multi-task neural network for 60 GHz V2V mmWave beam prediction with an online conformal risk controller — cuts beam-probing overhead by 93% while holding a target miss-rate guarantee."
+      "repo": "Quillframe",
+      "note": "Multi-model creative AI workbench that compares LLM outputs on a brand brief and generates concept slogans, campaigns, and visuals via free-tier APIs.",
+      "tags": ["Generative AI", "LLMs", "Multi-Model", "Creative AI"]
     },
     {
       "type": "repo",
-      "repo": "Telecom-Churn-Prediction",
-      "note": "Leakage-safe churn prediction on the Cell2Cell telecom benchmark with a full literature audit; co-authored write-up on avoiding over-optimistic metrics common in prior published work."
-    },
-    {
-      "type": "repo",
-      "repo": "CoastNet-Cyclone-Early-Warning-Coastal-Relief-Network",
-      "note": "AI-driven early-warning and relief-coordination concept for cyclone-prone coastal communities in Bangladesh."
+      "repo": "genforge-studio",
+      "note": "Consolidated suite of generative AI tools running 100% offline with local open-source models (PyTorch, Hugging Face Transformers, Gradio) and zero cloud billing.",
+      "tags": ["PyTorch", "Hugging Face", "Gradio", "Generative AI"]
     },
     {
       "type": "repo",
       "repo": "operations-ai-agent",
-      "note": "LangChain / LangGraph powered AI agent that automates multi-step operational workflows end-to-end."
+      "note": "LangChain / LangGraph powered AI agent that automates multi-step operational workflows end-to-end.",
+      "tags": ["LangChain", "LangGraph", "AI Agents"]
+    },
+    {
+      "type": "repo",
+      "repo": "QuestQA",
+      "note": "RAG-powered document question-answering web app built with LangChain and watsonx.ai to chat with uploaded PDFs in real time with grounded citations.",
+      "tags": ["RAG", "LangChain", "watsonx.ai", "Vector Search"]
+    },
+    {
+      "type": "repo",
+      "repo": "DeepSenseV2V",
+      "note": "Multi-task neural network for 60 GHz V2V mmWave beam prediction with an online conformal risk controller — cuts beam-probing overhead by 93% while holding a target miss-rate guarantee.",
+      "tags": ["Neural Networks", "Deep Learning", "Beam Prediction"]
+    },
+    {
+      "type": "repo",
+      "repo": "Surokkha-BD",
+      "note": "National disaster resilience platform built with Next.js App Router for cyclone early-warning and community relief coordination.",
+      "demo": "https://surokkha-bd-1fjh.vercel.app/",
+      "tags": ["Next.js", "TypeScript", "Disaster Resilience"]
+    },
+    {
+      "type": "repo",
+      "repo": "Site-Track",
+      "note": "Comprehensive site management and field reporting application built with Flutter and Supabase for construction tracking and safety compliance.",
+      "demo": "https://site-track-bice.vercel.app",
+      "tags": ["Flutter", "Supabase", "Dart"]
     }
   ]
 }

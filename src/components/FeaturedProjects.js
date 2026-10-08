@@ -26,7 +26,7 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
         title: repoName,
         note: pin.note || repo?.description || "",
         link: repo?.html_url || `${githubUrl}/${repoName}`,
-        demo: repo?.homepage || "",
+        demo: repo?.homepage || pin.demo || "",
         tags: (repo?.topics?.length ? repo.topics : pin.tags) || [],
         language: repo?.language || pin.language || "",
         stars: repo?.stars ?? null,
