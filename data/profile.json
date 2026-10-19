@@ -76,6 +76,108 @@
       "pinned": true
     },
     {
+      "title": "IBM Data Analyst Professional Certificate",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "H7HSE38VZ9IJ",
+      "link": "https://www.coursera.org/account/accomplishments/specialization/H7HSE38VZ9IJ",
+      "skills": [
+        "Data Analysis",
+        "Python",
+        "SQL",
+        "Excel",
+        "Data Visualization"
+      ],
+      "pinned": true
+    },
+    {
+      "title": "Generative AI: Enhance your Data Analytics Career",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "9ZCVSXA4OC4S",
+      "link": "https://www.coursera.org/account/accomplishments/records/9ZCVSXA4OC4S",
+      "skills": [
+        "Generative AI",
+        "Data Analysis",
+        "Prompt Engineering",
+        "Data Analytics"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "IBM Data Analyst Capstone Project",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "NTM8E43HJ0H5",
+      "link": "https://www.coursera.org/account/accomplishments/records/NTM8E43HJ0H5",
+      "skills": [
+        "Data Analysis",
+        "Python",
+        "SQL",
+        "Data Visualization",
+        "Dashboards"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Data Visualization with Python",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "ENN5C9II7PPP",
+      "link": "https://www.coursera.org/account/accomplishments/records/ENN5C9II7PPP",
+      "skills": [
+        "Data Visualization",
+        "Python",
+        "Matplotlib",
+        "Seaborn",
+        "Data Analysis"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Databases and SQL for Data Science with Python",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "36VP4VBS8RR8",
+      "link": "https://www.coursera.org/account/accomplishments/records/36VP4VBS8RR8",
+      "skills": [
+        "SQL",
+        "Databases",
+        "Python",
+        "Relational Databases",
+        "Data Science"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Python Project for Data Science",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "6ACJ9INBUEEW",
+      "link": "https://www.coursera.org/account/accomplishments/records/6ACJ9INBUEEW",
+      "skills": [
+        "Python",
+        "Data Science",
+        "Web Scraping",
+        "Data Analysis"
+      ],
+      "pinned": false
+    },
+    {
+      "title": "Data Visualization and Dashboards with Excel and Cognos",
+      "issuer": "IBM",
+      "year": "2026",
+      "credentialId": "CSTVSOQGOWDU",
+      "link": "https://www.coursera.org/account/accomplishments/records/CSTVSOQGOWDU",
+      "skills": [
+        "Excel",
+        "Cognos Analytics",
+        "Dashboards",
+        "Data Visualization"
+      ],
+      "pinned": false
+    },
+    {
       "title": "Project: Generative AI Applications with RAG and LangChain",
       "issuer": "IBM",
       "year": "2026",
@@ -192,7 +294,7 @@
         "Classification"
       ],
       "pinned": false
-    },    
+    },
     {
       "title": "Data Analysis with Python",
       "issuer": "IBM",
@@ -658,47 +760,116 @@
   "pinnedProjects": [
     {
       "type": "repo",
+      "repo": "Podcast-Companion",
+      "note": "Turn podcast transcripts or audio into an interactive companion with structured overviews, navigable chapters, source-verified quizzes, and grounded Q&A.",
+      "demo": "https://podcast-companion.onrender.com",
+      "tags": [
+        "Generative AI",
+        "FastAPI",
+        "Speech-to-Text",
+        "RAG",
+        "LLMs"
+      ]
+    },
+    {
+      "type": "repo",
+      "repo": "AI-ENGINEER-ROADMAP",
+      "note": "Project-first journey from zero to production-grade AI engineering. Every single concept is paired with an atomic, runnable, multi-model project.",
+      "tags": [
+        "AI Engineering",
+        "LLMs",
+        "RAG",
+        "LangChain",
+        "Open Source"
+      ]
+    },
+    {
+      "type": "repo",
+      "repo": "Data-Analyst-Portfolio",
+      "note": "Comprehensive hands-on roadmap and project portfolio for Data Analysts covering Excel, SQL, Python, Power BI, and Tableau with Kaggle datasets.",
+      "tags": [
+        "Data Analysis",
+        "SQL",
+        "Excel",
+        "Python",
+        "Power BI",
+        "Tableau"
+      ]
+    },
+    {
+      "type": "repo",
       "repo": "Quillframe",
       "note": "Multi-model creative AI workbench that compares LLM outputs on a brand brief and generates concept slogans, campaigns, and visuals via free-tier APIs.",
-      "tags": ["Generative AI", "LLMs", "Multi-Model", "Creative AI"]
+      "tags": [
+        "Generative AI",
+        "LLMs",
+        "Multi-Model",
+        "Creative AI"
+      ]
     },
     {
       "type": "repo",
       "repo": "genforge-studio",
       "note": "Consolidated suite of generative AI tools running 100% offline with local open-source models (PyTorch, Hugging Face Transformers, Gradio) and zero cloud billing.",
-      "tags": ["PyTorch", "Hugging Face", "Gradio", "Generative AI"]
+      "tags": [
+        "PyTorch",
+        "Hugging Face",
+        "Gradio",
+        "Generative AI"
+      ]
     },
     {
       "type": "repo",
       "repo": "operations-ai-agent",
       "note": "LangChain / LangGraph powered AI agent that automates multi-step operational workflows end-to-end.",
-      "tags": ["LangChain", "LangGraph", "AI Agents"]
+      "tags": [
+        "LangChain",
+        "LangGraph",
+        "AI Agents"
+      ]
     },
     {
       "type": "repo",
       "repo": "QuestQA",
       "note": "RAG-powered document question-answering web app built with LangChain and watsonx.ai to chat with uploaded PDFs in real time with grounded citations.",
-      "tags": ["RAG", "LangChain", "watsonx.ai", "Vector Search"]
+      "tags": [
+        "RAG",
+        "LangChain",
+        "watsonx.ai",
+        "Vector Search"
+      ]
     },
     {
       "type": "repo",
       "repo": "DeepSenseV2V",
       "note": "Multi-task neural network for 60 GHz V2V mmWave beam prediction with an online conformal risk controller — cuts beam-probing overhead by 93% while holding a target miss-rate guarantee.",
-      "tags": ["Neural Networks", "Deep Learning", "Beam Prediction"]
+      "tags": [
+        "Neural Networks",
+        "Deep Learning",
+        "Beam Prediction"
+      ]
     },
     {
       "type": "repo",
       "repo": "Surokkha-BD",
       "note": "National disaster resilience platform built with Next.js App Router for cyclone early-warning and community relief coordination.",
       "demo": "https://surokkha-bd-1fjh.vercel.app/",
-      "tags": ["Next.js", "TypeScript", "Disaster Resilience"]
+      "tags": [
+        "Next.js",
+        "TypeScript",
+        "Disaster Resilience"
+      ]
     },
     {
       "type": "repo",
       "repo": "Site-Track",
       "note": "Comprehensive site management and field reporting application built with Flutter and Supabase for construction tracking and safety compliance.",
       "demo": "https://site-track-bice.vercel.app",
-      "tags": ["Flutter", "Supabase", "Dart"]
+      "tags": [
+        "Flutter",
+        "Supabase",
+        "Dart"
+      ]
     }
   ]
 }
