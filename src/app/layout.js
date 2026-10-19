@@ -16,6 +16,12 @@ const basics = profile?.basics || {};
 const siteUrl = basics.siteUrl || "https://example.com";
 const ogImage = basics.photo ? `${siteUrl}${basics.photo}` : undefined;
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {

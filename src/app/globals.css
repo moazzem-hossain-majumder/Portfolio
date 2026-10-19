@@ -2210,6 +2210,350 @@ footer p {
   transform: translateY(-3px) rotate(-5deg);
 }
 
+/* ---------- RETRO COMIC ARCHIVE FOLDER COMPONENT ---------- */
+.archive-folder-wrapper {
+  margin-top: 40px;
+  position: relative;
+}
+
+.archive-folder-tab-bar {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: -2.5px;
+  position: relative;
+  z-index: 2;
+}
+
+.archive-folder-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--yellow);
+  color: #1a1a1a;
+  border: 2.5px solid var(--ink);
+  border-bottom: 2.5px solid var(--yellow);
+  border-radius: 16px 16px 0 0;
+  padding: 10px 22px 9px;
+  font-family: var(--font-display), 'Archivo Black', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  box-shadow: 2px -2px 0 var(--hard-shadow);
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.archive-folder-tab:hover {
+  transform: translateY(-2px);
+}
+.archive-folder-tab.tab-closed {
+  border-bottom: 2.5px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.archive-folder-tab-icon {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.archive-folder-tab-badge {
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.15rem;
+  background: var(--green);
+  color: #1a1a1a;
+  border: 1.5px solid var(--ink);
+  padding: 1px 9px;
+  border-radius: 999px;
+  line-height: 1.2;
+}
+
+.archive-folder-toggle-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  padding: 8px 16px;
+  font-family: var(--font-display), 'Archivo Black', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.archive-folder-toggle-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0 var(--hard-shadow);
+  background: var(--yellow);
+  color: #1a1a1a;
+}
+.archive-folder-toggle-btn:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--hard-shadow);
+}
+
+.archive-folder-body {
+  background: var(--paper);
+  border: 2.5px solid var(--ink);
+  border-radius: 0 20px 20px 20px;
+  box-shadow: 6px 6px 0 var(--hard-shadow);
+  padding: 32px 28px 36px;
+  position: relative;
+  transition: all 0.25s ease;
+}
+
+.archive-folder-stamp {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-weight: 700;
+  font-size: 1.1rem;
+  padding: 4px 12px;
+  border: 2px dashed var(--ink);
+  border-radius: 8px;
+  background: rgba(255, 217, 61, 0.25);
+  color: var(--ink);
+  transform: rotate(3deg);
+  pointer-events: none;
+  user-select: none;
+}
+
+.archive-folder-closed-card {
+  padding: 24px;
+  text-align: center;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--paper),
+    var(--paper) 12px,
+    var(--rule) 12px,
+    var(--rule) 24px
+  );
+  border: 2px dashed var(--ink);
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.archive-folder-closed-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0 var(--hard-shadow);
+  background: var(--yellow);
+  color: #1a1a1a;
+}
+.archive-folder-closed-card h4 {
+  font-family: var(--font-display), 'Archivo Black', sans-serif;
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+.archive-folder-closed-card p {
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: var(--muted);
+}
+.archive-folder-closed-card:hover p {
+  color: #1a1a1a;
+}
+
+.archive-folder-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 36px;
+  padding-top: 28px;
+  border-top: 2.5px dashed var(--line);
+}
+
+.archive-folder-footer-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn-folder-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display), 'Archivo Black', sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: 0.03em;
+  padding: 14px 28px;
+  background: var(--yellow);
+  color: #1a1a1a;
+  border: 2.5px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 4px 4px 0 var(--hard-shadow);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-folder-more:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 7px 7px 0 var(--hard-shadow);
+}
+.btn-folder-more:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--hard-shadow);
+}
+
+.btn-folder-less {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-display), 'Archivo Black', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  padding: 12px 22px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 14px;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+.btn-folder-less:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--hard-shadow);
+  background: var(--rule);
+}
+
+.folder-status-note {
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 1.25rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+/* ---------- COMPREHENSIVE MOBILE RESPONSIVENESS (ANDROID & APPLE) ---------- */
+@media (max-width: 768px) {
+  .archive-folder-body {
+    padding: 24px 18px 28px;
+    border-radius: 0 16px 16px 16px;
+  }
+  .archive-folder-stamp {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .archive-folder-tab-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 0;
+  }
+  .archive-folder-tab {
+    border-radius: 14px 14px 0 0;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    padding: 9px 16px;
+    border-bottom: 2.5px solid var(--yellow);
+  }
+  .archive-folder-tab.tab-closed {
+    border-bottom: 2.5px solid var(--ink);
+    border-radius: 14px;
+  }
+  .archive-folder-toggle-btn {
+    width: 100%;
+    justify-content: center;
+    border-radius: 10px;
+    padding: 9px 14px;
+    font-size: 0.75rem;
+  }
+  .archive-folder-body {
+    border-radius: 0 0 16px 16px;
+    border-top: none;
+    padding: 20px 14px 24px;
+  }
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    margin-bottom: 22px;
+  }
+  .search-input,
+  .select-input {
+    width: 100%;
+    min-width: 0;
+    padding: 12px 14px;
+    font-size: 0.9rem;
+  }
+  .count-badge {
+    align-self: flex-start;
+  }
+  .btn-folder-more {
+    width: 100%;
+    justify-content: center;
+    padding: 13px 20px;
+    font-size: 0.88rem;
+  }
+  .btn-folder-less {
+    width: 100%;
+    justify-content: center;
+    padding: 11px 18px;
+  }
+  
+  /* Hero adjustments for mobile phones */
+  .hero-name {
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    padding: 8px 18px;
+    border-width: 2.5px;
+  }
+  .hero-tag {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+  }
+  .hero-sub {
+    font-size: clamp(1.25rem, 5vw, 1.8rem);
+    margin: 20px auto 8px;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 10px auto 20px;
+  }
+  .hero-cta {
+    gap: 10px;
+  }
+  .hero-cta .btn {
+    padding: 12px 20px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-tag {
+    display: none;
+  }
+  .cert-grid,
+  .proj-grid,
+  .featured-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .cert-card,
+  .proj-card,
+  .featured-card {
+    padding: 18px 16px;
+    border-radius: 14px;
+  }
+  .proj-foot {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .proj-stats {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+}
+
 /* ---------- PREFERS REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
