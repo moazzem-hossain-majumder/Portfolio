@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import PencilSketchHead from "./PencilSketchHead";
+import { Paperclip } from "./ScratchbookDoodles";
 
 export default function Contact({ basics }) {
   const cards = [
@@ -37,37 +39,40 @@ export default function Contact({ basics }) {
   return (
     <section id="contact">
       <div className="container contact-wrap">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="hand-label">get in touch -</span>
-          <h2 className="contact-big">
-            LET'S <span className="hl">TALK</span>
-          </h2>
-          <p className="contact-sub">
+        <PencilSketchHead
+          label="get in touch —"
+          title="LET'S TALK"
+          doodle="sparkle"
+        />
+        <div>
+          <p className="contact-sub" style={{ marginTop: "-6px" }}>
             have a project, an internship, or just want to say hi? my inbox is always open! 👋
           </p>
-          <a className="btn yellow" href={`mailto:${basics.email}`}>
+          <a className="btn yellow" href={`mailto:${basics.email}`} style={{ marginTop: "14px", display: "inline-flex" }}>
             SAY HELLO ✉
           </a>
-        </motion.div>
+        </div>
 
         <div className="contact-cards">
           {cards.map((c, i) => (
             <motion.a
               key={c.label}
-              className="paper contact-card"
+              className="paper contact-card retro-block-card"
               href={c.href}
               target={c.href.startsWith("mailto") ? undefined : "_blank"}
               rel="noreferrer"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: -24, rotateX: 12, scale: 0.94 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.12, duration: 0.5 }}
+              transition={{
+                type: "spring",
+                stiffness: 160,
+                damping: 14,
+                delay: i * 0.1,
+              }}
+              style={{ position: "relative" }}
             >
+              <Paperclip style={{ right: "12px", top: "-10px", width: "16px", height: "34px" }} />
               <span className="contact-icon">{c.icon}</span>
               <b>{c.label}</b>
               <span>{c.value}</span>

@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import PencilSketchHead from "./PencilSketchHead";
+import { WashiTape } from "./ScratchbookDoodles";
 
 const LANG_COLORS = {
   Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
@@ -51,22 +53,34 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
 
   if (cards.length === 0) return null;
 
+  const tapeColors = ["yellow", "pink", "green", "blue"];
+
   return (
     <section id="projects">
       <div className="container">
-        <motion.div className="section-head" initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <span className="hand-label">hand-picked by me -</span>
-          <h2 className="section-title">PROJECTS</h2>
-        </motion.div>
+        <PencilSketchHead
+          label="hand-picked by me —"
+          title="PROJECTS"
+          doodle="star"
+        />
 
         <div className="featured-grid">
           {cards.map((c, i) => (
-            <motion.div className="paper featured-card" key={c.key}
-              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.45, delay: (i % 3) * 0.08 }}
-              whileHover={{ y: -6 }}>
+            <motion.div
+              className="paper featured-card retro-block-card"
+              key={c.key}
+              initial={{ opacity: 0, y: -36, rotateX: 14, scale: 0.92 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-30px" }}
+              transition={{
+                type: "spring",
+                stiffness: 160,
+                damping: 14,
+                delay: Math.min((i % 3) * 0.08, 0.25),
+              }}
+              whileHover={{ y: -6 }}
+            >
+              <WashiTape color={tapeColors[i % tapeColors.length]} />
               <span className="pin-badge">📌 PINNED</span>
               <h3 className="proj-name feat-title">
                 {c.title}

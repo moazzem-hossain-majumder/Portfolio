@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Pencil3D } from "./PencilSketchHead";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -19,9 +20,19 @@ export default function Hero({ basics, stats }) {
   return (
     <section className="hero" id="home">
       <div className="container" style={{ position: "relative" }}>
-        <motion.p className="hero-eyebrow" variants={fadeUp} initial="hidden" animate="show" custom={0}>
-          hello! my name is
-        </motion.p>
+        <div style={{ display: "inline-flex", alignItems: "center", position: "relative" }}>
+          <motion.p className="hero-eyebrow" variants={fadeUp} initial="hidden" animate="show" custom={0}>
+            hello! my name is
+          </motion.p>
+          <motion.div
+            initial={{ opacity: 0, x: -10, rotate: -30 }}
+            animate={{ opacity: [0, 1, 1], x: [0, 15, 8], rotate: [-24, -18, -26] }}
+            transition={{ duration: 1.2, delay: 0.2 }}
+            style={{ position: "absolute", right: -42, top: -10, pointerEvents: "none" }}
+          >
+            <Pencil3D style={{ width: "56px", height: "18px" }} />
+          </motion.div>
+        </div>
 
         <motion.div className="hero-name-wrap" variants={fadeUp} initial="hidden" animate="show" custom={1}>
           <h1 className="hero-name">
@@ -103,9 +114,18 @@ export default function Hero({ basics, stats }) {
           ].map(([num, label], i) => (
             <motion.div
               key={label}
-              className="paper stat-card"
-              variants={{ hidden: { opacity: 0, y: 24 }, show: { opacity: 1, y: 0 } }}
-              whileHover={{ rotate: i % 2 ? 1.5 : -1.5, y: -4 }}
+              className="paper stat-card retro-block-card"
+              variants={{
+                hidden: { opacity: 0, y: -24, rotateX: 14, scale: 0.9 },
+                show: {
+                  opacity: 1,
+                  y: 0,
+                  rotateX: 0,
+                  scale: 1,
+                  transition: { type: "spring", stiffness: 180, damping: 14 },
+                },
+              }}
+              whileHover={{ rotate: i % 2 ? 1.5 : -1.5, y: -6 }}
             >
               <div className="stat-num">{num}</div>
               <div className="stat-label">{label}</div>

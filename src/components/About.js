@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import PencilSketchHead from "./PencilSketchHead";
+import { DoodleArrow } from "./ScratchbookDoodles";
 
 const CHIP_COLORS = ["c-yellow", "c-pink", "c-green", "c-blue", "c-orange", "c-purple"];
 
@@ -16,16 +18,11 @@ export default function About({ basics, skills }) {
   return (
     <section id="about">
       <div className="container">
-        <motion.div
-          className="section-head"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="hand-label">about me!</span>
-          <h2 className="section-title">WHAT'S UP</h2>
-        </motion.div>
+        <PencilSketchHead
+          label="about me!"
+          title="WHAT'S UP"
+          doodle="star"
+        />
 
         <div className="about-grid">
           <motion.figure

@@ -1,6 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
+import PencilSketchHead from "./PencilSketchHead";
+import { Paperclip } from "./ScratchbookDoodles";
 
 const ID = (label) => label.toLowerCase().replace(/[^a-z]+/g, "-");
 
@@ -8,16 +10,11 @@ export default function Timeline({ label, title, items }) {
   return (
     <section id={ID(title)}>
       <div className="container">
-        <motion.div
-          className="section-head"
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="hand-label">{label}</span>
-          <h2 className="section-title">{title}</h2>
-        </motion.div>
+        <PencilSketchHead
+          label={label}
+          title={title}
+          doodle="sparkle"
+        />
 
         <div className="timeline">
           {items.map((item, i) => (
@@ -29,7 +26,8 @@ export default function Timeline({ label, title, items }) {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1 }}
             >
-              <div className="paper tl-card">
+              <div className="paper tl-card retro-block-card" style={{ position: "relative" }}>
+                <Paperclip style={{ right: "18px", top: "-12px" }} />
                 <div className="tl-top">
                   <div>
                     <h3>{item.heading}</h3>

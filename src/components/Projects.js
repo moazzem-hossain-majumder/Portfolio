@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import PencilSketchHead from "./PencilSketchHead";
 
 const LANG_COLORS = {
   Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
@@ -80,11 +81,11 @@ export default function Projects({ repos, languages }) {
   return (
     <section id="repositories">
       <div className="container">
-        <motion.div className="section-head" initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <span className="hand-label">the full archive -</span>
-          <h2 className="section-title">ALL REPOSITORIES</h2>
-        </motion.div>
+        <PencilSketchHead
+          label="the full archive —"
+          title="ALL REPOSITORIES"
+          doodle="star"
+        />
 
         {/* FOLDER FOR ALL REPOSITORIES */}
         <div className="archive-folder-wrapper" style={{ marginTop: "18px" }}>
@@ -163,11 +164,17 @@ export default function Projects({ repos, languages }) {
                             href={r.html_url}
                             target="_blank"
                             rel="noreferrer"
-                            className="paper proj-card"
+                            className="paper proj-card retro-block-card"
                             key={r.id}
-                            initial={{ opacity: 0, y: 24 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.35, delay: Math.min((i % 3) * 0.06, 0.2) }}
+                            initial={{ opacity: 0, y: -30, rotateX: 12, scale: 0.92 }}
+                            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+                            viewport={{ once: true, margin: "-30px" }}
+                            transition={{
+                              type: "spring",
+                              stiffness: 160,
+                              damping: 14,
+                              delay: Math.min((i % 3) * 0.07, 0.22),
+                            }}
                             whileHover={{ y: -6 }}
                           >
                             <span className="proj-num">#{String(i + 1).padStart(2, "0")}</span>

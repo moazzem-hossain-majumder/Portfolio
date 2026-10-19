@@ -11,6 +11,7 @@ import FeaturedProjects from "@/components/FeaturedProjects";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import BackToTop from "@/components/BackToTop";
+import PencilCompanion from "@/components/PencilCompanion";
 
 export const revalidate = 3600; // ISR: re-fetch GitHub data every hour
 
@@ -64,7 +65,7 @@ export default async function Home() {
   };
 
   return (
-    <>
+    <div className="notebook-page-frame">
       <Navbar basics={profile.basics} />
       <main>
         <Hero basics={profile.basics} stats={stats} />
@@ -105,6 +106,7 @@ export default async function Home() {
         </p>
       </footer>
       <BackToTop />
-    </>
+      <PencilCompanion />
+    </div>
   );
 }

@@ -2,6 +2,8 @@
 
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import PencilSketchHead from "./PencilSketchHead";
+import { WashiTape } from "./ScratchbookDoodles";
 
 const ISSUER_COLORS = {
   IBM: "c-blue", DataCamp: "c-green", "Harvard University": "c-red",
@@ -13,12 +15,23 @@ const INITIAL_BATCH = 6; // 2 rows on standard desktop layout
 const BATCH_INCREMENT = 6; // +2 rows each time recruiter clicks "show more"
 
 function CertCard({ c, pinned, i }) {
+  const tapeColors = ["yellow", "pink", "green", "blue"];
+  const tapeColor = tapeColors[i % tapeColors.length];
+
   return (
-    <motion.div className={`paper cert-card${pinned ? " pinned" : ""}`}
-      initial={{ opacity: 0, y: 22 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.35, delay: Math.min((i % 3) * 0.06, 0.2) }}>
+    <motion.div
+      className={`paper cert-card retro-block-card${pinned ? " pinned" : ""}`}
+      initial={{ opacity: 0, y: -30, rotateX: 12, scale: 0.92 }}
+      whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{
+        type: "spring",
+        stiffness: 160,
+        damping: 14,
+        delay: Math.min((i % 3) * 0.08, 0.25),
+      }}
+    >
+      {pinned && <WashiTape color={tapeColor} />}
       {pinned && <span className="pin-badge small">📌 PINNED</span>}
       <span className={`cert-issuer ${ISSUER_COLORS[c.issuer] || "c-paper"}`}>{c.issuer}</span>
       <h3>{c.title}</h3>
@@ -96,11 +109,11 @@ export default function Certifications({ certs, credlyUrl }) {
   return (
     <section id="certificates">
       <div className="container">
-        <motion.div className="section-head" initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <span className="hand-label">always learning -</span>
-          <h2 className="section-title">CERTIFICATIONS</h2>
-        </motion.div>
+        <PencilSketchHead
+          label="always learning —"
+          title="CERTIFICATIONS"
+          doodle="sparkle"
+        />
 
         {credlyUrl && (
           <div style={{ marginBottom: "34px" }}>
