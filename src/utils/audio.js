@@ -136,6 +136,36 @@ class MechanicalAudioEngine {
     this.createThump(snapTime + 0.01, 140, 0.08, 0.22);
   }
 
+  playRobotBlip(emotion = "happy") {
+    if (this.muted) return;
+    this.init();
+    if (!this.ctx) return;
+    const t = this.ctx.currentTime;
+
+    const freqs = emotion === "happy"
+      ? [587.33, 880, 1174.66] // Ascending cheerful retro chime
+      : emotion === "thinking"
+      ? [440, 554.37, 659.25] // Curious synth trill
+      : emotion === "searching"
+      ? [784, 1046.5, 1318.5] // Radar ping
+      : [523.25, 659.25, 783.99]; // Friendly chirp
+
+    freqs.forEach((freq, idx) => {
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+      osc.type = "triangle";
+      const start = t + idx * 0.05;
+      const dur = 0.075;
+      osc.frequency.setValueAtTime(freq, start);
+      gain.gain.setValueAtTime(0.16, start);
+      gain.gain.exponentialRampToValueAtTime(0.001, start + dur);
+      osc.connect(gain);
+      gain.connect(this.ctx.destination);
+      osc.start(start);
+      osc.stop(start + dur);
+    });
+  }
+
   playDown() {
     if (this.muted) return;
     this.init();

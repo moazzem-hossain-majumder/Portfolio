@@ -86,6 +86,10 @@ export default function StickyNotePad({
     ];
     setPopText(funnyPops[(nextCount - 1) % funnyPops.length]);
 
+    if (typeof window !== "undefined") {
+      window.dispatchEvent(new CustomEvent("portfolio:peel", { detail: { count: nextCount } }));
+    }
+
     // Duration of multi-stage paper curl & air flutter
     setTimeout(() => {
       setIsPeeling(false);
