@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import PencilSketchHead from "./PencilSketchHead";
 import { WashiTape } from "./ScratchbookDoodles";
+import StickyNotePad from "./StickyNotePad";
 
 const LANG_COLORS = {
   Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
@@ -53,7 +54,7 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
 
   if (cards.length === 0) return null;
 
-  const tapeColors = ["yellow", "pink", "green", "blue"];
+  const pinColors = ["#e03131", "#1971c2", "#2f9e44", "#f08c00"];
 
   return (
     <section id="projects">
@@ -67,7 +68,6 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
         <div className="featured-grid">
           {cards.map((c, i) => (
             <motion.div
-              className="paper featured-card retro-block-card"
               key={c.key}
               initial={{ opacity: 0, y: -36, rotateX: 14, scale: 0.92 }}
               whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
@@ -78,37 +78,42 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
                 damping: 14,
                 delay: Math.min((i % 3) * 0.08, 0.25),
               }}
-              whileHover={{ y: -6 }}
             >
-              <WashiTape color={tapeColors[i % tapeColors.length]} />
-              <span className="pin-badge">📌 PINNED</span>
-              <h3 className="proj-name feat-title">
-                {c.title}
-                {c.demo && <span className="chip c-orange" style={{ fontSize: "0.7rem", padding: "3px 9px" }}>live ↗</span>}
-              </h3>
-              {c.note && <p className="feat-note">{c.note}</p>}
-              {c.tags.length > 0 && (
-                <div className="proj-topics">
-                  {c.tags.slice(0, 5).map((t) => <span key={t} className="topic">#{t}</span>)}
-                </div>
-              )}
-              <div className="proj-foot">
-                <div className="proj-stats">
-                  {c.language && (
-                    <span>
-                      <span className="dot" style={{ background: LANG_COLORS[c.language] || "var(--yellow)" }} />
-                      {c.language}
-                    </span>
+              <StickyNotePad
+                colorIndex={i}
+                pinned={true}
+                pinColor={pinColors[i % pinColors.length]}
+              >
+                <div className="paper featured-card">
+                  <h3 className="proj-name feat-title">
+                    {c.title}
+                    {c.demo && <span className="chip c-orange" style={{ fontSize: "0.7rem", padding: "3px 9px" }}>live ↗</span>}
+                  </h3>
+                  {c.note && <p className="feat-note">{c.note}</p>}
+                  {c.tags.length > 0 && (
+                    <div className="proj-topics">
+                      {c.tags.slice(0, 5).map((t) => <span key={t} className="topic">#{t}</span>)}
+                    </div>
                   )}
-                  {c.stars !== null && <span>★ {c.stars}</span>}
-                  {c.forks !== null && <span>⑂ {c.forks}</span>}
-                  {fmtDate(c.updated) && <span>updated {fmtDate(c.updated)}</span>}
+                  <div className="proj-foot">
+                    <div className="proj-stats">
+                      {c.language && (
+                        <span>
+                          <span className="dot" style={{ background: LANG_COLORS[c.language] || "var(--yellow)" }} />
+                          {c.language}
+                        </span>
+                      )}
+                      {c.stars !== null && <span>★ {c.stars}</span>}
+                      {c.forks !== null && <span>⑂ {c.forks}</span>}
+                      {fmtDate(c.updated) && <span>updated {fmtDate(c.updated)}</span>}
+                    </div>
+                    <div className="feat-links">
+                      {c.link && <a className="proj-link" href={c.link} target="_blank" rel="noreferrer">VIEW ↗</a>}
+                      {c.demo && <a className="proj-link" href={c.demo} target="_blank" rel="noreferrer">LIVE DEMO ↗</a>}
+                    </div>
+                  </div>
                 </div>
-                <div className="feat-links">
-                  {c.link && <a className="proj-link" href={c.link} target="_blank" rel="noreferrer">VIEW ↗</a>}
-                  {c.demo && <a className="proj-link" href={c.demo} target="_blank" rel="noreferrer">LIVE DEMO ↗</a>}
-                </div>
-              </div>
+              </StickyNotePad>
             </motion.div>
           ))}
         </div>

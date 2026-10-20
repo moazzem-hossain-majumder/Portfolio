@@ -3,6 +3,7 @@
 import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PencilSketchHead from "./PencilSketchHead";
+import StickyNotePad from "./StickyNotePad";
 
 const LANG_COLORS = {
   Python: "#3572A5", JavaScript: "#f1e05a", TypeScript: "#3178c6",
@@ -160,11 +161,7 @@ export default function Projects({ repos, languages }) {
                     <>
                       <div className="proj-grid">
                         {visibleRepos.map((r, i) => (
-                          <motion.a
-                            href={r.html_url}
-                            target="_blank"
-                            rel="noreferrer"
-                            className="paper proj-card retro-block-card"
+                          <motion.div
                             key={r.id}
                             initial={{ opacity: 0, y: -30, rotateX: 12, scale: 0.92 }}
                             whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
@@ -175,38 +172,53 @@ export default function Projects({ repos, languages }) {
                               damping: 14,
                               delay: Math.min((i % 3) * 0.07, 0.22),
                             }}
-                            whileHover={{ y: -6 }}
                           >
-                            <span className="proj-num">#{String(i + 1).padStart(2, "0")}</span>
-                            <h3 className="proj-name">
-                              {r.name}
-                              {r.homepage && (
-                                <span className="chip c-orange" style={{ fontSize: "0.7rem", padding: "3px 9px" }}>live ↗</span>
-                              )}
-                            </h3>
-                            <p className="proj-desc">{r.description || "no description yet - check the repo!"}</p>
-                            {(r.topics || []).length > 0 && (
-                              <div className="proj-topics">
-                                {r.topics.slice(0, 4).map((t) => <span key={t} className="topic">#{t}</span>)}
-                              </div>
-                            )}
-                            <div className="proj-foot">
-                              <div className="proj-stats">
-                                {r.language && (
-                                  <span>
-                                    <span className="dot" style={{ background: LANG_COLORS[r.language] || "var(--yellow)" }} />
-                                    {r.language}
-                                  </span>
+                            <StickyNotePad colorIndex={i}>
+                              <div className="paper proj-card">
+                                <span className="proj-num">#{String(i + 1).padStart(2, "0")}</span>
+                                <h3 className="proj-name">
+                                  <a href={r.html_url} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
+                                    {r.name}
+                                  </a>
+                                  {r.homepage && (
+                                    <a
+                                      href={r.homepage}
+                                      target="_blank"
+                                      rel="noreferrer"
+                                      className="chip c-orange"
+                                      style={{ fontSize: "0.7rem", padding: "3px 9px", textDecoration: "none" }}
+                                    >
+                                      live ↗
+                                    </a>
+                                  )}
+                                </h3>
+                                <p className="proj-desc">{r.description || "no description yet - check the repo!"}</p>
+                                {(r.topics || []).length > 0 && (
+                                  <div className="proj-topics">
+                                    {r.topics.slice(0, 4).map((t) => <span key={t} className="topic">#{t}</span>)}
+                                  </div>
                                 )}
-                                <span>★ {r.stars}</span>
-                                <span>⑂ {r.forks}</span>
+                                <div className="proj-foot">
+                                  <div className="proj-stats">
+                                    {r.language && (
+                                      <span>
+                                        <span className="dot" style={{ background: LANG_COLORS[r.language] || "var(--yellow)" }} />
+                                        {r.language}
+                                      </span>
+                                    )}
+                                    <span>★ {r.stars}</span>
+                                    <span>⑂ {r.forks}</span>
+                                  </div>
+                                  <div>
+                                    <a href={r.html_url} target="_blank" rel="noreferrer" className="proj-link">
+                                      VIEW ON GITHUB ↗
+                                    </a>
+                                    <div className="proj-updated">updated {fmtDate(r.updated_at)}</div>
+                                  </div>
+                                </div>
                               </div>
-                              <div>
-                                <span className="proj-link">VIEW ON GITHUB ↗</span>
-                                <div className="proj-updated">updated {fmtDate(r.updated_at)}</div>
-                              </div>
-                            </div>
-                          </motion.a>
+                            </StickyNotePad>
+                          </motion.div>
                         ))}
                       </div>
 

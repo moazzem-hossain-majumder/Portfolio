@@ -59,6 +59,83 @@ class MechanicalAudioEngine {
     osc.stop(t + 0.1);
   }
 
+  playPaperPeel() {
+    if (this.muted) return;
+    this.init();
+    if (!this.ctx) return;
+    const t = this.ctx.currentTime;
+
+    // Stage 1: Initial slow paper curl & adhesive drag friction (0 - 140ms)
+    const dragDuration = 0.16;
+    const dragSize = Math.floor(this.ctx.sampleRate * dragDuration);
+    const dragBuffer = this.ctx.createBuffer(1, dragSize, this.ctx.sampleRate);
+    const dragData = dragBuffer.getChannelData(0);
+    for (let i = 0; i < dragSize; i++) {
+      const p = i / dragSize;
+      const grain = Math.random() > 0.45 ? (Math.random() * 2 - 1) : 0;
+      dragData[i] = grain * (0.3 + p * 0.7);
+    }
+    const dragNoise = this.ctx.createBufferSource();
+    dragNoise.buffer = dragBuffer;
+    const dragFilter = this.ctx.createBiquadFilter();
+    dragFilter.type = "bandpass";
+    dragFilter.frequency.setValueAtTime(800, t);
+    dragFilter.frequency.exponentialRampToValueAtTime(2600, t + dragDuration);
+    dragFilter.Q.setValueAtTime(2.2, t);
+    const dragGain = this.ctx.createGain();
+    dragGain.gain.setValueAtTime(0.18, t);
+    dragGain.gain.exponentialRampToValueAtTime(0.35, t + dragDuration);
+    dragNoise.connect(dragFilter);
+    dragFilter.connect(dragGain);
+    dragGain.connect(this.ctx.destination);
+    dragNoise.start(t);
+    dragNoise.stop(t + dragDuration);
+
+    // Stage 2: Rapid adhesive fiber release crackle (120ms - 260ms)
+    const tearTime = t + 0.12;
+    const tearDuration = 0.18;
+    const tearSize = Math.floor(this.ctx.sampleRate * tearDuration);
+    const tearBuffer = this.ctx.createBuffer(1, tearSize, this.ctx.sampleRate);
+    const tearData = tearBuffer.getChannelData(0);
+    for (let i = 0; i < tearSize; i++) {
+      const p = i / tearSize;
+      // Dense adhesive fiber snap spikes
+      const pop = Math.random() > 0.28 ? (Math.random() * 2 - 1) * Math.pow(1 - p, 0.4) : 0;
+      tearData[i] = pop;
+    }
+    const tearNoise = this.ctx.createBufferSource();
+    tearNoise.buffer = tearBuffer;
+    const tearFilter = this.ctx.createBiquadFilter();
+    tearFilter.type = "highpass";
+    tearFilter.frequency.setValueAtTime(1800, tearTime);
+    tearFilter.frequency.exponentialRampToValueAtTime(4600, tearTime + tearDuration);
+    const tearGain = this.ctx.createGain();
+    tearGain.gain.setValueAtTime(0.38, tearTime);
+    tearGain.gain.exponentialRampToValueAtTime(0.005, tearTime + tearDuration);
+    tearNoise.connect(tearFilter);
+    tearFilter.connect(tearGain);
+    tearGain.connect(this.ctx.destination);
+    tearNoise.start(tearTime);
+    tearNoise.stop(tearTime + tearDuration);
+
+    // Stage 3: Top adhesive snap release & paper snap clack (at 240ms)
+    const snapTime = t + 0.22;
+    const osc = this.ctx.createOscillator();
+    const snapGain = this.ctx.createGain();
+    osc.type = "triangle";
+    osc.frequency.setValueAtTime(2800, snapTime);
+    osc.frequency.exponentialRampToValueAtTime(180, snapTime + 0.04);
+    snapGain.gain.setValueAtTime(0.32, snapTime);
+    snapGain.gain.exponentialRampToValueAtTime(0.001, snapTime + 0.04);
+    osc.connect(snapGain);
+    snapGain.connect(this.ctx.destination);
+    osc.start(snapTime);
+    osc.stop(snapTime + 0.045);
+
+    // Stage 4: Light aerodynamic air flutter whoosh (240ms - 440ms)
+    this.createThump(snapTime + 0.01, 140, 0.08, 0.22);
+  }
+
   playDown() {
     if (this.muted) return;
     this.init();

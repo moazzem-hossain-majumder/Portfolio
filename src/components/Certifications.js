@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import PencilSketchHead from "./PencilSketchHead";
 import { WashiTape } from "./ScratchbookDoodles";
+import StickyNotePad from "./StickyNotePad";
 
 const ISSUER_COLORS = {
   IBM: "c-blue", DataCamp: "c-green", "Harvard University": "c-red",
@@ -15,12 +16,10 @@ const INITIAL_BATCH = 6; // 2 rows on standard desktop layout
 const BATCH_INCREMENT = 6; // +2 rows each time recruiter clicks "show more"
 
 function CertCard({ c, pinned, i }) {
-  const tapeColors = ["yellow", "pink", "green", "blue"];
-  const tapeColor = tapeColors[i % tapeColors.length];
+  const pinColors = ["#e03131", "#1971c2", "#2f9e44", "#f08c00"];
 
   return (
     <motion.div
-      className={`paper cert-card retro-block-card${pinned ? " pinned" : ""}`}
       initial={{ opacity: 0, y: -30, rotateX: 12, scale: 0.92 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
       viewport={{ once: true, margin: "-30px" }}
@@ -31,22 +30,28 @@ function CertCard({ c, pinned, i }) {
         delay: Math.min((i % 3) * 0.08, 0.25),
       }}
     >
-      {pinned && <WashiTape color={tapeColor} />}
-      {pinned && <span className="pin-badge small">📌 PINNED</span>}
-      <span className={`cert-issuer ${ISSUER_COLORS[c.issuer] || "c-paper"}`}>{c.issuer}</span>
-      <h3>{c.title}</h3>
-      <p className="cert-meta">
-        issued <b>{c.year}</b>
-        {c.credentialId && (<><br />ID: <b>{c.credentialId}</b></>)}
-      </p>
-      {(c.skills || []).length > 0 && (
-        <div className="proj-topics">
-          {c.skills.map((s) => <span key={s} className="topic">{s}</span>)}
+      <StickyNotePad
+        colorIndex={i}
+        pinned={pinned}
+        pinColor={pinColors[i % pinColors.length]}
+      >
+        <div className="paper cert-card">
+          <span className={`cert-issuer ${ISSUER_COLORS[c.issuer] || "c-paper"}`}>{c.issuer}</span>
+          <h3>{c.title}</h3>
+          <p className="cert-meta">
+            issued <b>{c.year}</b>
+            {c.credentialId && (<><br />ID: <b>{c.credentialId}</b></>)}
+          </p>
+          {(c.skills || []).length > 0 && (
+            <div className="proj-topics">
+              {c.skills.map((s) => <span key={s} className="topic">{s}</span>)}
+            </div>
+          )}
+          {c.link && (
+            <a className="cert-link" href={c.link} target="_blank" rel="noreferrer">VERIFY CREDENTIAL ↗</a>
+          )}
         </div>
-      )}
-      {c.link && (
-        <a className="cert-link" href={c.link} target="_blank" rel="noreferrer">VERIFY CREDENTIAL ↗</a>
-      )}
+      </StickyNotePad>
     </motion.div>
   );
 }

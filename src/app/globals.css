@@ -2823,6 +2823,535 @@ footer p {
   }
 }
 
+/* ---------- 3D STICKY NOTE PAD & PEELING MECHANIC ---------- */
+.sticky-note-pad {
+  position: relative;
+  perspective: 1200px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --pad-border: var(--ink);
+}
+
+.sticky-note-pad:hover {
+  transform: translate(-3px, -4px) rotate(-0.4deg);
+}
+
+/* Light Mode Sticky Color Themes */
+:root, [data-theme="light"] {
+  --pad-bg-bottom: #e8e3d3;
+  --pad-bg-middle: #f1edd8;
+
+  .sticky-color-yellow {
+    --pad-sheet: #fffadb;
+    --pad-accent: #f59f00;
+    --pad-glue: rgba(245, 159, 0, 0.18);
+  }
+  .sticky-color-pink {
+    --pad-sheet: #ffe3ec;
+    --pad-accent: #d6336c;
+    --pad-glue: rgba(214, 51, 108, 0.18);
+  }
+  .sticky-color-green {
+    --pad-sheet: #e6fcf5;
+    --pad-accent: #0ca678;
+    --pad-glue: rgba(12, 166, 120, 0.18);
+  }
+  .sticky-color-blue {
+    --pad-sheet: #e7f5ff;
+    --pad-accent: #1971c2;
+    --pad-glue: rgba(25, 113, 194, 0.18);
+  }
+  .sticky-color-purple {
+    --pad-sheet: #f3f0ff;
+    --pad-accent: #7048e8;
+    --pad-glue: rgba(112, 72, 232, 0.18);
+  }
+  .sticky-color-orange {
+    --pad-sheet: #fff4e6;
+    --pad-accent: #e8590c;
+    --pad-glue: rgba(232, 89, 12, 0.18);
+  }
+}
+
+/* Dark Mode Sticky Color Themes */
+[data-theme="dark"] {
+  --pad-bg-bottom: #161616;
+  --pad-bg-middle: #202020;
+
+  .sticky-color-yellow {
+    --pad-sheet: #242217;
+    --pad-accent: #ffd43b;
+    --pad-border: #ffd43b;
+    --pad-glue: rgba(255, 212, 59, 0.22);
+  }
+  .sticky-color-pink {
+    --pad-sheet: #2a1822;
+    --pad-accent: #faa2c1;
+    --pad-border: #faa2c1;
+    --pad-glue: rgba(250, 162, 193, 0.22);
+  }
+  .sticky-color-green {
+    --pad-sheet: #15271d;
+    --pad-accent: #69db7c;
+    --pad-border: #69db7c;
+    --pad-glue: rgba(105, 219, 124, 0.22);
+  }
+  .sticky-color-blue {
+    --pad-sheet: #142332;
+    --pad-accent: #74c0fc;
+    --pad-border: #74c0fc;
+    --pad-glue: rgba(116, 192, 252, 0.22);
+  }
+  .sticky-color-purple {
+    --pad-sheet: #221932;
+    --pad-accent: #b197fc;
+    --pad-border: #b197fc;
+    --pad-glue: rgba(177, 151, 252, 0.22);
+  }
+  .sticky-color-orange {
+    --pad-sheet: #2b1c14;
+    --pad-accent: #ffa94d;
+    --pad-border: #ffa94d;
+    --pad-glue: rgba(255, 169, 77, 0.22);
+  }
+}
+
+/* 3D Paper Stack Layers Under the Active Sheet */
+.sticky-pad-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  border: 2px solid var(--pad-border);
+  pointer-events: none;
+}
+.sticky-pad-layer.layer-bottom {
+  background: var(--pad-bg-bottom);
+  transform: translate(6px, 6px);
+  z-index: 1;
+  box-shadow: 4px 4px 0 var(--hard-shadow);
+}
+.sticky-pad-layer.layer-middle {
+  background: var(--pad-bg-middle);
+  transform: translate(3px, 3px);
+  z-index: 2;
+}
+
+/* Translucent Top Adhesive Glue Strip */
+.sticky-glue-strip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: var(--pad-glue);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom: 1.5px dashed var(--line);
+  z-index: 6;
+  pointer-events: none;
+  overflow: hidden;
+}
+.glue-sheen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 6px,
+    rgba(255, 255, 255, 0.25) 6px,
+    rgba(255, 255, 255, 0.25) 8px
+  );
+  opacity: 0.6;
+}
+
+/* Top Peel Pull Tab */
+.sticky-peel-tab {
+  position: absolute;
+  top: -12px;
+  right: 18px;
+  z-index: 8;
+  background: var(--pad-accent);
+  color: #1a1a1a;
+  font-family: var(--font-body), 'Space Grotesk', sans-serif;
+  font-weight: 800;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  padding: 3px 9px;
+  border: 2px solid var(--ink);
+  border-radius: 6px 6px 0 0;
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.sticky-peel-tab:hover {
+  transform: translateY(-3px);
+  background: var(--yellow);
+}
+.peel-tab-icon {
+  font-size: 0.75rem;
+}
+
+/* 3D Pushpin on Pinned Cards */
+.sticky-pushpin-wrap {
+  position: absolute;
+  top: -16px;
+  left: 14px;
+  width: 32px;
+  height: 32px;
+  z-index: 9;
+  pointer-events: none;
+  filter: drop-shadow(2px 3px 2px rgba(0, 0, 0, 0.3));
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.sticky-note-pad:hover .sticky-pushpin-wrap {
+  transform: rotate(-6deg) scale(1.08);
+}
+.sticky-pushpin-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* The Active Note Sheet */
+.sticky-note-sheet {
+  position: relative;
+  z-index: 3;
+  background: var(--pad-sheet);
+  border: 2.5px solid var(--pad-border);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 270px;
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+  overflow: hidden;
+  transform-origin: top center;
+}
+
+/* Scratchbook Ruled Lines Watermark */
+.sticky-sheet-watermark {
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    var(--rule) 27px,
+    var(--rule) 28px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sheet Counter Badge (after peeling) */
+.sticky-sheet-counter {
+  position: absolute;
+  top: 6px;
+  left: 20px;
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--pad-accent);
+  background: rgba(0, 0, 0, 0.05);
+  padding: 1px 7px;
+  border-radius: 4px;
+  pointer-events: none;
+  z-index: 7;
+}
+[data-theme="dark"] .sticky-sheet-counter {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Sheet Inner Content */
+.sticky-sheet-content {
+  position: relative;
+  z-index: 4;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 22px 20px 28px;
+}
+
+/* Reset nested card styles when wrapped in StickyNotePad */
+.sticky-note-pad .paper.cert-card,
+.sticky-note-pad .paper.featured-card,
+.sticky-note-pad .paper.proj-card,
+.sticky-note-pad .paper.tl-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: auto !important;
+  transform: none !important;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.sticky-note-pad .paper.cert-card:hover,
+.sticky-note-pad .paper.featured-card:hover,
+.sticky-note-pad .paper.proj-card:hover,
+.sticky-note-pad .paper.tl-card:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* Dynamic 3D Rolling Shadow when peeling */
+.peel-dynamic-roll-shadow {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background: radial-gradient(ellipse at 50% 100%, rgba(0, 0, 0, 0.45) 0%, transparent 72%);
+  z-index: 5;
+  pointer-events: none;
+  filter: blur(8px);
+  animation: roll-shadow-pulse 0.82s ease-in-out;
+}
+@keyframes roll-shadow-pulse {
+  0% { transform: scaleY(0.2); opacity: 0.2; }
+  35% { transform: scaleY(1.3); opacity: 0.65; }
+  65% { transform: scaleY(0.7); opacity: 0.3; }
+  100% { transform: scaleY(0); opacity: 0; }
+}
+
+/* Dog-Eared Peeling Corner at Bottom-Right (Realistic 3D Paper Flap) */
+.sticky-peel-corner {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 56px;
+  height: 56px;
+  z-index: 12;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  outline: none;
+  perspective: 400px;
+}
+.peel-dogear-pocket {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 38px 38px;
+  border-color: transparent transparent rgba(0, 0, 0, 0.25) transparent;
+  filter: blur(2px);
+  pointer-events: none;
+}
+.peel-dogear-flap {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 38px 38px;
+  border-color: transparent transparent var(--pad-accent) transparent;
+  transform-origin: 0% 100%;
+  transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.22s ease;
+  filter: drop-shadow(-3px -3px 4px rgba(0, 0, 0, 0.35));
+}
+.sticky-peel-corner:hover .peel-dogear-flap {
+  transform: rotate3d(1, -1, 0, 32deg) scale(1.22);
+  filter: drop-shadow(-5px -5px 7px rgba(0, 0, 0, 0.45));
+}
+.peel-dogear-cyl-highlight {
+  position: absolute;
+  bottom: -38px;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.75) 0%, transparent 60%);
+  pointer-events: none;
+}
+.peel-dogear-crease-shadow {
+  position: absolute;
+  bottom: -38px;
+  right: 0;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(315deg, rgba(0, 0, 0, 0.22) 0%, transparent 50%);
+  pointer-events: none;
+}
+.peel-dogear-label {
+  position: absolute;
+  bottom: 3px;
+  right: 4px;
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.85);
+  pointer-events: none;
+  transform: rotate(-45deg);
+  transform-origin: center;
+}
+
+/* Hyper-Realistic 3D Peeling Sheet Simulation */
+.sticky-note-flying-sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+  transform-style: preserve-3d;
+  transform-origin: 50% 0%; /* Anchored at top glue strip */
+  filter: drop-shadow(14px 22px 28px rgba(0, 0, 0, 0.38));
+}
+
+/* 2-Sided Paper Structure: Front & Underside Backface */
+.flying-sheet-face {
+  position: absolute;
+  inset: 0;
+  border-radius: 4px;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+/* Face 1: The Front Face of Note */
+.flying-sheet-face.face-front {
+  background: var(--pad-sheet);
+  border: 2.5px solid var(--pad-border);
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.flying-glue-peel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 18px;
+  background: var(--pad-glue);
+  border-bottom: 1.5px dashed var(--line);
+}
+.flying-sheet-ghost-content {
+  position: absolute;
+  inset: 24px;
+  opacity: 0.32;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 20px,
+    var(--line) 20px,
+    var(--line) 22px
+  );
+}
+.flying-cylindrical-shine {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.22) 0%,
+    rgba(255, 255, 255, 0.5) 45%,
+    rgba(0, 0, 0, 0.12) 100%
+  );
+  pointer-events: none;
+  mix-blend-mode: overlay;
+}
+
+/* Face 2: The Underside / Backface of Note (Rolls into view when peeling!) */
+.flying-sheet-face.face-back {
+  background: #fdfaf3;
+  border: 2.5px solid var(--pad-border);
+  transform: rotateX(180deg);
+  z-index: 1;
+}
+[data-theme="dark"] .flying-sheet-face.face-back {
+  background: #232323;
+}
+.backface-paper-texture {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  background-image: repeating-radial-gradient(
+    circle at 50% 50%,
+    var(--ink) 0,
+    var(--ink) 1px,
+    transparent 1px,
+    transparent 100%
+  );
+  background-size: 8px 8px;
+}
+.backface-adhesive-strip {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.08);
+  border-top: 1.5px dashed var(--line);
+}
+.backface-curl-crease-shadow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.25) 0%,
+    rgba(255, 255, 255, 0.65) 35%,
+    rgba(0, 0, 0, 0.15) 100%
+  );
+  pointer-events: none;
+}
+.backface-pencil-stamp {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-12deg);
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--muted);
+  opacity: 0.4;
+  white-space: nowrap;
+}
+
+/* Comic Sound Doodle Pop on Peel */
+.sticky-peel-comic-pop {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 35;
+  background: var(--yellow);
+  color: #1a1a1a;
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding: 6px 16px;
+  border: 2.5px solid #1a1a1a;
+  border-radius: 12px;
+  box-shadow: 4px 4px 0 #1a1a1a;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .sticky-peel-corner {
+    width: 48px;
+    height: 48px;
+  }
+  .peel-dogear-pocket,
+  .peel-dogear-flap {
+    border-width: 0 0 32px 32px;
+  }
+  .sticky-peel-tab {
+    right: 12px;
+    padding: 2px 7px;
+    font-size: 0.62rem;
+  }
+}
+
 /* ---------- PREFERS REDUCED MOTION ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
