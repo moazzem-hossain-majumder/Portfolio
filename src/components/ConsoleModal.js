@@ -143,12 +143,12 @@ export default function ConsoleModal({ isOpen, onClose, modalData, basics, profi
             {modalData.modalType === "repositories" && (
               <div className="modal-content-section">
                 <p className="modal-desc">
-                  Showing latest active open-source repositories from GitHub (@{basics?.githubUsername}):
+                  Showing latest active open-source & collaborative repositories from GitHub (@{basics?.githubUsername}):
                 </p>
                 <div className="modal-chips-grid">
                   {(repos || []).slice(0, 4).map((r) => (
                     <a key={r.id} href={r.html_url} target="_blank" rel="noreferrer" className="modal-item-box clickable">
-                      <b>📦 {r.name}</b>
+                      <b>📦 {r.name} {r.isCollaborator ? "🤝 (Collaborator)" : ""} {r.isPrivate ? "🔒" : ""}</b>
                       <p>{r.description || "No description provided."}</p>
                       <small style={{ color: "var(--amber)" }}>⭐ {r.stars} | {r.language || "Code"}</small>
                     </a>

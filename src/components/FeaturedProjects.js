@@ -20,21 +20,33 @@ const fmtDate = (d) => {
 
 export default function FeaturedProjects({ pins, repos, githubUrl }) {
   const cards = (pins || []).map((pin) => {
-    // type "repo": pulls live stars/language/topics from GitHub for a repo you own
+    // type "repo": pulls live stars/language/topics from GitHub for a repo you own or collaborate on
     const repoName = pin.type === "custom" ? null : pin.repo || pin.name;
-    const repo = repoName ? (repos || []).find((r) => r.name === repoName) : null;
+    const repo = repoName
+      ? (repos || []).find(
+          (r) =>
+            r.name === repoName ||
+            (r.full_name && r.full_name.toLowerCase() === repoName.toLowerCase()) ||
+            (repoName.includes("/") && r.name === repoName.split("/")[1])
+        )
+      : null;
     if (repoName) {
+      const fallbackUrl = repoName.includes("/")
+        ? `https://github.com/${repoName}`
+        : `${githubUrl}/${repoName}`;
       return {
         key: repoName,
-        title: repoName,
+        title: pin.title || (repoName.includes("/") ? repoName.split("/")[1] : repoName),
         note: pin.note || repo?.description || "",
-        link: repo?.html_url || `${githubUrl}/${repoName}`,
+        link: repo?.html_url || fallbackUrl,
         demo: repo?.homepage || pin.demo || "",
         tags: (repo?.topics?.length ? repo.topics : pin.tags) || [],
         language: repo?.language || pin.language || "",
         stars: repo?.stars ?? null,
         forks: repo?.forks ?? null,
         updated: repo?.updated_at || pin.meta || "",
+        isCollaborator: Boolean(pin.isCollaborator || repo?.isCollaborator),
+        isPrivate: Boolean(pin.isPrivate || repo?.isPrivate),
       };
     }
     // type "custom": anything at all, no GitHub repo required
@@ -49,6 +61,8 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
       stars: null,
       forks: null,
       updated: pin.meta || "",
+      isCollaborator: Boolean(pin.isCollaborator),
+      isPrivate: Boolean(pin.isPrivate),
     };
   });
 
@@ -87,6 +101,16 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
                 <div className="paper featured-card">
                   <h3 className="proj-name feat-title">
                     {c.title}
+                    {c.isCollaborator && (
+                      <span className="chip c-blue" style={{ fontSize: "0.68rem", padding: "2px 7px" }}>
+                        collaborator 🤝
+                      </span>
+                    )}
+                    {c.isPrivate && (
+                      <span className="chip c-purple" style={{ fontSize: "0.68rem", padding: "2px 7px" }}>
+                        private 🔒
+                      </span>
+                    )}
                     {c.demo && <span className="chip c-orange" style={{ fontSize: "0.7rem", padding: "3px 9px" }}>live ↗</span>}
                   </h3>
                   {c.note && <p className="feat-note">{c.note}</p>}

@@ -180,6 +180,22 @@ export default function Projects({ repos, languages }) {
                                   <a href={r.html_url} target="_blank" rel="noreferrer" style={{ color: "inherit", textDecoration: "none" }}>
                                     {r.name}
                                   </a>
+                                  {r.isCollaborator && (
+                                    <span
+                                      className="chip c-blue"
+                                      style={{ fontSize: "0.68rem", padding: "2px 7px", textDecoration: "none" }}
+                                    >
+                                      collaborator 🤝
+                                    </span>
+                                  )}
+                                  {r.isPrivate && (
+                                    <span
+                                      className="chip c-purple"
+                                      style={{ fontSize: "0.68rem", padding: "2px 7px", textDecoration: "none" }}
+                                    >
+                                      private 🔒
+                                    </span>
+                                  )}
                                   {r.homepage && (
                                     <a
                                       href={r.homepage}

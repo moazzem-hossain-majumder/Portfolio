@@ -130,6 +130,36 @@ All in `data/profile.json` → `basics`:
 same `category` are grouped together automatically in the About section (e.g. all `"Language"` skills in one
 row). Add a new category name and a new group appears on its own — no extra code needed.
 
+## 7. GitHub Pulse, Private Repos & Collaborator Work
+
+Your portfolio automatically measures your live **GitHub Pulse Score** and integrates private work as well as collaborator contributions:
+
+### A. Turn on Private Contributions on GitHub (Required for Pulse Card)
+GitHub by default hides private contributions from third-party metrics. To include them:
+1. Go to your GitHub profile: [GitHub Profile Settings](https://github.com/settings/profile).
+2. Under **Contribution settings**, check **"Include private contributions on my profile"**.
+3. Your GitHub Pulse Card in the About section will now count all private contributions and recalculate your percentile rank.
+
+### B. Include Private & Collaborator Repos in the Codebase Vault
+1. **With a GitHub Personal Access Token (`GITHUB_TOKEN`)**:
+   - Create a token with `repo` scope at [GitHub Tokens](https://github.com/settings/tokens).
+   - Add it to `.env.local`:
+     ```env
+     GITHUB_TOKEN=ghp_your_token_here
+     ```
+   - In production on Vercel, add `GITHUB_TOKEN` under **Project Settings → Environment Variables**.
+   - The app will automatically fetch all private repositories and repositories you collaborate on via `/user/repos`.
+
+2. **Listing Specific Collaborator Repositories Manually**:
+   - In `data/profile.json`, add any external repository you worked on:
+     ```json
+     "collaboratorRepos": [
+       "organization-name/project-repo",
+       "peer-username/team-hackathon"
+     ]
+     ```
+   - These will be fetched and highlighted with a `collaborator 🤝` badge in your repository archive and project cards.
+
 ---
 
 ## Run locally
