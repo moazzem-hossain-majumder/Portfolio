@@ -3386,18 +3386,28 @@ footer p {
   color: #1a1a1a;
   border: 2.5px solid var(--ink);
   border-radius: 14px;
-  padding: 8px 16px;
+  padding: 8px 18px;
   font-family: var(--font-hand), 'Caveat', cursive;
-  font-size: 1.22rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.35;
   box-shadow: 4px 4px 0 var(--hard-shadow);
-  white-space: nowrap;
-  max-width: 320px;
+  width: max-content;
+  max-width: min(92vw, 540px);
+  white-space: normal;
   text-align: center;
   pointer-events: none;
   z-index: 10;
   transition: opacity 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+}
+
+.robot-speech-text {
+  margin: 0;
+  padding: 0;
+  display: block;
+  word-break: normal;
+  overflow-wrap: break-word;
 }
 
 /* Vertical and horizontal bubble orientations */
@@ -3437,13 +3447,13 @@ footer p {
   transform: translateX(-50%);
 }
 .robot-speech-bubble.bubble-left .robot-speech-tail {
-  left: 36px;
-  transform: none;
+  left: 60px;
+  transform: translateX(-50%);
 }
 .robot-speech-bubble.bubble-right .robot-speech-tail {
-  right: 36px;
+  right: 60px;
   left: auto;
-  transform: none;
+  transform: translateX(50%);
 }
 
 /* Tail pointing down (when bubble is top) */
@@ -3626,9 +3636,16 @@ footer p {
   }
   .robot-speech-bubble {
     font-size: 1.05rem;
-    padding: 6px 12px;
-    max-width: 220px;
+    padding: 6px 14px;
+    width: max-content;
+    max-width: min(88vw, 320px);
     white-space: normal;
+  }
+  .robot-speech-bubble.bubble-left .robot-speech-tail {
+    left: 48px;
+  }
+  .robot-speech-bubble.bubble-right .robot-speech-tail {
+    right: 48px;
   }
   .robot-status-pill {
     font-size: 0.6rem;
