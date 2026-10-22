@@ -166,13 +166,18 @@ export default function ConsoleModal({ isOpen, onClose, modalData, basics, profi
                   <a className="btn yellow" href={`mailto:${basics?.email}`}>
                     ✉ Email: {basics?.email}
                   </a>
+                  {basics?.resumeUrl && (
+                    <a className="btn ghost" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
+                      📄 View Resume / CV ↗
+                    </a>
+                  )}
                   {basics?.linkedinUrl && (
-                    <a className="btn ghost" href={basics.linkedinUrl} target="_blank" rel="noreferrer">
+                    <a className="btn ghost" href={basics.linkedinUrl} target="_blank" rel="noopener noreferrer">
                       💼 LinkedIn Profile ↗
                     </a>
                   )}
                   {basics?.githubUrl && (
-                    <a className="btn ghost" href={basics.githubUrl} target="_blank" rel="noreferrer">
+                    <a className="btn ghost" href={basics.githubUrl} target="_blank" rel="noopener noreferrer">
                       🐙 GitHub ↗
                     </a>
                   )}

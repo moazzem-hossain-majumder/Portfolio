@@ -34,6 +34,16 @@ export default function Contact({ basics }) {
           },
         ]
       : []),
+    ...(basics.resumeUrl
+      ? [
+          {
+            icon: "📄",
+            label: "RESUME",
+            value: "view & download CV",
+            href: basics.resumeUrl,
+          },
+        ]
+      : []),
   ];
 
   return (

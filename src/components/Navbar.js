@@ -51,7 +51,7 @@ export default function Navbar({ basics }) {
         </div>
         <div className="nav-right">
           {basics.resumeUrl && (
-            <a className="btn yellow nav-resume" href={basics.resumeUrl} target="_blank" rel="noreferrer">
+            <a className="btn yellow nav-resume" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
               RESUME ↓
             </a>
           )}

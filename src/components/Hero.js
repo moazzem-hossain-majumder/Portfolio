@@ -99,7 +99,7 @@ export default function Hero({ basics, stats }) {
             ⭐ GITHUB
           </a>
           {basics.resumeUrl && (
-            <a className="btn ghost" href={basics.resumeUrl} target="_blank" rel="noreferrer">
+            <a className="btn ghost" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
               📄 RESUME
             </a>
           )}
