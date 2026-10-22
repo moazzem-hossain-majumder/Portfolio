@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from "react";
 import dynamic from "next/dynamic";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue, animate } from "framer-motion";
 import { getAudioEngine } from "../utils/audio";
 
 // Dynamically import RobotHead with ssr: false to guarantee clean client-only canvas mounting
@@ -16,6 +16,7 @@ const CLICK_PHRASES = [
   "Try peeling the sticky note cards! They regenerate! ✂️📄",
   "Check out the 7 verified IBM certifications! 🏅",
   "Exploring the GitHub Codebase Vault? 💻✨",
+  "Drag me anywhere across the whole screen! 🚀",
   "Everything here runs client-side & super fast! ⚡",
   "Built with Next.js, Framer Motion & scratchbook vibes! 🎨",
   "Have a great day! Don't forget to reach out! ✉️🚀",
@@ -28,8 +29,20 @@ export default function RobotCompanion() {
   const [isMinimized, setIsMinimized] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [clickCount, setClickCount] = useState(0);
+  const [isDraggedAway, setIsDraggedAway] = useState(false);
+  const [bubblePlacement, setBubblePlacement] = useState({
+    vertical: "top",
+    horizontal: "center",
+  });
+
+  const constraintsRef = useRef(null);
   const sectionStateRef = useRef("idle");
   const speechTimeoutRef = useRef(null);
+  const isDraggingRef = useRef(false);
+
+  // Motion values to track position and allow reset to home dock
+  const dragX = useMotionValue(0);
+  const dragY = useMotionValue(0);
 
   // Set mounted and detect mobile screen size
   useEffect(() => {
@@ -53,7 +66,7 @@ export default function RobotCompanion() {
   useEffect(() => {
     if (!mounted) return;
     const initialGreeting = setTimeout(() => {
-      showSpeech("Beep boop! Welcome to Moazzem's portfolio! 👋", 5000);
+      showSpeech("Beep boop! Drag me anywhere on the screen! 👋", 5000);
     }, 1200);
     return () => clearTimeout(initialGreeting);
   }, [mounted, showSpeech]);
@@ -141,8 +154,10 @@ export default function RobotCompanion() {
     };
   }, [mounted, showSpeech]);
 
-  // Robot click handler: spins, chirps, and speaks
+  // Robot click handler: spins, chirps, and speaks (ignored if user was dragging)
   const handleRobotClick = () => {
+    if (isDraggingRef.current) return;
+
     const nextCount = clickCount + 1;
     setClickCount(nextCount);
 
@@ -162,29 +177,81 @@ export default function RobotCompanion() {
     }, 4000);
   };
 
+  // Drag position tracker for dynamic speech bubble placement & home button state
+  const handleDragUpdate = (_, info) => {
+    if (typeof window === "undefined") return;
+    const y = info.point.y;
+    const x = info.point.x;
+    const screenWidth = window.innerWidth;
+
+    const vertical = y < 160 ? "bottom" : "top";
+    let horizontal = "center";
+    if (x < 160) horizontal = "left";
+    else if (x > screenWidth - 160) horizontal = "right";
+
+    setBubblePlacement((prev) => {
+      if (prev.vertical === vertical && prev.horizontal === horizontal) return prev;
+      return { vertical, horizontal };
+    });
+  };
+
+  const handleDragEnd = (_, info) => {
+    handleDragUpdate(_, info);
+    const dist = Math.hypot(dragX.get(), dragY.get());
+    setIsDraggedAway(dist > 60);
+
+    setTimeout(() => {
+      isDraggingRef.current = false;
+    }, 120);
+  };
+
+  // Reset to original bottom-left dock position
+  const resetToHome = (e) => {
+    if (e) e.stopPropagation();
+    animate(dragX, 0, { type: "spring", stiffness: 320, damping: 24 });
+    animate(dragY, 0, { type: "spring", stiffness: 320, damping: 24 });
+    setIsDraggedAway(false);
+    setBubblePlacement({ vertical: "top", horizontal: "center" });
+    showSpeech("Back home at the dock! 🏠⚡", 2500);
+    try {
+      getAudioEngine().playRobotBlip("happy");
+    } catch (_) {}
+  };
+
   if (!mounted) return null;
 
   const robotSize = isMobile ? 95 : 125;
 
   return (
-    <aside className="robot-companion-dock" aria-label="Interactive 3D Robot Companion">
+    <aside
+      ref={constraintsRef}
+      className="robot-companion-dock"
+      aria-label="Interactive 3D Robot Companion"
+    >
       <motion.div
         className="robot-companion-container"
+        style={{ x: dragX, y: dragY }}
         initial={{ opacity: 0, scale: 0.7, y: 40 }}
         animate={{ opacity: 1, scale: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 220, damping: 18 }}
         drag
+        dragConstraints={constraintsRef}
+        dragElastic={0.08}
         dragMomentum={false}
-        dragConstraints={{ left: -380, right: 40, top: -500, bottom: 20 }}
+        onDragStart={() => {
+          isDraggingRef.current = true;
+        }}
+        onDrag={handleDragUpdate}
+        onDragEnd={handleDragEnd}
       >
-        {/* Floating Comic Speech Bubble */}
+        {/* Floating Comic Speech Bubble with Smart Screen-Aware Placement */}
         <AnimatePresence>
           {message && !isMinimized && (
             <motion.div
-              className="robot-speech-bubble"
-              initial={{ opacity: 0, scale: 0.8, y: 8 }}
+              className={`robot-speech-bubble bubble-${bubblePlacement.vertical} bubble-${bubblePlacement.horizontal}`}
+              initial={{ opacity: 0, scale: 0.8, y: bubblePlacement.vertical === "top" ? 8 : -8 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8, y: -6 }}
+              exit={{ opacity: 0, scale: 0.8, y: bubblePlacement.vertical === "top" ? -6 : 6 }}
               transition={{ duration: 0.25 }}
             >
               <p className="robot-speech-text">{message}</p>
@@ -198,7 +265,8 @@ export default function RobotCompanion() {
           <motion.div
             className="robot-avatar-wrapper"
             onClick={handleRobotClick}
-            title="Click me to chat or spin! (You can also drag me around)"
+            onDoubleClick={resetToHome}
+            title="Click me to chat/spin! Drag me anywhere on screen! Double-click to return home."
             animate={{
               y: [0, -7, 0],
               rotate: [-0.8, 1.2, -0.8],
@@ -208,7 +276,7 @@ export default function RobotCompanion() {
               duration: 3.8,
               ease: "easeInOut",
             }}
-            whileHover={{ scale: 1.08 }}
+            whileHover={{ scale: 1.06 }}
             whileTap={{ scale: 0.94 }}
           >
             <RobotHead
@@ -229,13 +297,19 @@ export default function RobotCompanion() {
               <span className="robot-status-dot" />
               <span>{robotState.toUpperCase()}</span>
             </div>
+
+            {/* Drag Handle Indicator */}
+            <div className="robot-drag-hint">
+              <span>⠿</span>
+              <span>DRAG ANYWHERE</span>
+            </div>
           </motion.div>
         ) : (
           <motion.button
             type="button"
             className="robot-minimized-bubble"
             onClick={() => setIsMinimized(false)}
-            title="Open AI Robot Companion"
+            title="Open AI Robot Companion (Drag me anywhere)"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
           >
@@ -244,20 +318,33 @@ export default function RobotCompanion() {
           </motion.button>
         )}
 
-        {/* Minimize / Dock Button */}
+        {/* Companion Control Buttons (Return Home & Minimize) */}
         {!isMinimized && (
-          <button
-            type="button"
-            className="robot-minimize-btn"
-            onClick={(e) => {
-              e.stopPropagation();
-              setIsMinimized(true);
-            }}
-            title="Minimize companion"
-            aria-label="Minimize companion"
-          >
-            ✕
-          </button>
+          <div className="robot-companion-controls">
+            {isDraggedAway && (
+              <button
+                type="button"
+                className="robot-control-btn home-btn"
+                onClick={resetToHome}
+                title="Return robot to home dock"
+                aria-label="Return robot to home dock"
+              >
+                🏠
+              </button>
+            )}
+            <button
+              type="button"
+              className="robot-control-btn close-btn"
+              onClick={(e) => {
+                e.stopPropagation();
+                setIsMinimized(true);
+              }}
+              title="Minimize companion"
+              aria-label="Minimize companion"
+            >
+              ✕
+            </button>
+          </div>
         )}
       </motion.div>
     </aside>

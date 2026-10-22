@@ -3355,18 +3355,26 @@ footer p {
 /* ---------- 3D RETRO AI ROBOT COMPANION ---------- */
 .robot-companion-dock {
   position: fixed;
-  left: 24px;
-  bottom: 20px;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
   z-index: 98;
-  pointer-events: auto;
+  pointer-events: none;
+  overflow: visible;
 }
 
 .robot-companion-container {
-  position: relative;
+  position: absolute;
+  left: 14px;
+  bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   cursor: grab;
+  pointer-events: auto;
+  touch-action: none;
+  user-select: none;
 }
 .robot-companion-container:active {
   cursor: grabbing;
@@ -3374,10 +3382,6 @@ footer p {
 
 .robot-speech-bubble {
   position: absolute;
-  bottom: 100%;
-  margin-bottom: 14px;
-  left: 50%;
-  transform: translateX(-50%);
   background: var(--yellow);
   color: #1a1a1a;
   border: 2.5px solid var(--ink);
@@ -3389,24 +3393,69 @@ footer p {
   line-height: 1.3;
   box-shadow: 4px 4px 0 var(--hard-shadow);
   white-space: nowrap;
-  max-width: 300px;
+  max-width: 320px;
   text-align: center;
   pointer-events: none;
   z-index: 10;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+/* Vertical and horizontal bubble orientations */
+.robot-speech-bubble.bubble-top {
+  bottom: 100%;
+  margin-bottom: 14px;
+  top: auto;
+  margin-top: 0;
+}
+.robot-speech-bubble.bubble-bottom {
+  top: 100%;
+  margin-top: 14px;
+  bottom: auto;
+  margin-bottom: 0;
+}
+.robot-speech-bubble.bubble-center {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.robot-speech-bubble.bubble-left {
+  left: 0;
+  transform: none;
+}
+.robot-speech-bubble.bubble-right {
+  left: auto;
+  right: 0;
+  transform: none;
 }
 
 .robot-speech-tail {
   position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
   width: 0;
   height: 0;
+}
+.robot-speech-bubble.bubble-center .robot-speech-tail {
+  left: 50%;
+  transform: translateX(-50%);
+}
+.robot-speech-bubble.bubble-left .robot-speech-tail {
+  left: 36px;
+  transform: none;
+}
+.robot-speech-bubble.bubble-right .robot-speech-tail {
+  right: 36px;
+  left: auto;
+  transform: none;
+}
+
+/* Tail pointing down (when bubble is top) */
+.robot-speech-bubble.bubble-top .robot-speech-tail {
+  bottom: -8px;
+  top: auto;
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
   border-top: 8px solid var(--ink);
+  border-bottom: none;
 }
-.robot-speech-tail::after {
+.robot-speech-bubble.bubble-top .robot-speech-tail::after {
   content: "";
   position: absolute;
   bottom: 2px;
@@ -3416,6 +3465,29 @@ footer p {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid var(--yellow);
+  border-bottom: none;
+}
+
+/* Tail pointing up (when bubble is bottom) */
+.robot-speech-bubble.bubble-bottom .robot-speech-tail {
+  top: -8px;
+  bottom: auto;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid var(--ink);
+  border-top: none;
+}
+.robot-speech-bubble.bubble-bottom .robot-speech-tail::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: -6px;
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid var(--yellow);
+  border-top: none;
 }
 
 .robot-avatar-wrapper {
@@ -3423,9 +3495,12 @@ footer p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  cursor: pointer;
+  cursor: grab;
   user-select: none;
   filter: drop-shadow(4px 6px 14px rgba(0, 0, 0, 0.3));
+}
+.robot-avatar-wrapper:active {
+  cursor: grabbing;
 }
 
 .robot-status-pill {
@@ -3446,6 +3521,28 @@ footer p {
   pointer-events: none;
 }
 
+.robot-drag-hint {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 4px;
+  font-family: var(--font-body), sans-serif;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: var(--ink);
+  opacity: 0.75;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px dashed var(--ink);
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+}
+.robot-companion-container:hover .robot-drag-hint {
+  opacity: 1;
+}
+
 .robot-status-dot {
   width: 7px;
   height: 7px;
@@ -3459,17 +3556,23 @@ footer p {
   50% { opacity: 0.4; transform: scale(0.8); }
 }
 
-.robot-minimize-btn {
+.robot-companion-controls {
   position: absolute;
-  top: -4px;
-  right: -4px;
+  top: -6px;
+  right: -8px;
+  display: flex;
+  gap: 4px;
+  z-index: 14;
+}
+
+.robot-control-btn {
   width: 22px;
   height: 22px;
   border-radius: 50%;
   background: var(--paper);
   border: 1.5px solid var(--ink);
   color: var(--ink);
-  font-size: 0.7rem;
+  font-size: 0.72rem;
   font-weight: 800;
   display: flex;
   align-items: center;
@@ -3477,10 +3580,15 @@ footer p {
   cursor: pointer;
   box-shadow: 2px 2px 0 var(--hard-shadow);
   transition: transform 0.15s ease, background 0.15s ease, color 0.15s ease;
-  z-index: 12;
 }
-.robot-minimize-btn:hover {
+.robot-control-btn:hover {
   transform: scale(1.15);
+}
+.robot-control-btn.home-btn:hover {
+  background: var(--blue);
+  color: #fff;
+}
+.robot-control-btn.close-btn:hover {
   background: #e03131;
   color: #fff;
 }
@@ -3495,22 +3603,31 @@ footer p {
   border-radius: 999px;
   padding: 6px 14px;
   box-shadow: 4px 4px 0 var(--hard-shadow);
-  cursor: pointer;
+  cursor: grab;
   font-family: var(--font-body), sans-serif;
   font-weight: 800;
   font-size: 0.8rem;
   letter-spacing: 0.04em;
 }
+.robot-minimized-bubble:active {
+  cursor: grabbing;
+}
 
 @media (max-width: 600px) {
   .robot-companion-dock {
-    left: 12px;
-    bottom: 14px;
+    top: 6px;
+    left: 6px;
+    right: 6px;
+    bottom: 6px;
+  }
+  .robot-companion-container {
+    left: 6px;
+    bottom: 8px;
   }
   .robot-speech-bubble {
     font-size: 1.05rem;
     padding: 6px 12px;
-    max-width: 210px;
+    max-width: 220px;
     white-space: normal;
   }
   .robot-status-pill {
