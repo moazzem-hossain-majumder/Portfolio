@@ -2,10 +2,10 @@
 
 > **Retro paper-and-stickers portfolio built with Next.js 14 (App Router), plain CSS, and Framer Motion — featuring real-time GitHub repository synchronization, interactive 3D robot companion, dynamic audio synthesis, and dark/light modes.**
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-portfolio--ecru--ten--foaabz5yq7.vercel.app-38bdf8?style=for-the-badge&logo=vercel)](https://portfolio-ecru-ten-foaabz5yq7.vercel.app/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-moazzem--hossain--majumder.vercel.app-38bdf8?style=for-the-badge&logo=vercel)](https://moazzem-hossain-majumder.vercel.app/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](LICENSE)
 
-🔗 **Try it live right now:** **[https://portfolio-ecru-ten-foaabz5yq7.vercel.app/](https://portfolio-ecru-ten-foaabz5yq7.vercel.app/)**
+🔗 **Try it live right now:** **[https://moazzem-hossain-majumder.vercel.app/](https://moazzem-hossain-majumder.vercel.app/)**
 
 ---
 
