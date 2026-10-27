@@ -762,6 +762,19 @@
   "pinnedProjects": [
     {
       "type": "repo",
+      "repo": "Omni-Mark",
+      "note": "High-fidelity split-pane Markdown reader and live studio featuring authentic GitHub & Claude styling, GFM callout alerts, KaTeX math notation, and real-time Mermaid diagrams.",
+      "demo": "https://omni-mark-zorox.vercel.app/",
+      "tags": [
+        "JavaScript",
+        "Markdown",
+        "GFM",
+        "KaTeX",
+        "Mermaid"
+      ]
+    },
+    {
+      "type": "repo",
       "repo": "Podcast-Companion",
       "note": "Turn podcast transcripts or audio into an interactive companion with structured overviews, navigable chapters, source-verified quizzes, and grounded Q&A.",
       "demo": "https://podcast-companion.onrender.com",
