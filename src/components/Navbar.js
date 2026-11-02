@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { motion, useScroll } from "framer-motion";
 import { getAudioEngine } from "@/utils/audio";
 
@@ -39,16 +40,26 @@ export default function Navbar({ basics }) {
   return (
     <nav className="nav">
       <div className="container nav-inner">
-        <a href="#home" className="nav-logo">
-          MH.
-        </a>
+        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+          <a href="#home" className="nav-logo">
+            MH.
+          </a>
+          <Link href="/data-analyst" className="nav-track-btn" title="View dedicated Data Analyst portfolio">
+            📊 DATA ANALYST TRACK
+          </Link>
+        </div>
+
         <div className={`nav-links ${open ? "open" : ""}`}>
           {LINKS.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
               {l.label}
             </a>
           ))}
+          <Link href="/data-analyst" className="nav-mobile-track-link" onClick={() => setOpen(false)}>
+            📊 DATA ANALYST PORTFOLIO →
+          </Link>
         </div>
+
         <div className="nav-right">
           {basics.resumeUrl && (
             <a className="btn yellow nav-resume" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">

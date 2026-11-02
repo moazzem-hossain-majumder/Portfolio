@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Pencil3D } from "./PencilSketchHead";
+import RoleTrackSwitcher from "./RoleTrackSwitcher";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -91,7 +92,12 @@ export default function Hero({ basics, stats }) {
           </span>
         </motion.div>
 
-        <motion.div className="hero-cta" style={{ marginTop: "30px" }} variants={fadeUp} initial="hidden" animate="show" custom={7}>
+        {/* CAREER TRACK SELECTION OPTION: DATA ANALYST OR AI ENGINEER */}
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={7} style={{ marginTop: "32px" }}>
+          <RoleTrackSwitcher currentTrack="main" />
+        </motion.div>
+
+        <motion.div className="hero-cta" style={{ marginTop: "28px" }} variants={fadeUp} initial="hidden" animate="show" custom={8}>
           <a className="btn yellow" href={`mailto:${basics.email}`}>
             ✉ CONTACT ME
           </a>
