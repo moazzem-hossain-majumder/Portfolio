@@ -49,11 +49,29 @@ export default function DataAnalystNavbar({ basics }) {
         </div>
 
         <div className={`nav-links ${open ? "open" : ""}`}>
+          <Link
+            href="/"
+            className="nav-mobile-only-btn"
+            onClick={() => setOpen(false)}
+          >
+            ← MAIN
+          </Link>
           {DA_LINKS.map((l) => (
             <a key={l.href} href={l.href} onClick={() => setOpen(false)}>
               {l.label}
             </a>
           ))}
+          {basics?.resumeUrl && (
+            <a
+              className="nav-mobile-only-btn nav-mobile-resume-btn"
+              href={basics.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+            >
+              📄 RESUME ↓
+            </a>
+          )}
         </div>
 
         <div className="nav-right">

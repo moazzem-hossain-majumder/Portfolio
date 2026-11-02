@@ -47,7 +47,13 @@ export default function RobotCompanion() {
   // Set mounted and detect mobile screen size
   useEffect(() => {
     setMounted(true);
-    const checkMobile = () => setIsMobile(window.innerWidth < 640);
+    const checkMobile = () => {
+      const mobile = window.innerWidth < 768;
+      setIsMobile(mobile);
+      if (mobile) {
+        setIsMinimized(true);
+      }
+    };
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => window.removeEventListener("resize", checkMobile);
@@ -55,6 +61,7 @@ export default function RobotCompanion() {
 
   // Display a temporary comic speech bubble
   const showSpeech = useCallback((text, duration = 4000) => {
+    if (window.innerWidth < 768) return; // keep mobile screen clear
     setMessage(text);
     if (speechTimeoutRef.current) clearTimeout(speechTimeoutRef.current);
     speechTimeoutRef.current = setTimeout(() => {
@@ -62,9 +69,9 @@ export default function RobotCompanion() {
     }, duration);
   }, []);
 
-  // Initial greeting
+  // Initial greeting (desktop only)
   useEffect(() => {
-    if (!mounted) return;
+    if (!mounted || window.innerWidth < 768) return;
     const initialGreeting = setTimeout(() => {
       showSpeech("Beep boop! Drag me anywhere on the screen! 👋", 5000);
     }, 1200);
@@ -220,7 +227,7 @@ export default function RobotCompanion() {
 
   if (!mounted) return null;
 
-  const robotSize = isMobile ? 95 : 125;
+  const robotSize = isMobile ? 80 : 125;
 
   return (
     <aside

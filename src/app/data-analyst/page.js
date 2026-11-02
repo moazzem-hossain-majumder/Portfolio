@@ -76,7 +76,7 @@ export default function DataAnalystPage() {
 
       <footer>
         <p>
-          Data Analyst Track Dossier • Built with Next.js & GitHub API • {new Date().getFullYear()}
+          Data Analyst Dossier • Built with Next.js & GitHub API • {new Date().getFullYear()}
         </p>
       </footer>
 

@@ -50,7 +50,7 @@ export default function Navbar({ basics }) {
               {l.label}
             </a>
           ))}
-          {/* Mobile-only Data Analyst jump */}
+          {/* Mobile-only clean menu items */}
           <Link
             href="/data-analyst"
             className="nav-mobile-only-btn"
@@ -58,6 +58,17 @@ export default function Navbar({ basics }) {
           >
             📊 DATA ANALYST
           </Link>
+          {basics.resumeUrl && (
+            <a
+              className="nav-mobile-only-btn nav-mobile-resume-btn"
+              href={basics.resumeUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+            >
+              📄 RESUME ↓
+            </a>
+          )}
         </div>
 
         <div className="nav-right">

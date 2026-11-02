@@ -308,19 +308,33 @@ section {
 }
 .hero-name {
   font-family: var(--font-display), 'Archivo Black', sans-serif;
-  font-size: clamp(3.2rem, 12vw, 7.5rem);
-  line-height: 0.95;
-  padding: 10px 34px;
+  font-weight: 400;
+  font-size: clamp(3rem, 10.5vw, 7rem);
+  line-height: 0.98;
+  padding: 12px 34px;
   background: var(--paper);
   border: 3px solid var(--ink);
   border-radius: 22px;
   box-shadow: 10px 10px 0 var(--soft-shadow);
   display: inline-block;
   transform: rotate(-1deg);
+  letter-spacing: 0.01em;
 }
-.hero-name span {
+.hero-name .hero-name-first,
+.hero-name > span:first-child {
+  display: block;
+  font-family: inherit;
+  font-weight: inherit;
   color: transparent;
-  -webkit-text-stroke: 2.5px var(--ink);
+  -webkit-text-stroke: 2.2px var(--ink);
+  letter-spacing: 0.02em;
+}
+.hero-name .hero-name-last {
+  display: block;
+  font-family: inherit;
+  font-weight: inherit;
+  color: var(--ink);
+  letter-spacing: 0.02em;
 }
 .hero-tag {
   position: absolute;
@@ -333,6 +347,7 @@ section {
   box-shadow: 3px 3px 0 var(--hard-shadow);
   white-space: nowrap;
   color: #1a1a1a;
+  z-index: 2;
 }
 .hero-avatar {
   position: absolute;
@@ -2517,37 +2532,169 @@ footer p {
     padding: 11px 18px;
   }
   
-  /* Hero adjustments for mobile phones */
+  /* Hero & core layout adjustments for mobile phones */
+  .hero {
+    padding: 42px 0 24px;
+  }
+  .hero-eyebrow {
+    font-size: 1.15rem;
+  }
+  .hero-name-wrap {
+    margin: 8px 0 16px;
+  }
   .hero-name {
-    font-size: clamp(2.4rem, 11vw, 3.8rem);
+    font-size: clamp(1.9rem, 8.8vw, 2.7rem);
+    line-height: 1.02;
     padding: 8px 18px;
-    border-width: 2.5px;
+    border-width: 2px;
+    border-radius: 16px;
+    box-shadow: 5px 5px 0 var(--soft-shadow);
+    transform: rotate(-0.8deg);
+  }
+  .hero-name .hero-name-first,
+  .hero-name > span:first-child {
+    -webkit-text-stroke: 1.05px var(--ink);
+    letter-spacing: 0.03em;
+    margin-bottom: 2px;
+  }
+  .hero-name .hero-name-last {
+    letter-spacing: 0.03em;
   }
   .hero-tag {
-    font-size: 0.8rem;
-    padding: 3px 8px;
+    font-size: 0.68rem;
+    padding: 2.5px 7px;
+    border-width: 1.5px;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0 var(--hard-shadow);
   }
   .hero-sub {
-    font-size: clamp(1.25rem, 5vw, 1.8rem);
-    margin: 20px auto 8px;
+    font-size: clamp(1.1rem, 4.4vw, 1.4rem);
+    line-height: 1.35;
+    margin: 14px auto 6px;
+    max-width: 95%;
   }
   .hero-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    margin: 10px auto 20px;
+    font-size: 0.84rem;
+    line-height: 1.5;
+    margin: 6px auto 14px;
+    max-width: 94%;
+  }
+  .status-pill {
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    gap: 6px;
   }
   .hero-cta {
     gap: 10px;
   }
   .hero-cta .btn {
-    padding: 12px 20px;
-    font-size: 0.85rem;
+    padding: 10px 18px;
+    font-size: 0.82rem;
+  }
+  
+  /* Compact mobile navbar */
+  .nav-inner {
+    padding: 8px 0;
+    gap: 4px;
+  }
+  .nav-logo {
+    padding: 4px 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0 var(--hard-shadow);
+  }
+  .nav-right {
+    gap: 4px;
+  }
+  .nav-resume {
+    padding: 5px 9px !important;
+    font-size: 0.68rem !important;
+    border-radius: 6px !important;
+    box-shadow: 2px 2px 0 var(--hard-shadow) !important;
+  }
+  .theme-btn,
+  .menu-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.88rem;
+    border-radius: 6px;
+    box-shadow: 2px 2px 0 var(--hard-shadow);
+  }
+  .da-back-to-main-btn {
+    padding: 3px 7px;
+    font-size: 0.65rem;
+  }
+  .da-nav-track-tag {
+    padding: 2px 6px;
+    font-size: 0.6rem;
   }
 }
 
 @media (max-width: 480px) {
+  .hero {
+    padding: 34px 0 20px;
+  }
+  .hero-eyebrow {
+    font-size: 1.05rem;
+  }
+  .hero-name-wrap {
+    margin: 6px 0 14px;
+  }
+  .hero-name {
+    font-size: clamp(1.75rem, 8.4vw, 2.35rem);
+    line-height: 1.06;
+    padding: 7px 15px;
+    border-width: 2px;
+    border-radius: 14px;
+    box-shadow: 4px 4px 0 var(--soft-shadow);
+    transform: rotate(-0.6deg);
+  }
+  .hero-name .hero-name-first,
+  .hero-name > span:first-child {
+    -webkit-text-stroke: 0.85px var(--ink);
+    letter-spacing: 0.04em;
+    margin-bottom: 2px;
+  }
+  .hero-name .hero-name-last {
+    letter-spacing: 0.04em;
+  }
+  /* Keep cute sticker tags visible and well-proportioned on phones */
   .hero-tag {
-    display: none;
+    display: inline-block !important;
+    font-size: 0.62rem !important;
+    padding: 2px 6px !important;
+    border-width: 1.5px !important;
+    border-radius: 5px !important;
+    box-shadow: 1.5px 1.5px 0 var(--hard-shadow) !important;
+  }
+  .hero-name-wrap .hero-tag:nth-of-type(1) {
+    top: -10px !important;
+    left: -10px !important;
+  }
+  .hero-name-wrap .hero-tag:nth-of-type(2) {
+    top: -10px !important;
+    right: -10px !important;
+  }
+  .hero-name-wrap .hero-tag:nth-of-type(3) {
+    bottom: -10px !important;
+    left: -8px !important;
+  }
+  .hero-name-wrap .hero-tag:nth-of-type(4) {
+    bottom: -10px !important;
+    right: -8px !important;
+  }
+  .hero-sub {
+    font-size: clamp(1.02rem, 4.2vw, 1.25rem);
+    margin: 10px auto 5px;
+  }
+  .hero-desc {
+    font-size: 0.8rem;
+    line-height: 1.48;
+    margin: 5px auto 12px;
+  }
+  .status-pill {
+    padding: 5px 12px;
+    font-size: 0.74rem;
   }
   .cert-grid,
   .proj-grid,
@@ -3807,8 +3954,62 @@ footer p {
   gap: 16px;
 }
 @media (max-width: 680px) {
+  .role-switcher-container {
+    margin: 12px 0 16px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border-width: 1.5px;
+  }
+  .role-switcher-header {
+    margin-bottom: 8px;
+    gap: 4px;
+  }
+  .role-switcher-label {
+    font-size: 0.72rem;
+  }
+  .role-switcher-hint {
+    font-size: 0.82rem;
+  }
   .role-switcher-grid {
     grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .role-track-card {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border-width: 1.5px;
+    box-shadow: 2px 2px 0 var(--hard-shadow);
+  }
+  .role-track-top {
+    margin-bottom: 4px;
+  }
+  .role-track-icon {
+    font-size: 1.15rem;
+  }
+  .role-track-badge {
+    font-size: 0.58rem;
+    padding: 2px 6px;
+  }
+  .role-track-title {
+    font-size: 0.96rem;
+    margin-bottom: 2px;
+  }
+  .role-track-desc {
+    font-size: 0.72rem;
+    line-height: 1.32;
+    margin-bottom: 6px;
+  }
+  .role-track-tags {
+    gap: 3px;
+  }
+  .track-tag {
+    font-size: 0.62rem;
+    padding: 1.5px 5px;
+  }
+  .ai-engineer-notice-toast {
+    margin-top: 8px;
+    padding: 8px 10px;
+    font-size: 0.74rem;
   }
 }
 

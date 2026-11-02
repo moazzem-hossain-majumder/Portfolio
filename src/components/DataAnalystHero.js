@@ -37,7 +37,8 @@ export default function DataAnalystHero({ basics }) {
 
         <motion.div className="hero-name-wrap" variants={fadeUp} initial="hidden" animate="show" custom={1}>
           <h1 className="hero-name">
-            <span>{first}</span> {rest}
+            <span className="hero-name-first">{first}</span>
+            <span className="hero-name-last">{rest}</span>
           </h1>
           <span className="hero-tag" style={{ background: "var(--green)", top: "-18px", left: "-30px", transform: "rotate(-6deg)" }}>
             Data Analyst

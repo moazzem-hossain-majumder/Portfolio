@@ -36,12 +36,12 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
           </div>
           <h3 className="role-track-title">Data Analyst</h3>
           <p className="role-track-desc">
-            Excel Modeling • Production SQL (MySQL & PostgreSQL) • Python EDA • Power BI Dashboards
+            Excel Modeling • Production SQL • Python EDA • Power BI Dashboards
           </p>
           <div className="role-track-tags">
             <span className="track-tag">8 Case Studies</span>
             <span className="track-tag">150K+ Rows</span>
-            <span className="track-tag">Full Audits & Visuals</span>
+            <span className="track-tag">Verified Audits</span>
           </div>
         </Link>
 
@@ -58,16 +58,16 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
         >
           <div className="role-track-top">
             <span className="role-track-icon">🤖</span>
-            <span className="role-track-badge ai-badge">IN DEVELOPMENT • COMING SOON</span>
+            <span className="role-track-badge ai-badge">COMING SOON</span>
           </div>
           <h3 className="role-track-title">AI Engineer</h3>
           <p className="role-track-desc">
-            Production LLMs • RAG Systems • LangChain & LangGraph Agents • Multimodal Networks
+            Production LLMs • RAG Systems • LangChain & LangGraph Agents
           </p>
           <div className="role-track-tags">
             <span className="track-tag">Agentic Workflows</span>
             <span className="track-tag">Fine-Tuning</span>
-            <span className="track-tag">Coming Soon</span>
+            <span className="track-tag">In Progress</span>
           </div>
         </div>
       </div>
