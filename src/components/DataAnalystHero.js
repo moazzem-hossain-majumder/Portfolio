@@ -23,7 +23,7 @@ export default function DataAnalystHero({ basics }) {
       <div className="container" style={{ position: "relative" }}>
         <div style={{ display: "inline-flex", alignItems: "center", position: "relative" }}>
           <motion.p className="hero-eyebrow" variants={fadeUp} initial="hidden" animate="show" custom={0}>
-            focused track dossier //
+            focused dossier //
           </motion.p>
           <motion.div
             initial={{ opacity: 0, x: -10, rotate: -30 }}
@@ -81,7 +81,7 @@ export default function DataAnalystHero({ basics }) {
         </motion.h2>
 
         <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="show" custom={5}>
-          Specialized Data Analyst portfolio presenting comprehensive, production-grade projects
+          Specialized Data Analyst view presenting comprehensive, production-grade projects
           strictly verified from my GitHub repositories. Divided into dedicated sections for{" "}
           <strong>Excel, SQL, Python, and Power BI</strong>, featuring data cleaning audits, cohort funnels,
           and empirical findings.
@@ -151,4 +151,3 @@ export default function DataAnalystHero({ basics }) {
     </section>
   );
 }
-

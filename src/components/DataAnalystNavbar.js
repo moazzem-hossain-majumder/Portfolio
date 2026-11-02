@@ -39,13 +39,13 @@ export default function DataAnalystNavbar({ basics }) {
     <nav className="nav da-nav">
       <div className="container nav-inner">
         <div className="da-nav-left">
-          <Link href="/" className="nav-logo" title="Back to main portfolio">
+          <Link href="/" className="nav-logo" title="Back to main">
             MH.
           </Link>
-          <Link href="/" className="da-back-to-main-btn">
-            ← MAIN OVERVIEW
+          <Link href="/" className="da-back-to-main-btn" title="Back to main">
+            ← MAIN
           </Link>
-          <span className="da-nav-track-tag">DATA ANALYST TRACK</span>
+          <span className="da-nav-track-tag">DATA ANALYST</span>
         </div>
 
         <div className={`nav-links ${open ? "open" : ""}`}>
@@ -90,4 +90,3 @@ export default function DataAnalystNavbar({ basics }) {
     </nav>
   );
 }
-

@@ -40,14 +40,9 @@ export default function Navbar({ basics }) {
   return (
     <nav className="nav">
       <div className="container nav-inner">
-        <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-          <a href="#home" className="nav-logo">
-            MH.
-          </a>
-          <Link href="/data-analyst" className="nav-track-btn" title="View dedicated Data Analyst portfolio">
-            📊 DATA ANALYST TRACK
-          </Link>
-        </div>
+        <a href="#home" className="nav-logo">
+          MH.
+        </a>
 
         <div className={`nav-links ${open ? "open" : ""}`}>
           {LINKS.map((l) => (
@@ -55,12 +50,24 @@ export default function Navbar({ basics }) {
               {l.label}
             </a>
           ))}
-          <Link href="/data-analyst" className="nav-mobile-track-link" onClick={() => setOpen(false)}>
-            📊 DATA ANALYST PORTFOLIO →
+          {/* Mobile-only Data Analyst jump */}
+          <Link
+            href="/data-analyst"
+            className="nav-mobile-only-btn"
+            onClick={() => setOpen(false)}
+          >
+            📊 DATA ANALYST
           </Link>
         </div>
 
         <div className="nav-right">
+          <Link
+            href="/data-analyst"
+            className="nav-track-btn"
+            title="Data Analyst"
+          >
+            📊 DATA ANALYST
+          </Link>
           {basics.resumeUrl && (
             <a className="btn yellow nav-resume" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
               RESUME ↓

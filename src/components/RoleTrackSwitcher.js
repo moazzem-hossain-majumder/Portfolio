@@ -18,8 +18,8 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
   return (
     <div className="role-switcher-container">
       <div className="role-switcher-header">
-        <span className="role-switcher-label">CHOOSE CAREER TRACK:</span>
-        <span className="role-switcher-hint">Tailored projects, metrics & verified certificates</span>
+        <span className="role-switcher-label">SELECT ROLE:</span>
+        <span className="role-switcher-hint">Tailored case studies, metrics & verified certificates</span>
       </div>
 
       <div className="role-switcher-grid">
@@ -31,7 +31,7 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
           <div className="role-track-top">
             <span className="role-track-icon">📊</span>
             <span className="role-track-badge da-badge">
-              {currentTrack === "data-analyst" ? "ACTIVE VIEW" : "VIEW SPECIALIZED TRACK ↗"}
+              {currentTrack === "data-analyst" ? "ACTIVE" : "VIEW ↗"}
             </span>
           </div>
           <h3 className="role-track-title">Data Analyst</h3>
@@ -54,7 +54,7 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") handleAiClick(e);
           }}
-          aria-label="AI Engineer track - in development"
+          aria-label="AI Engineer - in development"
         >
           <div className="role-track-top">
             <span className="role-track-icon">🤖</span>
@@ -85,7 +85,7 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
             <div className="ai-notice-content">
               <span className="ai-notice-icon">⚙️</span>
               <div>
-                <strong>AI Engineer Track In Progress:</strong> We will activate the dedicated AI Engineer track later! For now, explore the complete, in-depth <strong>Data Analyst</strong> track above or scroll down for the unified portfolio.
+                <strong>AI Engineer:</strong> We will activate AI Engineer later! For now, explore the complete, in-depth <strong>Data Analyst</strong> section above or scroll down for the unified overview.
               </div>
             </div>
             <button
@@ -101,4 +101,3 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
     </div>
   );
 }
-

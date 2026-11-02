@@ -191,9 +191,9 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1rem;
-  padding: 14px 0;
-  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding: 10px 0;
+  flex-wrap: nowrap;
 }
 .nav-logo {
   font-family: var(--font-display), 'Archivo Black', sans-serif;
@@ -204,20 +204,23 @@ section {
   box-shadow: 3px 3px 0 var(--hard-shadow);
   padding: 6px 14px;
   transform: rotate(-1.5deg);
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .nav-links {
   display: flex;
-  gap: 6px;
-  flex-wrap: wrap;
+  gap: 3px;
+  flex-wrap: nowrap;
   align-items: center;
 }
 .nav-links a {
-  font-size: 0.82rem;
+  font-size: 0.74rem;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  padding: 7px 13px;
+  letter-spacing: 0.05em;
+  padding: 5px 8px;
   border: 2px solid transparent;
-  border-radius: 10px;
+  border-radius: 8px;
+  white-space: nowrap;
   transition: all 0.18s ease;
 }
 .nav-links a:hover {
@@ -227,22 +230,25 @@ section {
 }
 .nav-right {
   display: flex;
-  gap: 8px;
+  gap: 6px;
   align-items: center;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 
 .theme-btn,
 .menu-btn {
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   background: var(--paper);
   border: 2px solid var(--ink);
-  border-radius: 10px;
-  box-shadow: 3px 3px 0 var(--hard-shadow);
+  border-radius: 8px;
+  box-shadow: 2.5px 2.5px 0 var(--hard-shadow);
   transition: transform 0.15s ease;
+  flex-shrink: 0;
 }
 .theme-btn:hover,
 .menu-btn:hover {
@@ -252,16 +258,23 @@ section {
   display: none;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 1080px) {
   .menu-btn {
     display: grid;
   }
   .nav-links {
     display: none;
-    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg);
+    border-bottom: 2px solid var(--ink);
     flex-direction: column;
     align-items: stretch;
-    padding-bottom: 12px;
+    padding: 14px 20px;
+    gap: 8px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25);
   }
   .nav-links.open {
     display: flex;
@@ -269,6 +282,11 @@ section {
   .nav-links a {
     border-color: var(--ink);
     background: var(--paper);
+    padding: 10px 14px;
+    font-size: 0.85rem;
+  }
+  .nav-right .nav-track-btn {
+    display: none;
   }
 }
 
@@ -3678,10 +3696,10 @@ footer p {
 .nav-track-btn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   font-family: var(--font-display);
   font-size: 0.72rem;
-  padding: 5px 12px;
+  padding: 5px 11px;
   border-radius: 999px;
   background: var(--yellow);
   color: #1a1a1a;
@@ -3689,30 +3707,42 @@ footer p {
   box-shadow: 2px 2px 0 var(--hard-shadow);
   text-decoration: none;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+  flex-shrink: 0;
   transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .nav-track-btn:hover {
   transform: translate(-1px, -1px);
   box-shadow: 3px 3px 0 var(--hard-shadow);
 }
-.nav-mobile-track-link {
-  display: block;
-  margin-top: 10px;
-  padding: 8px 14px;
-  background: var(--yellow);
-  color: #1a1a1a !important;
-  font-family: var(--font-display);
-  font-size: 0.85rem;
-  border-radius: 8px;
-  border: 2px solid var(--hard-shadow);
-  text-align: center;
+.nav-mobile-only-btn {
+  display: none;
+}
+@media (max-width: 1080px) {
+  .nav-mobile-only-btn {
+    display: block;
+    margin-top: 8px;
+    padding: 10px 14px;
+    background: var(--yellow);
+    color: #1a1a1a !important;
+    font-family: var(--font-display);
+    font-size: 0.85rem;
+    border-radius: 8px;
+    border: 2px solid var(--hard-shadow);
+    text-align: center;
+  }
 }
 
 /* Data Analyst Navbar header */
+.da-nav .nav-inner {
+  flex-wrap: nowrap;
+}
 .da-nav-left {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-shrink: 0;
+  white-space: nowrap;
 }
 .da-back-to-main-btn {
   font-family: var(--font-display);
@@ -3723,6 +3753,7 @@ footer p {
   background: var(--paper);
   border: 1.5px solid var(--line);
   color: var(--ink);
+  white-space: nowrap;
   transition: all 0.15s ease;
 }
 .da-back-to-main-btn:hover {
@@ -3738,6 +3769,7 @@ footer p {
   padding: 3px 8px;
   border-radius: 4px;
   border: 1.5px solid var(--hard-shadow);
+  white-space: nowrap;
 }
 
 /* Role Switcher Container in Hero */
