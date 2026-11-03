@@ -3921,110 +3921,28 @@ footer p {
 
 /* Role Switcher Container in Hero */
 .role-switcher-container {
-  margin: 18px 0 24px;
-  padding: 16px 20px;
-  background: var(--paper);
-  border: 2px dashed var(--line);
-  border-radius: 14px;
+  margin: 20px auto 24px;
+  max-width: 640px;
   position: relative;
   text-align: left;
-}
-.role-switcher-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 14px;
-}
-.role-switcher-label {
-  font-family: var(--font-display);
-  font-size: 0.82rem;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-}
-.role-switcher-hint {
-  font-family: var(--font-hand);
-  font-size: 1.1rem;
-  color: var(--muted);
 }
 .role-switcher-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  gap: 14px;
 }
-@media (max-width: 680px) {
-  .role-switcher-container {
-    margin: 12px 0 16px;
-    padding: 10px 12px;
-    border-radius: 10px;
-    border-width: 1.5px;
-  }
-  .role-switcher-header {
-    margin-bottom: 8px;
-    gap: 4px;
-  }
-  .role-switcher-label {
-    font-size: 0.72rem;
-  }
-  .role-switcher-hint {
-    font-size: 0.82rem;
-  }
-  .role-switcher-grid {
-    grid-template-columns: 1fr;
-    gap: 8px;
-  }
-  .role-track-card {
-    padding: 10px 12px;
-    border-radius: 8px;
-    border-width: 1.5px;
-    box-shadow: 2px 2px 0 var(--hard-shadow);
-  }
-  .role-track-top {
-    margin-bottom: 4px;
-  }
-  .role-track-icon {
-    font-size: 1.15rem;
-  }
-  .role-track-badge {
-    font-size: 0.58rem;
-    padding: 2px 6px;
-  }
-  .role-track-title {
-    font-size: 0.96rem;
-    margin-bottom: 2px;
-  }
-  .role-track-desc {
-    font-size: 0.72rem;
-    line-height: 1.32;
-    margin-bottom: 6px;
-  }
-  .role-track-tags {
-    gap: 3px;
-  }
-  .track-tag {
-    font-size: 0.62rem;
-    padding: 1.5px 5px;
-  }
-  .ai-engineer-notice-toast {
-    margin-top: 8px;
-    padding: 8px 10px;
-    font-size: 0.74rem;
-  }
-}
-
 .role-track-card {
   display: flex;
   flex-direction: column;
-  padding: 16px;
-  border-radius: 10px;
+  padding: 16px 18px;
+  border-radius: 12px;
   border: 2px solid var(--hard-shadow);
   box-shadow: 3px 3px 0 var(--hard-shadow);
-  background: var(--bg);
+  background: var(--paper);
   cursor: pointer;
   text-decoration: none;
   color: inherit;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 .role-track-card:hover {
   transform: translate(-2px, -2px);
@@ -4032,11 +3950,10 @@ footer p {
 }
 .role-track-card.active-track {
   border-color: var(--hard-shadow);
-  background: var(--paper);
   box-shadow: 4px 4px 0 var(--yellow);
 }
 .ai-track-card {
-  opacity: 0.88;
+  opacity: 0.9;
 }
 .ai-track-card:hover {
   opacity: 1;
@@ -4049,56 +3966,40 @@ footer p {
   margin-bottom: 8px;
 }
 .role-track-icon {
-  font-size: 1.4rem;
+  font-size: 1.35rem;
 }
-.role-track-badge {
+.role-track-action {
   font-family: var(--font-display);
-  font-size: 0.65rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
   padding: 3px 8px;
-  border-radius: 999px;
-  letter-spacing: 0.04em;
-  border: 1px solid var(--hard-shadow);
-}
-.da-badge {
-  background: var(--green);
-  color: #1a1a1a;
-}
-.ai-badge {
+  border-radius: 6px;
   background: var(--yellow);
   color: #1a1a1a;
+  border: 1.5px solid var(--hard-shadow);
+}
+.role-track-action.coming-soon {
+  background: var(--paper);
+  color: var(--muted);
+  border-color: var(--line);
 }
 
 .role-track-title {
   font-family: var(--font-display);
   font-size: 1.15rem;
-  margin-bottom: 6px;
+  margin-bottom: 4px;
   color: var(--ink);
 }
 .role-track-desc {
   font-size: 0.82rem;
   line-height: 1.35;
   color: var(--muted);
-  margin-bottom: 12px;
-  flex-grow: 1;
-}
-.role-track-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.track-tag {
-  font-size: 0.68rem;
-  padding: 2px 7px;
-  background: var(--paper);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  color: var(--ink);
 }
 
 /* Toast notice for AI Engineer */
 .ai-engineer-notice-toast {
-  margin-top: 14px;
-  padding: 10px 14px;
+  margin-top: 10px;
+  padding: 8px 14px;
   background: var(--yellow);
   color: #1a1a1a;
   border: 2px solid var(--hard-shadow);
@@ -4108,16 +4009,8 @@ footer p {
   justify-content: space-between;
   gap: 12px;
   box-shadow: 2px 2px 0 var(--hard-shadow);
-  font-size: 0.82rem;
-  line-height: 1.4;
-}
-.ai-notice-content {
-  display: flex;
-  align-items: flex-start;
-  gap: 10px;
-}
-.ai-notice-icon {
-  font-size: 1.2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 .ai-notice-close {
   background: none;
@@ -4129,94 +4022,113 @@ footer p {
   padding: 2px 6px;
 }
 
+@media (max-width: 600px) {
+  .role-switcher-container {
+    margin: 14px 0 18px;
+  }
+  .role-switcher-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .role-track-card {
+    padding: 12px 14px;
+    border-radius: 10px;
+    border-width: 1.5px;
+    box-shadow: 2px 2px 0 var(--hard-shadow);
+  }
+  .role-track-top {
+    margin-bottom: 4px;
+  }
+  .role-track-icon {
+    font-size: 1.15rem;
+  }
+  .role-track-title {
+    font-size: 1.02rem;
+    margin-bottom: 2px;
+  }
+  .role-track-desc {
+    font-size: 0.76rem;
+    line-height: 1.32;
+  }
+  .ai-engineer-notice-toast {
+    margin-top: 8px;
+    padding: 8px 10px;
+    font-size: 0.74rem;
+  }
+}
+
 /* Section intros for Data Analyst */
 .da-section {
-  padding: 50px 0;
+  padding: 40px 0;
   border-bottom: 1px dashed var(--line);
 }
-.da-section-intro {
-  margin: 12px 0 28px;
-}
-.da-intro-header {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.da-section-badge {
-  align-self: flex-start;
-  font-family: var(--font-display);
-  font-size: 0.7rem;
-  letter-spacing: 0.06em;
-  background: var(--yellow);
-  color: #1a1a1a;
-  padding: 3px 9px;
-  border-radius: 4px;
-  border: 1.5px solid var(--hard-shadow);
-}
 .da-section-desc {
-  font-size: 0.95rem;
+  font-size: 0.92rem;
   line-height: 1.5;
   color: var(--muted);
-  max-width: 820px;
+  max-width: 720px;
+  margin-top: 2px;
+  margin-bottom: 26px;
 }
 
 /* Data Analyst Project Cards */
 .da-project-cards-stack {
   display: flex;
   flex-direction: column;
-  gap: 34px;
+  gap: 30px;
 }
 .da-card-motion {
   width: 100%;
 }
 .da-project-card {
-  padding: 26px 28px;
+  padding: 24px 26px;
   background: var(--paper);
   border-radius: 8px;
 }
 @media (max-width: 640px) {
   .da-project-card {
-    padding: 18px 16px;
+    padding: 16px 14px;
   }
 }
 
 .da-card-header-bar {
   display: flex;
-  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
-  padding-bottom: 12px;
-  margin-bottom: 18px;
-  border-bottom: 1.5px dashed var(--line);
-}
-.da-card-tags-left {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+  padding-bottom: 10px;
+  margin-bottom: 16px;
+  border-bottom: 1px dashed var(--line);
 }
 .da-card-cat-chip {
   font-family: var(--font-display);
-  font-size: 0.7rem;
-  padding: 3px 8px;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
   border-radius: 4px;
   color: #1a1a1a;
   border: 1px solid var(--hard-shadow);
 }
-.da-card-highlight-chip {
+.da-card-repo-slug {
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  font-weight: 600;
-  padding: 2px 8px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 4px;
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.da-card-repo-slug:hover {
   color: var(--ink);
 }
-.da-card-repo-slug {
-  font-family: monospace;
-  font-size: 0.74rem;
+.da-modal-repo-link {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.8rem;
   color: var(--muted);
+  text-decoration: none;
+}
+.da-modal-repo-link:hover {
+  color: var(--ink);
 }
 
 .da-card-main-grid {
@@ -4259,18 +4171,13 @@ footer p {
 /* KPIs grid inside card */
 .da-card-kpi-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 18px;
-  padding: 12px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 10px 12px;
   background: var(--bg);
   border: 1.5px solid var(--line);
   border-radius: 8px;
-}
-@media (max-width: 500px) {
-  .da-card-kpi-grid {
-    grid-template-columns: 1fr;
-  }
 }
 .da-kpi-item {
   display: flex;
@@ -4293,16 +4200,6 @@ footer p {
 }
 
 /* Takeaways list inside card */
-.da-card-takeaways {
-  padding-top: 10px;
-}
-.da-takeaways-head {
-  font-family: var(--font-display);
-  font-size: 0.72rem;
-  letter-spacing: 0.05em;
-  color: var(--muted);
-  margin-bottom: 6px;
-}
 .da-takeaways-list {
   padding-left: 16px;
   font-size: 0.82rem;
@@ -4395,13 +4292,26 @@ footer p {
 
 .da-card-cta-group {
   display: flex;
-  flex-direction: column;
   gap: 8px;
 }
 .da-full-case-btn {
-  width: 100%;
+  flex: 1.2;
   text-align: center;
   justify-content: center;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+}
+.da-gh-btn {
+  flex: 0.8;
+  text-align: center;
+  justify-content: center;
+  padding: 10px 14px;
+  font-size: 0.82rem;
+}
+@media (max-width: 640px) {
+  .da-card-cta-group {
+    flex-direction: column;
+  }
 }
 .da-gh-btn {
   width: 100%;

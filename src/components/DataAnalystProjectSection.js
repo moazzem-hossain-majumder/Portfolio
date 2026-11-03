@@ -10,42 +10,34 @@ const SECTIONS = [
   {
     id: "excel",
     category: "Excel",
-    label: "section 01 — spreadsheets & financial modeling",
-    title: "EXCEL ANALYTICS",
+    title: "EXCEL",
     doodle: "star",
-    badge: "3 IN-DEPTH WORKBOOKS",
     description:
-      "Advanced multi-sheet analytical workbooks engineered with native dynamic formulas (SUMIFS, COUNTIFS, AVERAGEIFS, INDEX/MATCH, SUMPRODUCT), dynamic dropdown slicers, risk scoring models, and row-by-row cleaning audit logs.",
+      "Multi-sheet financial models, native dynamic formulas, and sensitivity analysis.",
   },
   {
     id: "sql",
     category: "SQL",
-    label: "section 02 — relational databases & queries",
-    title: "SQL & RELATIONAL DATABASES",
+    title: "SQL",
     doodle: "sparkle",
-    badge: "PRODUCTION MYSQL & POSTGRESQL",
     description:
-      "Enterprise relational schemas, 3NF data modeling, transactional fact tables, complex multi-table joins, chained CTEs, window functions (ROW_NUMBER, LAG, NTILE), stored procedures, triggers, and causal churn analyses.",
+      "Relational 3NF schemas, transactional facts, chained CTEs, and window analytics.",
   },
   {
     id: "python",
     category: "Python",
-    label: "section 03 — exploratory data analysis & ml pipelines",
-    title: "PYTHON DATA SCIENCE & ANALYTICS",
+    title: "PYTHON",
     doodle: "arrow",
-    badge: "51K+ BENCHMARKS & MULTIMODAL AI",
     description:
-      "Leakage-safe machine learning audits, in-fold SMOTE cross-validation, feature ablation studies, SHAP interpretability, and deep multimodal neural networks with online adaptive conformal risk control.",
+      "Exploratory data analysis, cohort retention, and predictive modeling.",
   },
   {
     id: "powerbi",
     category: "Power BI",
-    label: "section 04 — interactive dashboards & bi reporting",
-    title: "POWER BI BUSINESS INTELLIGENCE",
+    title: "POWER BI",
     doodle: "star",
-    badge: "EXECUTIVE DASHBOARD & DAX",
     description:
-      "Executive business intelligence dashboards, DAX calculated measures and columns, matrix heatmaps with conditional formatting, customer risk segmentation, and cross-filtering analytical models.",
+      "Interactive executive dashboards, DAX metrics, and cross-filtering analytical models.",
   },
 ];
 
@@ -70,17 +62,11 @@ export default function DataAnalystProjectSection({ projects }) {
           <section key={sec.id} id={sec.id} className="da-section">
             <div className="container">
               <PencilSketchHead
-                label={sec.label}
                 title={sec.title}
                 doodle={sec.doodle}
               />
 
-              <div className="da-section-intro">
-                <div className="da-intro-header">
-                  <span className="da-section-badge">{sec.badge}</span>
-                  <p className="da-section-desc">{sec.description}</p>
-                </div>
-              </div>
+              <p className="da-section-desc">{sec.description}</p>
 
               <div className="da-project-cards-stack">
                 {secProjects.map((p, pIdx) => {
@@ -108,18 +94,20 @@ export default function DataAnalystProjectSection({ projects }) {
                       >
                         <div className="paper da-project-card">
                           <div className="da-card-header-bar">
-                            <div className="da-card-tags-left">
-                              <span
-                                className="da-card-cat-chip"
-                                style={{ background: p.categoryBadgeColor || "var(--yellow)" }}
-                              >
-                                {p.category}
-                              </span>
-                              <span className="da-card-highlight-chip">{p.highlightBadge}</span>
-                            </div>
-                            <span className="da-card-repo-slug">
-                              moazzem-hossain-majumder/{p.repoName}
+                            <span
+                              className="da-card-cat-chip"
+                              style={{ background: p.categoryBadgeColor || "var(--yellow)" }}
+                            >
+                              {p.category}
                             </span>
+                            <a
+                              href={p.repoUrl}
+                              target="_blank"
+                              rel="noreferrer"
+                              className="da-card-repo-slug"
+                            >
+                              GitHub ↗
+                            </a>
                           </div>
 
                           <div className="da-card-main-grid">
@@ -127,7 +115,6 @@ export default function DataAnalystProjectSection({ projects }) {
                             <div className="da-card-left">
                               <h3 className="da-card-title">{p.title}</h3>
                               <p className="da-card-subtitle">{p.subtitle}</p>
-
                               <p className="da-card-overview">{p.overview}</p>
 
                               {/* KPIs highlight grid */}
@@ -138,22 +125,19 @@ export default function DataAnalystProjectSection({ projects }) {
                                       {k.value}
                                     </span>
                                     <span className="da-kpi-lbl">{k.label}</span>
-                                    <span className="da-kpi-sub">{k.note}</span>
+                                    {k.note && <span className="da-kpi-sub">{k.note}</span>}
                                   </div>
                                 ))}
                               </div>
 
                               {/* Key empirical takeaways */}
-                              <div className="da-card-takeaways">
-                                <h4 className="da-takeaways-head">KEY STRATEGIC FINDINGS:</h4>
-                                <ul className="da-takeaways-list">
-                                  {p.findings.slice(0, 2).map((f, fi) => (
-                                    <li key={fi}>
-                                      <strong>{f.title}:</strong> {f.desc.slice(0, 150)}...
-                                    </li>
-                                  ))}
-                                </ul>
-                              </div>
+                              <ul className="da-takeaways-list">
+                                {p.findings.slice(0, 2).map((f, fi) => (
+                                  <li key={fi}>
+                                    <strong>{f.title}:</strong> {f.desc.slice(0, 140)}...
+                                  </li>
+                                ))}
+                              </ul>
                             </div>
 
                             {/* Right preview & quick actions */}
@@ -164,7 +148,7 @@ export default function DataAnalystProjectSection({ projects }) {
                                   onClick={() => handleOpenModal(p)}
                                   role="button"
                                   tabIndex={0}
-                                  title="Click to expand case study & full gallery"
+                                  title="Expand case study"
                                 >
                                   <img
                                     src={thumb}
@@ -172,9 +156,6 @@ export default function DataAnalystProjectSection({ projects }) {
                                     className="da-card-thumbnail"
                                     loading="lazy"
                                   />
-                                  <div className="da-thumb-overlay">
-                                    <span>🔍 EXPAND CASE STUDY & GALLERY</span>
-                                  </div>
                                 </div>
                               ) : (
                                 <div
@@ -182,8 +163,7 @@ export default function DataAnalystProjectSection({ projects }) {
                                   onClick={() => handleOpenModal(p)}
                                 >
                                   <span className="da-placeholder-icon">🗄️</span>
-                                  <span>PRODUCTION DATABASE & PIPELINE</span>
-                                  <small>Click to open full query and schema breakdown</small>
+                                  <span>Database Architecture & Schema</span>
                                 </div>
                               )}
 
@@ -193,7 +173,7 @@ export default function DataAnalystProjectSection({ projects }) {
                                   className="btn yellow da-full-case-btn"
                                   onClick={() => handleOpenModal(p)}
                                 >
-                                  📖 READ CASE STUDY & AUDIT ↗
+                                  Case Study →
                                 </button>
 
                                 <a
@@ -202,7 +182,7 @@ export default function DataAnalystProjectSection({ projects }) {
                                   rel="noreferrer"
                                   className="btn ghost da-gh-btn"
                                 >
-                                  ⭐ GITHUB REPOSITORY ↗
+                                  GitHub ↗
                                 </a>
                               </div>
 

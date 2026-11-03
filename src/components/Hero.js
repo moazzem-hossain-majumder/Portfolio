@@ -21,21 +21,7 @@ export default function Hero({ basics, stats }) {
   return (
     <section className="hero" id="home">
       <div className="container" style={{ position: "relative" }}>
-        <div style={{ display: "inline-flex", alignItems: "center", position: "relative" }}>
-          <motion.p className="hero-eyebrow" variants={fadeUp} initial="hidden" animate="show" custom={0}>
-            hello! my name is
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, x: -10, rotate: -30 }}
-            animate={{ opacity: [0, 1, 1], x: [0, 15, 8], rotate: [-24, -18, -26] }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            style={{ position: "absolute", right: -42, top: -10, pointerEvents: "none" }}
-          >
-            <Pencil3D style={{ width: "56px", height: "18px" }} />
-          </motion.div>
-        </div>
-
-        <motion.div className="hero-name-wrap" variants={fadeUp} initial="hidden" animate="show" custom={1}>
+        <motion.div className="hero-name-wrap" variants={fadeUp} initial="hidden" animate="show" custom={0}>
           <h1 className="hero-name">
             <span className="hero-name-first">{first}</span>
             <span className="hero-name-last">{rest}</span>
@@ -54,7 +40,7 @@ export default function Hero({ basics, stats }) {
           </span>
         </motion.div>
 
-        <motion.div style={{ position: "absolute", left: "2%", top: "30%" }} variants={fadeUp} initial="hidden" animate="show" custom={2}>
+        <motion.div style={{ position: "absolute", left: "2%", top: "30%" }} variants={fadeUp} initial="hidden" animate="show" custom={1}>
           <Image
             className="hero-avatar"
             src={basics.photo || `https://github.com/${basics.githubUsername}.png`}
@@ -64,7 +50,7 @@ export default function Hero({ basics, stats }) {
             style={{ position: "static", transform: "rotate(-6deg)" }}
           />
         </motion.div>
-        <motion.div style={{ position: "absolute", right: "2%", top: "38%" }} variants={fadeUp} initial="hidden" animate="show" custom={3}>
+        <motion.div style={{ position: "absolute", right: "2%", top: "38%" }} variants={fadeUp} initial="hidden" animate="show" custom={2}>
           <Image
             className="hero-avatar"
             src={basics.photo || `https://github.com/${basics.githubUsername}.png`}
@@ -75,18 +61,18 @@ export default function Hero({ basics, stats }) {
           />
         </motion.div>
 
-        <motion.h2 className="hero-sub" variants={fadeUp} initial="hidden" animate="show" custom={4}>
+        <motion.h2 className="hero-sub" variants={fadeUp} initial="hidden" animate="show" custom={3}>
           I turn <span className="hl">raw data</span> into{" "}
           <span className="hl">clear decisions</span> & models into products.
         </motion.h2>
 
-        <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="show" custom={5}>
+        <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="show" custom={4}>
           {basics.headline}
           {basics.location ? ` - based in ${basics.location}.` : "."} Currently
           open to internships and entry-level roles.
         </motion.p>
 
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={6}>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={5}>
           <span className="status-pill">
             <span className="status-dot" />
             OPEN TO WORK
@@ -94,13 +80,13 @@ export default function Hero({ basics, stats }) {
         </motion.div>
 
         {/* CAREER TRACK SELECTION OPTION: DATA ANALYST OR AI ENGINEER */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={7} style={{ marginTop: "32px" }}>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={6} style={{ marginTop: "24px" }}>
           <RoleTrackSwitcher currentTrack="main" />
         </motion.div>
 
-        <motion.div className="hero-cta" style={{ marginTop: "28px" }} variants={fadeUp} initial="hidden" animate="show" custom={8}>
+        <motion.div className="hero-cta" style={{ marginTop: "24px" }} variants={fadeUp} initial="hidden" animate="show" custom={7}>
           <a className="btn yellow" href={`mailto:${basics.email}`}>
-            ✉ CONTACT ME
+            ✉ CONTACT
           </a>
           <a className="btn ghost" href={basics.githubUrl} target="_blank" rel="noreferrer">
             ⭐ GITHUB

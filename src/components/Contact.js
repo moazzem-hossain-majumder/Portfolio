@@ -29,7 +29,7 @@ export default function Contact({ basics }) {
           {
             icon: "🏅",
             label: "CREDLY",
-            value: "verify all my badges",
+            value: "Verify Badges",
             href: basics.credlyUrl,
           },
         ]
@@ -39,7 +39,7 @@ export default function Contact({ basics }) {
           {
             icon: "📄",
             label: "RESUME",
-            value: "view & download CV",
+            value: "Download PDF",
             href: basics.resumeUrl,
           },
         ]
@@ -50,16 +50,16 @@ export default function Contact({ basics }) {
     <section id="contact">
       <div className="container contact-wrap">
         <PencilSketchHead
-          label="get in touch —"
-          title="LET'S TALK"
+          
+          title="CONTACT"
           doodle="sparkle"
         />
         <div>
           <p className="contact-sub" style={{ marginTop: "-6px" }}>
-            have a project, an internship, or just want to say hi? my inbox is always open! 👋
+            Open to internships, engineering roles, and data collaborations.
           </p>
           <a className="btn yellow" href={`mailto:${basics.email}`} style={{ marginTop: "14px", display: "inline-flex" }}>
-            SAY HELLO ✉
+            ✉ SEND EMAIL
           </a>
         </div>
 

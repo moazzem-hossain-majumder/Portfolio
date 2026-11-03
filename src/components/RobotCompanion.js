@@ -69,14 +69,10 @@ export default function RobotCompanion() {
     }, duration);
   }, []);
 
-  // Initial greeting (desktop only)
+  // Initial greeting (disabled to keep canvas serene and distraction-free)
   useEffect(() => {
-    if (!mounted || window.innerWidth < 768) return;
-    const initialGreeting = setTimeout(() => {
-      showSpeech("Beep boop! Drag me anywhere on the screen! 👋", 5000);
-    }, 1200);
-    return () => clearTimeout(initialGreeting);
-  }, [mounted, showSpeech]);
+    // Serene silence by default - only speak on user interaction or section change
+  }, []);
 
   // Section Observer: updates robot expression & dialogue based on scroll position
   useEffect(() => {
@@ -304,24 +300,18 @@ export default function RobotCompanion() {
               <span className="robot-status-dot" />
               <span>{robotState.toUpperCase()}</span>
             </div>
-
-            {/* Drag Handle Indicator */}
-            <div className="robot-drag-hint">
-              <span>⠿</span>
-              <span>DRAG ANYWHERE</span>
-            </div>
           </motion.div>
         ) : (
           <motion.button
             type="button"
             className="robot-minimized-bubble"
             onClick={() => setIsMinimized(false)}
-            title="Open AI Robot Companion (Drag me anywhere)"
+            title="AI Robot Companion"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.95 }}
+            aria-label="Open AI Robot Companion"
           >
             <span>🤖</span>
-            <span className="robot-mini-label">BOT</span>
           </motion.button>
         )}
 

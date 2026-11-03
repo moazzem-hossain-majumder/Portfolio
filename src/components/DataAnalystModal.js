@@ -42,12 +42,9 @@ export default function DataAnalystModal({ isOpen, onClose, project }) {
               <span className="da-modal-cat-tag" style={{ background: project.categoryBadgeColor }}>
                 {project.category}
               </span>
-              <span className="da-modal-repo-name">
-                <a href={project.repoUrl} target="_blank" rel="noreferrer">
-                  moazzem-hossain-majumder/{project.repoName} ↗
-                </a>
-              </span>
-              <span className="da-modal-highlight">{project.highlightBadge}</span>
+              <a href={project.repoUrl} target="_blank" rel="noreferrer" className="da-modal-repo-link">
+                GitHub ↗
+              </a>
             </div>
             <button className="da-modal-close-btn" onClick={onClose} aria-label="Close case study">
               ✕
@@ -65,7 +62,7 @@ export default function DataAnalystModal({ isOpen, onClose, project }) {
               <div key={i} className="da-modal-kpi-pill">
                 <span className="kpi-label">{k.label}</span>
                 <span className="kpi-val" style={{ color: k.color || "var(--ink)" }}>{k.value}</span>
-                <span className="kpi-note">{k.note}</span>
+                {k.note && <span className="kpi-note">{k.note}</span>}
               </div>
             ))}
           </div>
@@ -73,11 +70,11 @@ export default function DataAnalystModal({ isOpen, onClose, project }) {
           {/* Tabs */}
           <div className="da-modal-tabs">
             {[
-              { id: "overview", label: "📋 Overview & Problem" },
-              { id: "findings", label: "📊 Key Findings & Metrics" },
-              { id: "architecture", label: "🏗️ Architecture & Code" },
-              { id: "gallery", label: `📸 Visuals (${project.images?.length || 0})` },
-              { id: "recommendations", label: "💡 Recommendations" },
+              { id: "overview", label: "Overview" },
+              { id: "findings", label: "Findings" },
+              { id: "architecture", label: "Architecture" },
+              { id: "gallery", label: `Gallery (${project.images?.length || 0})` },
+              { id: "recommendations", label: "Recommendations" },
             ].map((t) => (
               <button
                 key={t.id}

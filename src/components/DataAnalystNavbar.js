@@ -69,7 +69,7 @@ export default function DataAnalystNavbar({ basics }) {
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
             >
-              📄 RESUME ↓
+              RESUME
             </a>
           )}
         </div>
@@ -77,7 +77,7 @@ export default function DataAnalystNavbar({ basics }) {
         <div className="nav-right">
           {basics?.resumeUrl && (
             <a className="btn yellow nav-resume" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
-              RESUME ↓
+              RESUME
             </a>
           )}
           <button

@@ -1,23 +1,17 @@
 "use client";
 
 import { motion } from "framer-motion";
+import PencilSketchHead from "./PencilSketchHead";
 import Console from "./Console";
 
 export default function ConsoleSection({ profile, basics, repos, stats }) {
   return (
     <section className="console-section" id="console">
       <div className="container">
-        <motion.div
-          className="section-head"
-          style={{ textAlign: "center", marginBottom: "34px" }}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="hand-label">interactive mechanical console —</span>
-          <h2 className="section-title">THE PORTFOLIO CONSOLE</h2>
-        </motion.div>
+        <PencilSketchHead
+          title="CONSOLE"
+          doodle="sparkle"
+        />
 
         <motion.div
           initial={{ opacity: 0 }}

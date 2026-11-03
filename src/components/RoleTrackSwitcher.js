@@ -12,40 +12,28 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
     setShowAiNotice(true);
     setTimeout(() => {
       setShowAiNotice(false);
-    }, 4500);
+    }, 2800);
   };
 
   return (
     <div className="role-switcher-container">
-      <div className="role-switcher-header">
-        <span className="role-switcher-label">SELECT ROLE:</span>
-        <span className="role-switcher-hint">Tailored case studies, metrics & verified certificates</span>
-      </div>
-
       <div className="role-switcher-grid">
-        {/* DATA ANALYST OPTION */}
+        {/* DATA ANALYST */}
         <Link
           href="/data-analyst"
           className={`role-track-card ${currentTrack === "data-analyst" ? "active-track" : ""}`}
         >
           <div className="role-track-top">
             <span className="role-track-icon">📊</span>
-            <span className="role-track-badge da-badge">
-              {currentTrack === "data-analyst" ? "ACTIVE" : "VIEW ↗"}
+            <span className="role-track-action">
+              {currentTrack === "data-analyst" ? "ACTIVE" : "EXPLORE →"}
             </span>
           </div>
           <h3 className="role-track-title">Data Analyst</h3>
-          <p className="role-track-desc">
-            Excel Modeling • Production SQL • Python EDA • Power BI Dashboards
-          </p>
-          <div className="role-track-tags">
-            <span className="track-tag">8 Case Studies</span>
-            <span className="track-tag">150K+ Rows</span>
-            <span className="track-tag">Verified Audits</span>
-          </div>
+          <p className="role-track-desc">Excel • SQL • Python • Power BI</p>
         </Link>
 
-        {/* AI ENGINEER OPTION */}
+        {/* AI ENGINEER */}
         <div
           onClick={handleAiClick}
           className={`role-track-card ai-track-card ${currentTrack === "ai-engineer" ? "active-track" : ""}`}
@@ -54,40 +42,27 @@ export default function RoleTrackSwitcher({ currentTrack = "main" }) {
           onKeyDown={(e) => {
             if (e.key === "Enter" || e.key === " ") handleAiClick(e);
           }}
-          aria-label="AI Engineer - in development"
+          aria-label="AI Engineer track"
         >
           <div className="role-track-top">
             <span className="role-track-icon">🤖</span>
-            <span className="role-track-badge ai-badge">COMING SOON</span>
+            <span className="role-track-action coming-soon">IN PROGRESS</span>
           </div>
           <h3 className="role-track-title">AI Engineer</h3>
-          <p className="role-track-desc">
-            Production LLMs • RAG Systems • LangChain & LangGraph Agents
-          </p>
-          <div className="role-track-tags">
-            <span className="track-tag">Agentic Workflows</span>
-            <span className="track-tag">Fine-Tuning</span>
-            <span className="track-tag">In Progress</span>
-          </div>
+          <p className="role-track-desc">LLMs • RAG • Autonomous Agents</p>
         </div>
       </div>
 
-      {/* NON-INTRUSIVE AI ENGINEER NOTICE */}
       <AnimatePresence>
         {showAiNotice && (
           <motion.div
             className="ai-engineer-notice-toast"
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            initial={{ opacity: 0, y: 6, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-            transition={{ duration: 0.2 }}
+            exit={{ opacity: 0, y: -6, scale: 0.98 }}
+            transition={{ duration: 0.18 }}
           >
-            <div className="ai-notice-content">
-              <span className="ai-notice-icon">⚙️</span>
-              <div>
-                <strong>AI Engineer:</strong> We will activate AI Engineer later! For now, explore the complete, in-depth <strong>Data Analyst</strong> section above or scroll down for the unified overview.
-              </div>
-            </div>
+            <span>AI Engineer dossier is in development.</span>
             <button
               className="ai-notice-close"
               onClick={() => setShowAiNotice(false)}

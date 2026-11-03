@@ -66,7 +66,7 @@ export default function Navbar({ basics }) {
               rel="noopener noreferrer"
               onClick={() => setOpen(false)}
             >
-              📄 RESUME ↓
+              RESUME
             </a>
           )}
         </div>
@@ -81,7 +81,7 @@ export default function Navbar({ basics }) {
           </Link>
           {basics.resumeUrl && (
             <a className="btn yellow nav-resume" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
-              RESUME ↓
+              RESUME
             </a>
           )}
           <button

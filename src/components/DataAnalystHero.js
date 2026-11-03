@@ -21,21 +21,7 @@ export default function DataAnalystHero({ basics }) {
   return (
     <section className="hero da-hero" id="home">
       <div className="container" style={{ position: "relative" }}>
-        <div style={{ display: "inline-flex", alignItems: "center", position: "relative" }}>
-          <motion.p className="hero-eyebrow" variants={fadeUp} initial="hidden" animate="show" custom={0}>
-            focused dossier //
-          </motion.p>
-          <motion.div
-            initial={{ opacity: 0, x: -10, rotate: -30 }}
-            animate={{ opacity: [0, 1, 1], x: [0, 15, 8], rotate: [-24, -18, -26] }}
-            transition={{ duration: 1.2, delay: 0.2 }}
-            style={{ position: "absolute", right: -42, top: -10, pointerEvents: "none" }}
-          >
-            <Pencil3D style={{ width: "56px", height: "18px" }} />
-          </motion.div>
-        </div>
-
-        <motion.div className="hero-name-wrap" variants={fadeUp} initial="hidden" animate="show" custom={1}>
+        <motion.div className="hero-name-wrap" variants={fadeUp} initial="hidden" animate="show" custom={0}>
           <h1 className="hero-name">
             <span className="hero-name-first">{first}</span>
             <span className="hero-name-last">{rest}</span>
@@ -55,7 +41,7 @@ export default function DataAnalystHero({ basics }) {
         </motion.div>
 
         {/* Floating Avatars */}
-        <motion.div style={{ position: "absolute", left: "2%", top: "25%" }} variants={fadeUp} initial="hidden" animate="show" custom={2}>
+        <motion.div style={{ position: "absolute", left: "2%", top: "25%" }} variants={fadeUp} initial="hidden" animate="show" custom={1}>
           <Image
             className="hero-avatar"
             src={basics?.photo || `https://github.com/${basics?.githubUsername || "moazzem-hossain-majumder"}.png`}
@@ -65,7 +51,7 @@ export default function DataAnalystHero({ basics }) {
             style={{ position: "static", transform: "rotate(-6deg)" }}
           />
         </motion.div>
-        <motion.div style={{ position: "absolute", right: "2%", top: "32%" }} variants={fadeUp} initial="hidden" animate="show" custom={3}>
+        <motion.div style={{ position: "absolute", right: "2%", top: "32%" }} variants={fadeUp} initial="hidden" animate="show" custom={2}>
           <Image
             className="hero-avatar"
             src={basics?.photo || `https://github.com/${basics?.githubUsername || "moazzem-hossain-majumder"}.png`}
@@ -76,41 +62,39 @@ export default function DataAnalystHero({ basics }) {
           />
         </motion.div>
 
-        <motion.h2 className="hero-sub" variants={fadeUp} initial="hidden" animate="show" custom={4}>
+        <motion.h2 className="hero-sub" variants={fadeUp} initial="hidden" animate="show" custom={3}>
           Transforming <span className="hl">raw datasets</span> into{" "}
           <span className="hl">commercial decisions</span>, causal insights & executive dashboards.
         </motion.h2>
 
-        <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="show" custom={5}>
-          Specialized Data Analyst view presenting comprehensive, production-grade projects
-          strictly verified from my GitHub repositories. Divided into dedicated sections for{" "}
-          <strong>Excel, SQL, Python, and Power BI</strong>, featuring data cleaning audits, cohort funnels,
-          and empirical findings.
+        <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="show" custom={4}>
+          Production case studies across Excel modeling, SQL architectures, Python EDA,
+          and Power BI dashboards, strictly verified from GitHub repositories.
         </motion.p>
 
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={6}>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={5}>
           <span className="status-pill">
             <span className="status-dot" />
-            OPEN FOR DATA ANALYST ROLES & INTERNSHIPS
+            OPEN TO WORK
           </span>
         </motion.div>
 
         {/* Career Track Switcher */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={7} style={{ marginTop: "32px" }}>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={6} style={{ marginTop: "24px" }}>
           <RoleTrackSwitcher currentTrack="data-analyst" />
         </motion.div>
 
         {/* Action Buttons */}
-        <motion.div className="hero-cta" style={{ marginTop: "28px" }} variants={fadeUp} initial="hidden" animate="show" custom={8}>
+        <motion.div className="hero-cta" style={{ marginTop: "24px" }} variants={fadeUp} initial="hidden" animate="show" custom={7}>
           <a className="btn yellow" href={`mailto:${basics?.email || "moazzemhossain1510@gmail.com"}`}>
-            ✉ CONTACT FOR DA ROLES
+            ✉ CONTACT
           </a>
           <a className="btn ghost" href={basics?.githubUrl || "https://github.com/moazzem-hossain-majumder"} target="_blank" rel="noreferrer">
-            ⭐ GITHUB REPOS
+            ⭐ GITHUB
           </a>
           {basics?.resumeUrl && (
             <a className="btn ghost" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
-              📄 RESUME ↓
+              📄 RESUME
             </a>
           )}
         </motion.div>
@@ -123,10 +107,10 @@ export default function DataAnalystHero({ basics }) {
           variants={{ show: { transition: { staggerChildren: 0.1, delayChildren: 0.8 } } }}
         >
           {[
-            ["8 Core", "in-depth projects built"],
-            ["150K+", "records cleaned & modeled"],
-            ["22 Certs", "verified credentials"],
-            ["4 Stacks", "Excel • SQL • Python • BI"],
+            ["8", "Projects Built"],
+            ["150K+", "Records Analyzed"],
+            ["22", "Certifications"],
+            ["4", "Toolsets"],
           ].map(([num, label], i) => (
             <motion.div
               key={label}

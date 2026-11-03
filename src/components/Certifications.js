@@ -115,7 +115,7 @@ export default function Certifications({ certs, credlyUrl }) {
     <section id="certificates">
       <div className="container">
         <PencilSketchHead
-          label="always learning —"
+          
           title="CERTIFICATIONS"
           doodle="sparkle"
         />
@@ -123,14 +123,14 @@ export default function Certifications({ certs, credlyUrl }) {
         {credlyUrl && (
           <div style={{ marginBottom: "34px" }}>
             <a className="btn ghost" href={credlyUrl} target="_blank" rel="noreferrer">
-              🏅 VERIFY ALL ON CREDLY ↗
+              Verify on Credly ↗
             </a>
           </div>
         )}
 
         {pinned.length > 0 && (
           <>
-            <h3 className="sub-head">📌 pinned by me ({pinned.length}) -</h3>
+            <h3 className="sub-head">Featured ({pinned.length})</h3>
             <div className="cert-grid pinned-grid">
               {pinned.map((c, i) => <CertCard key={c.title + i} c={c} pinned i={i} />)}
             </div>
@@ -147,7 +147,7 @@ export default function Certifications({ certs, credlyUrl }) {
               aria-expanded={isOpen}
             >
               <span className="archive-folder-tab-icon">{isOpen ? "📂" : "📁"}</span>
-              <span>ALL CERTIFICATES ARCHIVE</span>
+              <span>All Credentials</span>
               <span className="archive-folder-tab-badge">{rest.length}</span>
             </button>
 
@@ -156,7 +156,7 @@ export default function Certifications({ certs, credlyUrl }) {
               className="archive-folder-toggle-btn"
               onClick={toggleFolder}
             >
-              {isOpen ? "▾ COLLAPSE FOLDER" : "▸ OPEN FOLDER (2 ROWS)"}
+              {isOpen ? "▾ Collapse" : "▸ Expand"}
             </button>
           </div>
 

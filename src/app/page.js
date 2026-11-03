@@ -149,7 +149,7 @@ export default async function Home() {
         <About basics={profile.basics} skills={profile.skills} />
         {profile.experiences?.length > 0 && (
           <Timeline
-            label="where I've worked"
+            
             title="EXPERIENCE"
             items={profile.experiences.map((e) => ({
               heading: e.role,
@@ -161,7 +161,7 @@ export default async function Home() {
           />
         )}
         <Timeline
-          label="my academic journey"
+          
           title="EDUCATION"
           items={profile.education.map((e) => ({
             heading: e.degree,
@@ -177,7 +177,7 @@ export default async function Home() {
       </main>
       <footer>
         <p>
-          built with Next.js + GitHub API - auto-updates every hour - {new Date().getFullYear()}
+          Moazzem Hossain • Built with Next.js & GitHub API • {new Date().getFullYear()}
         </p>
       </footer>
       <BackToTop />

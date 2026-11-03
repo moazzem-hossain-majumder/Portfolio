@@ -60,7 +60,7 @@ export default function DataAnalystPage() {
 
         {/* ACADEMIC JOURNEY */}
         <Timeline
-          label="academic foundation —"
+          
           title="EDUCATION"
           items={profile.education.map((e) => ({
             heading: e.degree,
@@ -76,7 +76,7 @@ export default function DataAnalystPage() {
 
       <footer>
         <p>
-          Data Analyst Dossier • Built with Next.js & GitHub API • {new Date().getFullYear()}
+          Moazzem Hossain • Data Analyst Dossier • {new Date().getFullYear()}
         </p>
       </footer>
 

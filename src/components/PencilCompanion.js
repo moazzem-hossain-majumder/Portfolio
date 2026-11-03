@@ -30,36 +30,20 @@ export default function PencilCompanion() {
   };
 
   return (
-    <aside className="pencil-companion-dock" aria-label="Scratchbook Pencil Companion">
+    <aside className="pencil-companion-dock" aria-label="Interactive Pencil">
       <motion.button
         type="button"
         className="pencil-companion-btn"
         onClick={handlePencilClick}
-        title="Click to scribble in your scratchbook!"
-        aria-label="Interactive 3D Pencil"
+        title="Interactive Pencil"
+        aria-label="Interactive Pencil"
         whileHover={{ scale: 1.12, rotate: -26 }}
         whileTap={{ scale: 0.9, rotate: -35 }}
         animate={{ rotate: tilt }}
         transition={{ type: "spring", stiffness: 300, damping: 20 }}
       >
         <Pencil3D className="companion-pencil-art" />
-        <span className="pencil-companion-badge">
-          {activeDoodle ? "✏️ scribble!" : "✏️ notes"}
-        </span>
       </motion.button>
-
-      {/* Floating graphite scribble bubble when clicked */}
-      {activeDoodle && (
-        <motion.div
-          className="pencil-scribble-pop"
-          initial={{ opacity: 0, scale: 0.6, y: 10 }}
-          animate={{ opacity: 1, scale: 1, y: -20 }}
-          exit={{ opacity: 0, scale: 0.5 }}
-          transition={{ duration: 0.35 }}
-        >
-          <span>✍️ sketched #{doodleCount}!</span>
-        </motion.div>
-      )}
     </aside>
   );
 }

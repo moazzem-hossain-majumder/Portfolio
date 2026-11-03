@@ -83,8 +83,8 @@ export default function Projects({ repos, languages }) {
     <section id="repositories">
       <div className="container">
         <PencilSketchHead
-          label="the full archive —"
-          title="ALL REPOSITORIES"
+          
+          title="REPOSITORIES"
           doodle="star"
         />
 
@@ -98,7 +98,7 @@ export default function Projects({ repos, languages }) {
               aria-expanded={isOpen}
             >
               <span className="archive-folder-tab-icon">{isOpen ? "📂" : "📁"}</span>
-              <span>GITHUB CODEBASE VAULT</span>
+              <span>All Repositories</span>
               <span className="archive-folder-tab-badge">{(repos || []).length}</span>
             </button>
 
@@ -107,7 +107,7 @@ export default function Projects({ repos, languages }) {
               className="archive-folder-toggle-btn"
               onClick={toggleFolder}
             >
-              {isOpen ? "▾ COLLAPSE FOLDER" : "▸ OPEN FOLDER (2 ROWS)"}
+              {isOpen ? "▾ Collapse" : "▸ Expand"}
             </button>
           </div>
 

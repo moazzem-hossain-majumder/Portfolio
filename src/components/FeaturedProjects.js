@@ -74,7 +74,7 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
     <section id="projects">
       <div className="container">
         <PencilSketchHead
-          label="hand-picked by me —"
+          
           title="PROJECTS"
           doodle="star"
         />

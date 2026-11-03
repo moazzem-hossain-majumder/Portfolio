@@ -19,8 +19,8 @@ export default function About({ basics, skills }) {
     <section id="about">
       <div className="container">
         <PencilSketchHead
-          label="about me!"
-          title="WHAT'S UP"
+          
+          title="ABOUT"
           doodle="star"
         />
 
@@ -39,7 +39,7 @@ export default function About({ basics, skills }) {
               width={320}
               height={320}
             />
-            <figcaption>it's me!</figcaption>
+            
           </motion.figure>
 
           <motion.div
