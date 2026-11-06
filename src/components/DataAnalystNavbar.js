@@ -6,6 +6,7 @@ import { motion, useScroll } from "framer-motion";
 import { getAudioEngine } from "@/utils/audio";
 
 const DA_LINKS = [
+  { href: "#flagship", label: "FLAGSHIP" },
   { href: "#excel", label: "EXCEL" },
   { href: "#sql", label: "SQL" },
   { href: "#python", label: "PYTHON" },

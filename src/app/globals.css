@@ -4100,14 +4100,30 @@ footer p {
   margin-bottom: 16px;
   border-bottom: 1px dashed var(--line);
 }
+.da-card-header-tags {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
 .da-card-cat-chip {
   font-family: var(--font-display);
   font-size: 0.68rem;
   letter-spacing: 0.04em;
-  padding: 2px 7px;
+  padding: 2.5px 8px;
   border-radius: 4px;
   color: #1a1a1a;
   border: 1px solid var(--hard-shadow);
+}
+.da-card-badge-chip {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--ink);
 }
 .da-card-repo-slug {
   font-family: var(--font-body);

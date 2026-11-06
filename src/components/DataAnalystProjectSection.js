@@ -8,6 +8,14 @@ import DataAnalystModal from "./DataAnalystModal";
 
 const SECTIONS = [
   {
+    id: "flagship",
+    category: "Flagship",
+    title: "FLAGSHIP CASE STUDY",
+    doodle: "star",
+    description:
+      "Full-stack operations audit & revenue recovery resolving R$500k+ in leakage using production SQL, statistical modeling in Python, and an interactive Excel Command Center.",
+  },
+  {
     id: "excel",
     category: "Excel",
     title: "EXCEL",
@@ -94,12 +102,19 @@ export default function DataAnalystProjectSection({ projects }) {
                       >
                         <div className="paper da-project-card">
                           <div className="da-card-header-bar">
-                            <span
-                              className="da-card-cat-chip"
-                              style={{ background: p.categoryBadgeColor || "var(--yellow)" }}
-                            >
-                              {p.category}
-                            </span>
+                            <div className="da-card-header-tags">
+                              <span
+                                className="da-card-cat-chip"
+                                style={{ background: p.categoryBadgeColor || "var(--yellow)" }}
+                              >
+                                {p.categoryLabel || p.category}
+                              </span>
+                              {p.highlightBadge && (
+                                <span className="da-card-badge-chip">
+                                  {p.highlightBadge}
+                                </span>
+                              )}
+                            </div>
                             <a
                               href={p.repoUrl}
                               target="_blank"

@@ -3,6 +3,178 @@
 
 export const DATA_ANALYST_PROJECTS = [
   // =========================================================================
+  // 0. FLAGSHIP CASE STUDY: TRI-STACK (SQL + PYTHON + EXCEL)
+  // =========================================================================
+  {
+    id: "flagship-olist-marketplace-intelligence",
+    category: "Flagship",
+    categoryLabel: "SQL • Python • Excel",
+    categoryBadgeColor: "var(--yellow)",
+    title: "Olist Marketplace Intelligence: Operations Audit & Revenue Recovery",
+    subtitle: "End-to-End Marketplace Operations Audit Resolving R$500k+ in Revenue Leakage, Delivery SLAs & Seller Risk using SQL, Python & Excel",
+    repoUrl: "https://github.com/moazzem-hossain-majumder/olist-marketplace-intelligence",
+    repoName: "olist-marketplace-intelligence",
+    highlightBadge: "Flagship Capstone • SQL + Python + Excel • R$500k+ Recovered",
+    featured: true,
+    overview:
+      "An enterprise-grade marketplace operations audit and revenue recovery engine resolving over R$ 500k in capital at risk across 99,441 orders from the Brazilian e-commerce platform Olist. Built across the entire modern analytics stack: a modular SQLite relational warehouse with 9 automated financial reconciliation checks; Python statistical modeling decomposing delivery SLAs and calculating Empirical Bayes seller risk scores; an automated Pytest test suite with CI; and an interactive 5-sheet Excel Command Center with dynamic headcount capacity planning and what-if SLA simulation.",
+    problemStatement:
+      "Rapid marketplace scaling created multi-million real blindspots between Olist's core transaction systems. Finance reported persistent revenue discrepancies between order checkout baskets and payment collections. Over 1,700 customer orders sat indefinitely stuck in unfulfilled limbo. Delivery lateness exceeded 8%, driving customer review ratings off a cliff, while operational account managers lacked an objective mechanism to prioritize intervention among 3,000+ third-party sellers.",
+    businessQuestions: [
+      "Where is capital leaking across checkout, handling, transit, and settlement systems of record?",
+      "How many orders are stuck indefinitely, and how quickly can a fixed team of 4 operations agents triage the backlog?",
+      "What operational stage drives customer delivery lateness once seller handoff, carrier transit, and distance are isolated?",
+      "How can 3 account managers identify and govern the highest-risk sellers without penalizing low-volume merchants?",
+      "Does a late first delivery experience statistically impair customer retention and long-term repurchase propensity?",
+    ],
+    dataset: {
+      name: "Brazilian E-Commerce Public Dataset by Olist",
+      scale: "99,441 orders across 9 relational tables (112,650 items, 103,886 payments, 99,224 reviews, 3,095 sellers, 1M+ geolocations)",
+      sources: "Olist public dataset released under CC BY-NC-SA 4.0 (Sep 2016 – Oct 2018)",
+      cleaningNotes:
+        "Engineered indexed SQLite warehouse with automated foreign key resolution; reconciled multi-seller orders via v_primary_seller; handled UTF-8 category mappings; geocoded zip-code centroids for Haversine distance calculations; and enforced 9 automated reconciliation check views.",
+    },
+    kpis: [
+      { label: "Orders Audited", value: "99,441", note: "Sep 2016 – Oct 2018 lifecycle", color: "var(--blue)" },
+      { label: "Leakage Identified", value: "R$ 519k", note: "R$ 202k recon + R$ 317k backlog", color: "var(--red)" },
+      { label: "Stuck Backlog", value: "1,729", note: "10 workdays with 4 agents", color: "var(--yellow)" },
+      { label: "Late Delivery SLA", value: "8.2%", note: "Carrier transit 25.7 vs 7.9 days", color: "var(--pink)" },
+      { label: "Rating Collapse", value: "4.29 → 2.27", note: "54% late orders get 1-2 stars", color: "var(--purple)" },
+      { label: "High-Risk Concentration", value: "32 Sellers", note: "Drive 20% of all late handoffs", color: "var(--green)" },
+    ],
+    findings: [
+      {
+        title: "Order-to-Cash Reconciliation Leakage",
+        desc: "1,425 total transaction exceptions represent R$ 202k in capital exposure. 80% of this leakage (R$ 162.6k across 775 orders) stems from orders where items were removed upon stock-out but payments were retained without automated refunds. An additional 166 orders exhibited carrier pickup timestamps preceding purchase dates, isolated exclusively to post-April 2018 records (pointing to an uncoordinated carrier tracking API timestamp migration).",
+        metric: "R$ 202k / 1,425 Exceptions",
+      },
+      {
+        title: "Stuck-Order Backlog Triage & Capacity Model",
+        desc: "1,729 orders (~R$ 317k) sat indefinitely in unfulfilled limbo, all past their promised delivery dates. Process inflow was continuous (35 to 165 new stuck orders/month across 751 distinct sellers), ruling out seller-by-seller ad-hoc calls. Formulated a P1/P2/P3 triage rule: P1 (≥R$ 200) captured 61% of value across just 24% of orders. Built a dynamic Excel capacity model proving 4 operations agents (6 hrs/day, 12 min/trace) can clear the entire active backlog in exactly 10 working days.",
+        metric: "10 Days to Clear 1,729 Orders",
+      },
+      {
+        title: "Delivery SLA Decomposition & Regression Odds",
+        desc: "Late orders average 25.7 days in carrier transit compared to just 7.9 days for on-time orders. Multivariable logistic regression (LogReg AUC: 0.79, HistGB AUC: 0.77) isolated factors: late seller handoff increases odds of delivery delay by ~5x (Odds Ratio: 4.88), yet 73% of late orders were handed over to carriers on time, confirming transit bottlenecks. A what-if simulation proved eliminating 100% of seller handoff delays reduces late delivery rate from 8.2% to 6.6%, confirming carrier SLAs require contract renegotiation.",
+        metric: "5x Late Odds from Handoff",
+      },
+      {
+        title: "Empirical Bayes Seller Risk Scoring",
+        desc: "Platform GMV is heavily concentrated: the top 10% of sellers generate 67% of total revenue. To prevent small-sample bias, seller metrics were smoothed using Empirical Bayes shrinkage towards the platform prior. Segmented 795 active sellers (≥20 orders) into a 2x2 matrix: 32 high-GMV, high-risk sellers in 'Q1: Fix Now' drive 20% of all late handoffs and can be directly managed by 3 account managers (~11 accounts each). An out-of-time back-test proved the highest-risk decile suffered 4.3x higher defect rates in future quarters.",
+        metric: "32 Sellers = 20% Late Handoffs",
+      },
+      {
+        title: "Retention & Customer Lifetime Realities",
+        desc: "97% of Olist customers purchase only once; subsequent-month repeat rates are under 1%. Standard RFM was adapted to binary-frequency quintiles, isolating high-value one-time shoppers who generate 68% of total revenue. Statistical rigor check: while customers experiencing a late first order showed lower raw repurchase rates (3.19% vs 4.04%, p = 0.007), controlling for destination state, cohort month, and basket size via multivariable regression revealed the effect is not statistically significant (Odds Ratio: 0.87, p = 0.13).",
+        metric: "68% Revenue from Top 1-Time Shoppers",
+      },
+    ],
+    architecture: {
+      description:
+        "Full-stack hybrid architecture connecting production SQL pipelines, statistical Python notebooks, automated Pytest CI, and an interactive 5-sheet Excel Command Center.",
+      sheetLayout: [
+        { sheet: "Executive_Summary", focus: "6 dynamic KPI scorecards, INDEX/MATCH month selector dropdown, 4 sparklines, monthly trend breakdown" },
+        { sheet: "Backlog_Triage", focus: "1,729-order prioritized worklist with P1/P2/P3 rules, conditional formatting, seller aggregations" },
+        { sheet: "Capacity_Model", focus: "Dynamic workforce planning: agent hours, productivity rates, headcount sliders, days-to-clear" },
+        { sheet: "Seller_Risk", focus: "Empirical Bayes risk matrix: GMV concentration vs. smoothed defect rate, Q1-Q4 quadrants" },
+        { sheet: "WhatIf_LateDelivery", focus: "Interactive SLA sensitivity simulator allowing leadership to test seller cutoffs vs. delivery rates" },
+      ],
+      codeSnippet: `-- Problem 1: Automated Order-to-Cash Exception Detection View
+CREATE VIEW v_recon_exceptions AS
+WITH base AS (
+    SELECT o.order_id, o.order_status, o.order_purchase_timestamp,
+           o.order_approved_at, o.order_delivered_carrier_date,
+           o.order_delivered_customer_date,
+           ov.basket_value, op.paid_value, op.max_installments, op.payment_types
+    FROM orders o
+    LEFT JOIN v_order_value ov   ON ov.order_id = o.order_id
+    LEFT JOIN v_order_payment op ON op.order_id = o.order_id
+)
+SELECT order_id, order_status, 'C1_order_without_items' AS check_id,
+       paid_value AS amount_at_stake, payment_types, max_installments,
+       'Payment recorded but no line items: cannot be fulfilled or invoiced' AS description
+FROM base WHERE basket_value IS NULL
+UNION ALL
+SELECT order_id, order_status, 'C3_overpaid_vs_basket',
+       ROUND(paid_value - basket_value, 2), payment_types, max_installments,
+       'Collected more than items + freight'
+FROM base WHERE paid_value - basket_value > 0.01;`,
+      language: "SQL & Python",
+    },
+    recommendations: [
+      {
+        role: "Operations Leadership",
+        text: "Deploy 4 agents to clear P1/P2 stuck orders in 10 workdays; implement a nightly automated ageing rule closing unfulfilled orders past 30 days.",
+      },
+      {
+        role: "Finance & Engineering",
+        text: "Enforce automated stock-out refunds to halt the R$ 162.6k leakage in paid orders without items; standardize carrier API timestamps to UTC.",
+      },
+      {
+        role: "Commercial / Account Managers",
+        text: "Assign 3 dedicated account managers to the 32 Q1 high-risk/high-GMV sellers; apply algorithmic listing ranking penalties to low-GMV persistent defectors.",
+      },
+      {
+        role: "Logistics & Delivery",
+        text: "Re-contract carriers on the worst route corridors where transit averages 25.7 days; dynamically calibrate customer estimated delivery dates based on empirical route transit times.",
+      },
+    ],
+    images: [
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/excel_command_center_demo.gif",
+        caption: "Interactive Excel Command Center Walkthrough: 5-sheet model featuring dynamic KPI tiles, INDEX/MATCH month filtering, 1,729-order priority worklist, dynamic capacity planning, and what-if sensitivity calculator.",
+        alt: "Excel Command Center Walkthrough Demo",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/excel_dashboard.png",
+        caption: "Excel Executive Summary Dashboard with synchronized KPI scorecards and trend visualizations.",
+        alt: "Excel Executive Dashboard",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/sql_reconciliation_summary.png",
+        caption: "SQL 9-Check Order-to-Cash Financial Audit reconciling orders, line items, payments, and reviews.",
+        alt: "SQL Reconciliation Summary",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/p1_recon_checks.png",
+        caption: "Reconciliation Check Failures: Quantifying R$ 202k in leakage across 1,425 transaction exceptions.",
+        alt: "Reconciliation Check Breakdown",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/excel_capacity_model.png",
+        caption: "Dynamic Headcount & Capacity Planning Model in Excel: Calculating 10-day active backlog resolution with 4 agents.",
+        alt: "Excel Capacity Planning Model",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/p3_monthly_late_trend.png",
+        caption: "Monthly Delivery SLA Lateness Trajectory vs Promising Windows across Brazilian states.",
+        alt: "Delivery SLA Monthly Trend",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/p3_odds_ratios.png",
+        caption: "Multivariable Logistic Regression Odds Ratios: Isolating seller handoffs, carrier transit, and distance.",
+        alt: "Logistic Regression Odds Ratios",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/excel_whatif.png",
+        caption: "Interactive Excel What-If Delivery Sensitivity Simulator: Testing seller cutoff impacts on platform SLA.",
+        alt: "Excel What-If Delivery Simulator",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/p4_seller_risk_matrix.png",
+        caption: "Empirical Bayes Seller Risk Matrix: Isolating 32 high-GMV, high-risk accounts for manager intervention.",
+        alt: "Empirical Bayes Seller Risk Matrix",
+      },
+      {
+        url: "https://raw.githubusercontent.com/moazzem-hossain-majumder/olist-marketplace-intelligence/main/images/p5_cohort_retention.png",
+        caption: "Monthly Customer Cohort Retention Heatmap: Validating single-purchase baseline across 99K buyers.",
+        alt: "Cohort Retention Heatmap",
+      },
+    ],
+    tags: ["SQL", "Python", "Excel", "Financial Audit", "Capacity Planning", "Empirical Bayes", "Machine Learning", "E-Commerce", "Pytest & CI"],
+  },
+
+  // =========================================================================
   // 1. EXCEL ANALYTICS
   // =========================================================================
   {

@@ -107,10 +107,10 @@ export default function DataAnalystHero({ basics }) {
           variants={{ show: { transition: { staggerChildren: 0.1, delayChildren: 0.8 } } }}
         >
           {[
-            ["8", "Projects Built"],
-            ["150K+", "Records Analyzed"],
+            ["9", "Projects Built"],
+            ["250K+", "Records Analyzed"],
             ["22", "Certifications"],
-            ["4", "Toolsets"],
+            ["5", "Core Toolsets"],
           ].map(([num, label], i) => (
             <motion.div
               key={label}
