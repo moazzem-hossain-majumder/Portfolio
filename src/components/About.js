@@ -27,11 +27,10 @@ export default function About({ basics, skills }) {
         <div className="about-grid">
           <motion.figure
             className="paper about-photo tape"
-            initial={{ opacity: 0, x: -40, rotate: -6 }}
-            whileInView={{ opacity: 1, x: 0, rotate: -2.5 }}
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            whileHover={{ rotate: 0, scale: 1.02 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
             <Image
               src={basics.photo || `https://github.com/${basics.githubUsername}.png`}
@@ -39,40 +38,31 @@ export default function About({ basics, skills }) {
               width={320}
               height={320}
             />
-            
           </motion.figure>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
           >
             <div className="about-text">
-              <span className="hand">I'm an aspiring AI Engineer & Data Analyst...</span>
-              who gets a little too excited about finding stories hidden inside
-              messy datasets. I care about writing clean Python, asking the right
-              questions before touching the data, and shipping analysis that
-              people can actually act on - not just charts that look pretty. ✨
+              Specialized in applied machine learning engineering and data analytics. Focused on writing
+              deterministic Python pipelines, normalized relational database schemas (MySQL, PostgreSQL, SQLite),
+              and reproducible statistical models that isolate causal business drivers.
             </div>
 
-            {Object.entries(groups).map(([cat, names], gi) => (
+            {Object.entries(groups).map(([cat, names]) => (
               <div className="skill-group" key={cat}>
-                <h4>{cat.toLowerCase()} -</h4>
+                <h4>{cat.toLowerCase()}</h4>
                 <div className="chips">
-                  {names.map((n, i) => (
-                    <motion.span
+                  {names.map((n) => (
+                    <span
                       key={n}
-                      className={`chip ${CHIP_COLORS[(gi + i) % CHIP_COLORS.length]}`}
-                      style={{ "--rot": `${((i % 3) - 1) * 1.6}deg` }}
-                      whileHover={{ scale: 1.1, rotate: 0 }}
-                      initial={{ opacity: 0, scale: 0.6 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.05 }}
+                      className="chip"
                     >
                       {n}
-                    </motion.span>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -80,15 +70,15 @@ export default function About({ basics, skills }) {
 
             <div className="gh-stats">
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "8px", marginBottom: "10px" }}>
-                <span className="hand" style={{ display: "block" }}>
-                  my github pulse -
+                <span style={{ fontWeight: 600, fontSize: "0.85rem", textTransform: "uppercase", letterSpacing: "0.05em" }}>
+                  GitHub Activity
                 </span>
                 <span
-                  className="chip c-green"
+                  className="chip"
                   style={{ fontSize: "0.72rem", padding: "2px 8px", textTransform: "none", letterSpacing: "normal" }}
-                  title="Pulse score includes private commits & collaborative repos"
+                  title="Pulse score includes private commits and collaborative repos"
                 >
-                  ✓ includes private & collaborator work
+                  Includes private &amp; collaborator work
                 </span>
               </div>
               <div className="gh-stats-imgs">

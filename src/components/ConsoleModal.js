@@ -88,7 +88,7 @@ export default function ConsoleModal({ isOpen, onClose, modalData, basics, profi
                 <div className="modal-chips-grid">
                   {(profile?.pinnedProjects || []).slice(0, 4).map((pin) => (
                     <div key={pin.repo || pin.name} className="modal-item-box">
-                      <b>📌 {pin.repo || pin.name}</b>
+                      <b>{pin.repo || pin.name}</b>
                       <p>{pin.note}</p>
                     </div>
                   ))}
@@ -108,7 +108,7 @@ export default function ConsoleModal({ isOpen, onClose, modalData, basics, profi
                   </div>
                 </div>
                 <p className="modal-desc" style={{ marginTop: "1rem" }}>
-                  Passionate about combining robust mathematical models, scalable data engineering, and human-centric software.
+                  Focused on building statistical models, scalable data engineering pipelines, and high-performance software.
                 </p>
               </div>
             )}
@@ -131,7 +131,7 @@ export default function ConsoleModal({ isOpen, onClose, modalData, basics, profi
                 <div className="modal-chips-grid">
                   {(profile?.education || []).map((edu) => (
                     <div key={edu.institution} className="modal-item-box">
-                      <b>🎓 {edu.degree}</b>
+                      <b>{edu.degree}</b>
                       <p style={{ color: "var(--amber)", fontWeight: 600 }}>{edu.institution} ({edu.period})</p>
                       <p>{edu.description}</p>
                     </div>
@@ -143,14 +143,14 @@ export default function ConsoleModal({ isOpen, onClose, modalData, basics, profi
             {modalData.modalType === "repositories" && (
               <div className="modal-content-section">
                 <p className="modal-desc">
-                  Showing latest active open-source & collaborative repositories from GitHub (@{basics?.githubUsername}):
+                  Showing latest active open-source &amp; collaborative repositories from GitHub (@{basics?.githubUsername}):
                 </p>
                 <div className="modal-chips-grid">
                   {(repos || []).slice(0, 4).map((r) => (
                     <a key={r.id} href={r.html_url} target="_blank" rel="noreferrer" className="modal-item-box clickable">
-                      <b>📦 {r.name} {r.isCollaborator ? "🤝 (Collaborator)" : ""} {r.isPrivate ? "🔒" : ""}</b>
+                      <b>{r.name} {r.isCollaborator ? "(Collaborator)" : ""} {r.isPrivate ? "(Private)" : ""}</b>
                       <p>{r.description || "No description provided."}</p>
-                      <small style={{ color: "var(--amber)" }}>⭐ {r.stars} | {r.language || "Code"}</small>
+                      <small style={{ color: "var(--amber)" }}>stars: {r.stars} | {r.language || "Code"}</small>
                     </a>
                   ))}
                 </div>
@@ -160,25 +160,25 @@ export default function ConsoleModal({ isOpen, onClose, modalData, basics, profi
             {modalData.modalType === "contact" && (
               <div className="modal-content-section">
                 <p className="modal-desc">
-                  Good design starts with hello. Have a project in mind, an opportunity, or just want to chat?
+                  Open to software engineering roles, data analytics positions, and research collaborations.
                 </p>
                 <div className="modal-contact-links">
                   <a className="btn yellow" href={`mailto:${basics?.email}`}>
-                    ✉ Email: {basics?.email}
+                    Email: {basics?.email}
                   </a>
                   {basics?.resumeUrl && (
                     <a className="btn ghost" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
-                      📄 View Resume / CV ↗
+                      View Resume / CV ↗
                     </a>
                   )}
                   {basics?.linkedinUrl && (
                     <a className="btn ghost" href={basics.linkedinUrl} target="_blank" rel="noopener noreferrer">
-                      💼 LinkedIn Profile ↗
+                      LinkedIn Profile ↗
                     </a>
                   )}
                   {basics?.githubUrl && (
                     <a className="btn ghost" href={basics.githubUrl} target="_blank" rel="noopener noreferrer">
-                      🐙 GitHub ↗
+                      GitHub ↗
                     </a>
                   )}
                 </div>

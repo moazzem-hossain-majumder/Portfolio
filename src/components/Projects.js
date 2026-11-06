@@ -97,7 +97,11 @@ export default function Projects({ repos, languages }) {
               onClick={toggleFolder}
               aria-expanded={isOpen}
             >
-              <span className="archive-folder-tab-icon">{isOpen ? "📂" : "📁"}</span>
+              <span className="archive-folder-tab-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+                </svg>
+              </span>
               <span>All Repositories</span>
               <span className="archive-folder-tab-badge">{(repos || []).length}</span>
             </button>
@@ -182,18 +186,18 @@ export default function Projects({ repos, languages }) {
                                   </a>
                                   {r.isCollaborator && (
                                     <span
-                                      className="chip c-blue"
+                                      className="chip"
                                       style={{ fontSize: "0.68rem", padding: "2px 7px", textDecoration: "none" }}
                                     >
-                                      collaborator 🤝
+                                      collaborator
                                     </span>
                                   )}
                                   {r.isPrivate && (
                                     <span
-                                      className="chip c-purple"
+                                      className="chip"
                                       style={{ fontSize: "0.68rem", padding: "2px 7px", textDecoration: "none" }}
                                     >
-                                      private 🔒
+                                      private
                                     </span>
                                   )}
                                   {r.homepage && (
@@ -201,14 +205,14 @@ export default function Projects({ repos, languages }) {
                                       href={r.homepage}
                                       target="_blank"
                                       rel="noreferrer"
-                                      className="chip c-orange"
+                                      className="chip"
                                       style={{ fontSize: "0.7rem", padding: "3px 9px", textDecoration: "none" }}
                                     >
                                       live ↗
                                     </a>
                                   )}
                                 </h3>
-                                <p className="proj-desc">{r.description || "no description yet - check the repo!"}</p>
+                                <p className="proj-desc">{r.description || "Public repository on GitHub."}</p>
                                 {(r.topics || []).length > 0 && (
                                   <div className="proj-topics">
                                     {r.topics.slice(0, 4).map((t) => <span key={t} className="topic">#{t}</span>)}
@@ -222,8 +226,8 @@ export default function Projects({ repos, languages }) {
                                         {r.language}
                                       </span>
                                     )}
-                                    <span>★ {r.stars}</span>
-                                    <span>⑂ {r.forks}</span>
+                                    <span>stars: {r.stars}</span>
+                                    <span>forks: {r.forks}</span>
                                   </div>
                                   <div>
                                     <a href={r.html_url} target="_blank" rel="noreferrer" className="proj-link">
@@ -277,8 +281,8 @@ export default function Projects({ repos, languages }) {
                   className="archive-folder-closed-card"
                   onClick={toggleFolder}
                 >
-                  <h4>📁 REPOSITORY VAULT IS COLLAPSED</h4>
-                  <p>Click anywhere to open the folder & browse 2 rows at a time ({(repos || []).length} repositories) ↗</p>
+                  <h4>REPOSITORY VAULT COLLAPSED</h4>
+                  <p>Click to expand and browse all repositories ({(repos || []).length} repositories) ↗</p>
                 </motion.div>
               )}
             </AnimatePresence>

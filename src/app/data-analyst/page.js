@@ -8,7 +8,6 @@ import Certifications from "@/components/Certifications";
 import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
 import BackToTop from "@/components/BackToTop";
-import PencilCompanion from "@/components/PencilCompanion";
 import RobotCompanion from "@/components/RobotCompanion";
 import { DATA_ANALYST_PROJECTS, DATA_ANALYST_CERTIFICATIONS } from "@/../data/dataAnalystProjects";
 
@@ -81,7 +80,6 @@ export default function DataAnalystPage() {
       </footer>
 
       <BackToTop />
-      <PencilCompanion />
       <RobotCompanion />
     </div>
   );

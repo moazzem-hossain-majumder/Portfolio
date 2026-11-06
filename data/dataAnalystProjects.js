@@ -189,7 +189,7 @@ FROM base WHERE paid_value - basket_value > 0.01;`,
     highlightBadge: "16,856 Apps • 10-Sheet Dynamic Model",
     featured: true,
     overview:
-      "An end-to-end exploratory data analysis in Excel and Python benchmarking 16,856 real mobile applications across the Apple App Store and Google Play Store. Combines robust data cleaning, dynamic formula-driven analytical modeling, an interactive dashboard, and actionable strategic findings for mobile product managers, developers, and marketers.",
+      "An end-to-end exploratory data analysis in Excel and Python benchmarking 16,856 real mobile applications across the Apple App Store and Google Play Store. Combines 4-stage data cleaning (deduplication, byte-level genre normalization, outlier trimming), dynamic formula-driven analytical modeling, an interactive dashboard, and actionable strategic findings for mobile product managers, developers, and marketers.",
     problemStatement:
       "Launching and scaling a mobile app is fraught with strategic pitfalls. Thousands of new apps are published monthly, yet over 90% fail to achieve meaningful traction, user retention, or monetization. Product and engineering teams frequently stumble because they treat iOS and Android as identical ecosystems or rely on gut instinct rather than empirical market data.",
     businessQuestions: [
@@ -338,7 +338,7 @@ FROM base WHERE paid_value - basket_value > 0.01;`,
         metric: "51.4% Year-1 M2M Churn",
       },
       {
-        title: "Fiber optic service experiences elevated churn despite higher ARPU",
+        title: "Fiber optic service experiences 41.9% churn despite higher ARPU",
         desc: "Fiber optic customers churn at 41.9% (vs. 19.0% for DSL and 7.4% for no internet), despite contributing an average monthly spend of $91.50 (vs. $58.10 for DSL). Month-to-month fiber customers churn at 54.6%.",
         metric: "$91.50 ARPU vs 41.9% Churn",
       },
@@ -644,7 +644,7 @@ GROUP BY 1;`,
     overview:
       "A comprehensive SQL analysis of about 100,000 orders from a Brazilian online marketplace. Built the relational database from raw CSV files, enforced primary/foreign keys and check constraints, performed 10 data quality checks, and wrote 44 analytical queries answering business questions about sales velocity, customer repeat rates, seller geography, and the impact of delivery delays on review ratings.",
     problemStatement:
-      "Marketplaces experience growth plateaus and customer churn due to logistics bottlenecks, seller concentration, and poor repeat purchase economics. Analyzing multi-table marketplace data without robust schema design risks the 'join fan-out trap' (inflating revenue across multi-item/multi-payment orders) and biased reporting.",
+      "Marketplaces experience growth plateaus and customer churn due to logistics bottlenecks, seller concentration, and poor repeat purchase economics. Analyzing multi-table marketplace data without normalized relational schema design risks the 'join fan-out trap' (inflating revenue across multi-item/multi-payment orders) and biased reporting.",
     businessQuestions: [
       "How did marketplace revenue trend over time, and what was the impact of Black Friday spikes?",
       "What is the customer repeat purchase rate, and how is spend distributed across customer deciles?",

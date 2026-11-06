@@ -7,14 +7,14 @@ import { getAudioEngine } from "../utils/audio";
 const STICKY_COLORS = ["yellow", "pink", "green", "blue", "purple", "orange"];
 
 const FUNNY_NOTES = [
-  "sheet #1 🗒️",
-  "sheet #2 🗒️ (fresh!)",
-  "sheet #3 ✨ (infinite pad!)",
-  "sheet #4 ✂️ (keep peeling!)",
-  "sheet #5 🎨 (graphite proof!)",
-  "sheet #6 🚀 (recruiter edition!)",
-  "sheet #7 📌 (pad never ends!)",
-  "sheet #8 🌟 (legendary!)",
+  "sheet #1",
+  "sheet #2",
+  "sheet #3",
+  "sheet #4",
+  "sheet #5",
+  "sheet #6",
+  "sheet #7",
+  "sheet #8",
 ];
 
 export function Pushpin({ color = "#e03131", className = "" }) {
@@ -77,12 +77,10 @@ export default function StickyNotePad({
     setPeelCount(nextCount);
 
     const funnyPops = [
-      "*RIIIP!* ✂️",
-      "*PEELED!* 📄",
-      "*FRESH SHEET!* ✨",
-      "*POST-IT!* 📌",
-      "*CRACKLE!* 🗒️",
-      "*INFINITE PAD!* ∞",
+      "PEELED",
+      "FRESH SHEET",
+      "NEXT SHEET",
+      "PAD CYCLED",
     ];
     setPopText(funnyPops[(nextCount - 1) % funnyPops.length]);
 
@@ -127,10 +125,9 @@ export default function StickyNotePad({
         type="button"
         className="sticky-peel-tab"
         onClick={handlePeel}
-        title="Peel sticky note (infinite pad: fresh sheet regenerates underneath!)"
+        title="Cycle note sheet"
         aria-label="Tear off sticky note sheet"
       >
-        <span className="peel-tab-icon">✂</span>
         <span className="peel-tab-label">PEEL SHEET</span>
       </button>
 
@@ -167,8 +164,8 @@ export default function StickyNotePad({
           type="button"
           className="sticky-peel-corner"
           onClick={handlePeel}
-          title="Peel sheet off infinite pad (3D paper curl) ✂"
-          aria-label="Peel sheet off infinite pad"
+          title="Peel sheet off pad"
+          aria-label="Peel sheet off pad"
         >
           {/* Triangular cutout recess pocket behind the folded flap */}
           <span className="peel-dogear-pocket" aria-hidden="true" />
@@ -177,7 +174,7 @@ export default function StickyNotePad({
             <span className="peel-dogear-cyl-highlight" />
             <span className="peel-dogear-crease-shadow" />
           </span>
-          <span className="peel-dogear-label">peel ✂</span>
+          <span className="peel-dogear-label">peel</span>
         </button>
       </motion.div>
 

@@ -10,7 +10,7 @@ export default function Marquee({ skills }) {
       <div className="marquee-track">
         {doubled.map((s, i) => (
           <span key={i}>
-            {s.toUpperCase()} {i % 2 === 0 ? "✦" : "✿"}
+            {s.toUpperCase()} <span style={{ opacity: 0.4, margin: "0 10px" }}>•</span>
           </span>
         ))}
       </div>

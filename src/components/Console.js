@@ -418,7 +418,7 @@ export default function Console({ displayName, profile, basics, repos, stats }) 
                 <span className="tape-yellow-tag">
                   /// THE SUMMARY BOX • INTERACTIVE ARCHIVE ///
                 </span>
-                <span className="tape-status-badge">🔒 CLOSED // STANDBY</span>
+                <span className="tape-status-badge">CLOSED // STANDBY</span>
               </div>
 
               {/* Center Tactile Clasp & Open Button */}
@@ -435,9 +435,8 @@ export default function Console({ displayName, profile, basics, repos, stats }) 
                     aria-label="Click to open the Summary Box to discover featured projects and interactive highlights"
                   >
                     <span className="clasp-pulse-ring" aria-hidden="true" />
-                    <span className="clasp-btn-icon">⚡</span>
                     <div className="clasp-btn-info">
-                      <span className="clasp-btn-title">CLICK TO OPEN THE BOX</span>
+                      <span className="clasp-btn-title">OPEN THE SUMMARY BOX</span>
                       <span className="clasp-btn-sub">
                         EXPLORE SELECTED WORK &amp; INTERACTIVE CONSOLE ➜
                       </span>
@@ -448,11 +447,10 @@ export default function Console({ displayName, profile, basics, repos, stats }) 
 
                 {/* Sticky Note Callout with Caveat font */}
                 <div className="lid-sticky-callout">
-                  <span className="note-pin" aria-hidden="true">📌</span>
                   <p className="note-handwriting">
                     &ldquo;Step inside the Summary Box! Discover my curated portfolio, AI research models, live tools &amp; interactive mechanical terminal.&rdquo;
                   </p>
-                  <span className="note-action-tag">✦ CLICK OR TAP TO OPEN THE BOX ✦</span>
+                  <span className="note-action-tag">CLICK OR TAP TO OPEN THE BOX</span>
                 </div>
               </div>
 
@@ -479,7 +477,7 @@ export default function Console({ displayName, profile, basics, repos, stats }) 
                 {/* Screen Header Line */}
                 <div className="term-header-line">
                   <span className="term-sys-tag">
-                    [ 📓 THE SUMMARY BOX // V2.4 ]
+                    [ SUMMARY BOX // V2.4 ]
                   </span>
                   <div className="term-header-right">
                     <span className="term-pill-status">
@@ -527,7 +525,7 @@ export default function Console({ displayName, profile, basics, repos, stats }) 
                       onClick={cycleSwitch}
                       title="Cycle Switch Sound Profile"
                     >
-                      ⚙ {switchType}
+                      SWITCH: {switchType.toUpperCase()}
                     </button>
                     <button
                       type="button"
@@ -538,7 +536,7 @@ export default function Console({ displayName, profile, basics, repos, stats }) 
                       }}
                       title="Toggle Audio Feedback"
                     >
-                      {soundEnabled ? "🔊 ON" : "🔇 OFF"}
+                      {soundEnabled ? "AUDIO ON" : "AUDIO OFF"}
                     </button>
                     {/* Physical Close Control in Footer */}
                     <button
@@ -547,7 +545,7 @@ export default function Console({ displayName, profile, basics, repos, stats }) 
                       onClick={handleCloseConsole}
                       title="Close the Summary Box"
                     >
-                      🔒 CLOSE BOX
+                      CLOSE BOX
                     </button>
                   </div>
                 </div>

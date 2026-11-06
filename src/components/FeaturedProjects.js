@@ -102,16 +102,16 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
                   <h3 className="proj-name feat-title">
                     {c.title}
                     {c.isCollaborator && (
-                      <span className="chip c-blue" style={{ fontSize: "0.68rem", padding: "2px 7px" }}>
-                        collaborator 🤝
+                      <span className="chip" style={{ fontSize: "0.68rem", padding: "2px 7px" }}>
+                        collaborator
                       </span>
                     )}
                     {c.isPrivate && (
-                      <span className="chip c-purple" style={{ fontSize: "0.68rem", padding: "2px 7px" }}>
-                        private 🔒
+                      <span className="chip" style={{ fontSize: "0.68rem", padding: "2px 7px" }}>
+                        private
                       </span>
                     )}
-                    {c.demo && <span className="chip c-orange" style={{ fontSize: "0.7rem", padding: "3px 9px" }}>live ↗</span>}
+                    {c.demo && <span className="chip" style={{ fontSize: "0.7rem", padding: "3px 9px" }}>live ↗</span>}
                   </h3>
                   {c.note && <p className="feat-note">{c.note}</p>}
                   {c.tags.length > 0 && (
@@ -127,8 +127,8 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
                           {c.language}
                         </span>
                       )}
-                      {c.stars !== null && <span>★ {c.stars}</span>}
-                      {c.forks !== null && <span>⑂ {c.forks}</span>}
+                      {c.stars !== null && <span>stars: {c.stars}</span>}
+                      {c.forks !== null && <span>forks: {c.forks}</span>}
                       {fmtDate(c.updated) && <span>updated {fmtDate(c.updated)}</span>}
                     </div>
                     <div className="feat-links">

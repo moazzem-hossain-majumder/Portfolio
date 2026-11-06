@@ -1,16 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
-import { Pencil3D } from "./PencilSketchHead";
 import RoleTrackSwitcher from "./RoleTrackSwitcher";
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 16 },
   show: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.12, duration: 0.6, ease: "easeOut" },
+    transition: { delay: i * 0.08, duration: 0.25, ease: "easeOut" },
   }),
 };
 
@@ -26,99 +24,76 @@ export default function Hero({ basics, stats }) {
             <span className="hero-name-first">{first}</span>
             <span className="hero-name-last">{rest}</span>
           </h1>
-          <span className="hero-tag" style={{ background: "var(--yellow)", top: "-18px", left: "-30px", transform: "rotate(-6deg)" }}>
+          <span className="hero-tag hero-tag-tl" style={{ background: "var(--yellow)" }}>
             AI Engineer
           </span>
-          <span className="hero-tag" style={{ background: "var(--green)", top: "-14px", right: "-36px", transform: "rotate(5deg)" }}>
+          <span className="hero-tag hero-tag-tr" style={{ background: "var(--green)" }}>
             Data Analyst
           </span>
-          <span className="hero-tag" style={{ background: "var(--pink)", bottom: "-16px", left: "-24px", transform: "rotate(4deg)" }}>
-            Python & SQL
+          <span className="hero-tag hero-tag-bl" style={{ background: "var(--pink)" }}>
+            Python &amp; SQL
           </span>
-          <span className="hero-tag" style={{ background: "var(--blue)", bottom: "-18px", right: "-20px", transform: "rotate(-5deg)" }}>
+          <span className="hero-tag hero-tag-br" style={{ background: "var(--blue)" }}>
             Machine Learning
           </span>
         </motion.div>
 
-        <motion.div style={{ position: "absolute", left: "2%", top: "30%" }} variants={fadeUp} initial="hidden" animate="show" custom={1}>
-          <Image
-            className="hero-avatar"
-            src={basics.photo || `https://github.com/${basics.githubUsername}.png`}
-            alt={basics.name}
-            width={86}
-            height={86}
-            style={{ position: "static", transform: "rotate(-6deg)" }}
-          />
-        </motion.div>
-        <motion.div style={{ position: "absolute", right: "2%", top: "38%" }} variants={fadeUp} initial="hidden" animate="show" custom={2}>
-          <Image
-            className="hero-avatar"
-            src={basics.photo || `https://github.com/${basics.githubUsername}.png`}
-            alt={basics.name}
-            width={86}
-            height={86}
-            style={{ position: "static", transform: "rotate(7deg)" }}
-          />
-        </motion.div>
-
-        <motion.h2 className="hero-sub" variants={fadeUp} initial="hidden" animate="show" custom={3}>
+        <motion.h2 className="hero-sub" variants={fadeUp} initial="hidden" animate="show" custom={1}>
           I turn <span className="hl">raw data</span> into{" "}
-          <span className="hl">clear decisions</span> & models into products.
+          <span className="hl">clear decisions</span> &amp; models into products.
         </motion.h2>
 
-        <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="show" custom={4}>
+        <motion.p className="hero-desc" variants={fadeUp} initial="hidden" animate="show" custom={2}>
           {basics.headline}
           {basics.location ? ` - based in ${basics.location}.` : "."} Currently
           open to internships and entry-level roles.
         </motion.p>
 
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={5}>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={3}>
           <span className="status-pill">
             <span className="status-dot" />
-            OPEN TO WORK
+            AVAILABLE FOR ROLES
           </span>
         </motion.div>
 
         {/* CAREER TRACK SELECTION OPTION: DATA ANALYST OR AI ENGINEER */}
-        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={6} style={{ marginTop: "24px" }}>
+        <motion.div variants={fadeUp} initial="hidden" animate="show" custom={4} style={{ marginTop: "24px" }}>
           <RoleTrackSwitcher currentTrack="main" />
         </motion.div>
 
-        <motion.div className="hero-cta" style={{ marginTop: "24px" }} variants={fadeUp} initial="hidden" animate="show" custom={7}>
+        <motion.div className="hero-cta" style={{ marginTop: "24px" }} variants={fadeUp} initial="hidden" animate="show" custom={5}>
           <a className="btn yellow" href={`mailto:${basics.email}`}>
-            ✉ CONTACT
+            CONTACT
           </a>
           <a className="btn ghost" href={basics.githubUrl} target="_blank" rel="noreferrer">
-            ⭐ GITHUB
+            GITHUB
           </a>
           {basics.resumeUrl && (
             <a className="btn ghost" href={basics.resumeUrl} target="_blank" rel="noopener noreferrer">
-              📄 RESUME
+              RESUME
             </a>
           )}
         </motion.div>
 
-        <motion.div className="stats" initial="hidden" animate="show" variants={{ show: { transition: { staggerChildren: 0.1, delayChildren: 0.9 } } }}>
+        <motion.div
+          className="stats"
+          initial="hidden"
+          animate="show"
+          variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.3 } } }}
+        >
           {[
             [stats.projects + "+", "projects built"],
             [stats.stars, "github stars"],
-            [stats.certs, "certificates"],
-            [stats.languages, "languages used"],
-          ].map(([num, label], i) => (
+            [stats.certs, "certifications"],
+            [stats.languages, "core languages"],
+          ].map(([num, label]) => (
             <motion.div
               key={label}
               className="paper stat-card retro-block-card"
               variants={{
-                hidden: { opacity: 0, y: -24, rotateX: 14, scale: 0.9 },
-                show: {
-                  opacity: 1,
-                  y: 0,
-                  rotateX: 0,
-                  scale: 1,
-                  transition: { type: "spring", stiffness: 180, damping: 14 },
-                },
+                hidden: { opacity: 0, y: 12 },
+                show: { opacity: 1, y: 0, transition: { duration: 0.2, ease: "easeOut" } },
               }}
-              whileHover={{ rotate: i % 2 ? 1.5 : -1.5, y: -6 }}
             >
               <div className="stat-num">{num}</div>
               <div className="stat-label">{label}</div>

@@ -146,7 +146,11 @@ export default function Certifications({ certs, credlyUrl }) {
               onClick={toggleFolder}
               aria-expanded={isOpen}
             >
-              <span className="archive-folder-tab-icon">{isOpen ? "📂" : "📁"}</span>
+              <span className="archive-folder-tab-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+                </svg>
+              </span>
               <span>All Credentials</span>
               <span className="archive-folder-tab-badge">{rest.length}</span>
             </button>
@@ -238,8 +242,8 @@ export default function Certifications({ certs, credlyUrl }) {
                   className="archive-folder-closed-card"
                   onClick={toggleFolder}
                 >
-                  <h4>📁 CERTIFICATE ARCHIVE IS COLLAPSED</h4>
-                  <p>Click anywhere to open the folder & browse 2 rows at a time ({rest.length} certificates) ↗</p>
+                  <h4>CERTIFICATE ARCHIVE COLLAPSED</h4>
+                  <p>Click to open the archive and browse credentials ({rest.length} certificates) ↗</p>
                 </motion.div>
               )}
             </AnimatePresence>
