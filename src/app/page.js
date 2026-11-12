@@ -165,7 +165,7 @@ export default async function Home() {
         <FlagshipSpotlightSection project={flagshipProject} />
 
         {/* STAGE 6: ABOUT & BACKGROUND */}
-        <About basics={profile.basics} skills={profile.skills} />
+        <About basics={profile.basics} skills={profile.skills} stats={stats} repos={repos} />
 
         {profile.experiences?.length > 0 && (
           <Timeline

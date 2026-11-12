@@ -2028,35 +2028,202 @@ section {
   }
 }
 
-/* ---------- GITHUB STATS ---------- */
+/* ---------- GITHUB STATS DASHBOARD ---------- */
 .gh-stats {
-  margin-top: 40px;
+  margin-top: 36px;
   width: 100%;
-}
-.gh-stats-imgs {
   display: flex;
+  flex-direction: column;
   gap: 16px;
+}
+.gh-stats-header {
+  display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.gh-stats-title-group {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+.gh-stats-title {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+.gh-stats-sub-link {
+  font-family: monospace;
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.gh-stats-sub-link:hover {
+  color: var(--yellow);
+}
+.gh-private-chip {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+/* Metric Counter Cards */
+.gh-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+.gh-metric-item {
+  padding: 10px 12px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 2.5px 2.5px 0 var(--hard-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.gh-metric-val {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--yellow);
+  line-height: 1.1;
+}
+.gh-metric-lbl {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+/* Top Languages Breakdown Bar */
+.gh-lang-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 2.5px 2.5px 0 var(--hard-shadow);
+}
+.gh-lang-bar {
+  display: flex;
+  height: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--line);
+  gap: 2px;
+}
+.gh-lang-segment {
+  height: 100%;
+  transition: width 0.3s ease;
+}
+.gh-lang-segment.seg-0 { background: #ffd43b; }
+.gh-lang-segment.seg-1 { background: #74c0fc; }
+.gh-lang-segment.seg-2 { background: #69db7c; }
+.gh-lang-segment.seg-3 { background: #faa2c1; }
+.gh-lang-segment.seg-4 { background: #b197fc; }
+
+.gh-lang-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.gh-lang-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.74rem;
+  color: var(--muted);
+  font-family: var(--font-body);
+}
+.gh-lang-pill strong {
+  color: var(--ink);
+}
+.gh-lang-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.gh-lang-dot.dot-0 { background: #ffd43b; }
+.gh-lang-dot.dot-1 { background: #74c0fc; }
+.gh-lang-dot.dot-2 { background: #69db7c; }
+.gh-lang-dot.dot-3 { background: #faa2c1; }
+.gh-lang-dot.dot-4 { background: #b197fc; }
+
+/* Contribution Cards Wrap */
+.gh-stats-cards-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
   width: 100%;
 }
-.gh-stats-imgs img {
-  min-width: 0;
-  height: auto;
-  border: 2px solid var(--ink);
-  border-radius: 14px;
-  box-shadow: 6px 6px 0 var(--soft-shadow);
+.gh-chart-card {
+  display: block;
+  padding: 14px 16px;
   background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  overflow: hidden;
 }
-.gh-stats-imgs img:first-child {
-  flex: 1.35 1 0;
+.gh-chart-card:hover {
+  border-color: var(--yellow);
+  box-shadow: 4px 4px 0 var(--hard-shadow);
+  transform: translateY(-1px);
 }
-.gh-stats-imgs img:last-child {
-  flex: 1 1 0;
+.gh-chart-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
 }
-@media (max-width: 540px) {
-  .gh-stats-imgs {
-    gap: 10px;
+.gh-chart-title {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.gh-chart-link-hint {
+  font-family: monospace;
+  font-size: 0.72rem;
+  color: var(--yellow);
+}
+.gh-heatmap-overflow {
+  width: 100%;
+  overflow-x: auto;
+  padding-bottom: 4px;
+}
+.gh-heatmap-img {
+  width: 100%;
+  min-width: 600px;
+  height: auto;
+  display: block;
+}
+.gh-streak-card {
+  width: 100%;
+}
+.gh-streak-img {
+  width: 100%;
+  height: auto;
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+  background: var(--paper);
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .gh-metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
