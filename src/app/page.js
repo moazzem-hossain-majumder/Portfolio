@@ -2,8 +2,11 @@ import fs from "fs";
 import path from "path";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import StrategicOverviewSection from "@/components/StrategicOverviewSection";
 import ConsoleSection from "@/components/ConsoleSection";
 import Marquee from "@/components/Marquee";
+import CardDeckShowcase from "@/components/CardDeckShowcase";
+import FlagshipSpotlightSection from "@/components/FlagshipSpotlightSection";
 import About from "@/components/About";
 import Timeline from "@/components/Timeline";
 import Certifications from "@/components/Certifications";
@@ -12,6 +15,7 @@ import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import BackToTop from "@/components/BackToTop";
 import RobotCompanion from "@/components/RobotCompanion";
+import { DATA_ANALYST_PROJECTS } from "@/../data/dataAnalystProjects";
 
 export const revalidate = 3600; // ISR: re-fetch GitHub data every hour
 
@@ -30,7 +34,6 @@ async function getRepos(username = GITHUB_USERNAME, collaboratorRepos = []) {
   let repos = [];
 
   try {
-    // 1. If an authorized token is provided, fetch all owned (public+private) and collaborated repos
     if (token) {
       const authRes = await fetch(
         `https://api.github.com/user/repos?visibility=all&affiliation=owner,collaborator&sort=updated&per_page=100`,
@@ -41,7 +44,6 @@ async function getRepos(username = GITHUB_USERNAME, collaboratorRepos = []) {
       }
     }
 
-    // 2. If no token, or if auth returned empty, fetch public repos for user
     if (!repos.length) {
       const publicRes = await fetch(
         `https://api.github.com/users/${username}/repos?type=all&per_page=100&sort=updated`,
@@ -52,7 +54,6 @@ async function getRepos(username = GITHUB_USERNAME, collaboratorRepos = []) {
       }
     }
 
-    // 3. If explicit collaborator repos are listed in profile.json (e.g. ["owner/repo"]), fetch those individually
     if (collaboratorRepos && collaboratorRepos.length > 0) {
       const existingFullNames = new Set(
         repos.map((r) => (r.full_name || "").toLowerCase())
@@ -76,7 +77,6 @@ async function getRepos(username = GITHUB_USERNAME, collaboratorRepos = []) {
       repos = [...repos, ...extraRepos];
     }
 
-    // Dedup and map
     const seenIds = new Set();
     return repos
       .filter((r) => {
@@ -84,7 +84,6 @@ async function getRepos(username = GITHUB_USERNAME, collaboratorRepos = []) {
         seenIds.add(r.id);
         const isCollab =
           Boolean(r.owner?.login && r.owner.login.toLowerCase() !== username.toLowerCase());
-        // If it's a fork, keep it only if user is actively collaborating or it has stars
         if (r.fork && !isCollab && !r.stargazers_count) return false;
         return true;
       })
@@ -138,17 +137,38 @@ export default async function Home() {
     privateCount: repos.filter((r) => r.isPrivate).length,
   };
 
+  const flagshipProject =
+    DATA_ANALYST_PROJECTS.find(
+      (p) => p.id === "flagship-olist-marketplace-intelligence"
+    ) || DATA_ANALYST_PROJECTS[0];
+
   return (
-    <div className="notebook-page-frame">
+    <div className="notebook-page-frame cinematic-page-container">
       <Navbar basics={profile.basics} />
+
       <main>
+        {/* STAGE 1: HERO */}
         <Hero basics={profile.basics} stats={stats} />
+
+        {/* STAGE 2: STRATEGY & ARCHITECTURE */}
+        <StrategicOverviewSection currentTrack="main" />
+
+        {/* STAGE 3: CONSOLE & SUMMARY BOX */}
         <ConsoleSection profile={profile} basics={profile.basics} repos={repos} stats={stats} />
+
         <Marquee skills={profile.skills} />
+
+        {/* STAGE 4: INTERACTIVE 3D CARD DECK */}
+        <CardDeckShowcase projects={DATA_ANALYST_PROJECTS} />
+
+        {/* STAGE 5: FLAGSHIP CAPSTONE SPOTLIGHT */}
+        <FlagshipSpotlightSection project={flagshipProject} />
+
+        {/* STAGE 6: ABOUT & BACKGROUND */}
         <About basics={profile.basics} skills={profile.skills} />
+
         {profile.experiences?.length > 0 && (
           <Timeline
-            
             title="EXPERIENCE"
             items={profile.experiences.map((e) => ({
               heading: e.role,
@@ -159,8 +179,8 @@ export default async function Home() {
             }))}
           />
         )}
+
         <Timeline
-          
           title="EDUCATION"
           items={profile.education.map((e) => ({
             heading: e.degree,
@@ -169,16 +189,23 @@ export default async function Home() {
             desc: e.description,
           }))}
         />
+
         <Certifications certs={profile.certifications} credlyUrl={profile.basics.credlyUrl} />
+
+        {/* STAGE 7: FEATURED & ALL REPOS */}
         <FeaturedProjects pins={profile.pinnedProjects} repos={repos} githubUrl={profile.basics.githubUrl} />
         <Projects repos={repos} languages={languages} />
+
+        {/* STAGE 8: CONTACT */}
         <Contact basics={profile.basics} />
       </main>
+
       <footer>
         <p>
-          Moazzem Hossain • Built with Next.js & GitHub API • {new Date().getFullYear()}
+          Moazzem Hossain • Built with Next.js &amp; GitHub API • {new Date().getFullYear()}
         </p>
       </footer>
+
       <BackToTop />
       <RobotCompanion />
     </div>

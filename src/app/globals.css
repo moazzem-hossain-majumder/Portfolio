@@ -4837,3 +4837,1088 @@ footer p {
   display: flex;
   gap: 10px;
 }
+
+/* ==========================================================================
+   PINTEREST-INSPIRED CINEMATIC UI ENHANCEMENTS (ATMOSPHERE & 3D CARD DECK)
+   Maintains 100% of the authentic notebook / tactile mechanical stationery vibe
+   ========================================================================== */
+
+/* 1. Atmospheric Ambient Particles Canvas */
+.ambient-particles-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 2. Dusk Twilight Atmosphere Glow on Hero Sections */
+.hero,
+.da-hero {
+  background-image: 
+    radial-gradient(ellipse 70% 38% at 50% 0%, rgba(245, 158, 11, 0.08), rgba(168, 85, 247, 0.035) 55%, transparent 75%),
+    repeating-linear-gradient(to bottom, transparent, transparent 31px, var(--rule) 31px, var(--rule) 32px);
+}
+
+/* 3. Calligraphy Watermark Stamp Behind Hero Heading */
+.hero-calligraphy-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 900;
+  font-size: clamp(4.8rem, 18vw, 11rem);
+  letter-spacing: 0.14em;
+  color: var(--ink);
+  opacity: 0.055;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+  white-space: nowrap;
+  line-height: 1;
+  text-shadow: 0 0 25px rgba(250, 204, 21, 0.22);
+  filter: blur(0.4px);
+}
+
+/* 4. Ecosystem & Platforms Strip */
+.hero-platforms-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px auto 0;
+  max-width: 680px;
+  position: relative;
+  z-index: 2;
+}
+.hero-platform-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  color: var(--muted);
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.hero-platform-pill:hover {
+  color: var(--ink);
+  border-color: var(--yellow);
+  transform: translateY(-1px);
+}
+.hero-platform-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 5px var(--yellow);
+}
+
+/* 5. Hero Scroll Discovery Cue */
+.hero-scroll-cue-wrap {
+  margin-top: 34px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.hero-scroll-cue {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: var(--paper);
+  border: 1.5px solid var(--ink);
+  border-radius: 20px;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+.hero-scroll-cue:hover {
+  color: var(--ink);
+  border-color: var(--yellow);
+  transform: translateY(2px);
+  box-shadow: 1.5px 1.5px 0 var(--hard-shadow);
+}
+.scroll-cue-arrow {
+  font-size: 0.85rem;
+  color: var(--yellow);
+  animation: bounce-subtle 1.8s infinite ease-in-out;
+}
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* 6. Cinematic Stage Architecture ("New Thing Showing After Every Scroll") */
+.cinematic-page-container {
+  position: relative;
+}
+.cinematic-stage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  padding: 80px 0;
+  box-sizing: border-box;
+}
+
+@media (min-width: 992px) {
+  html {
+    scroll-behavior: smooth;
+  }
+  .cinematic-page-container {
+    scroll-snap-type: y proximity;
+  }
+  .cinematic-stage {
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+  }
+}
+
+/* 7. Stage 2: Strategic Overview Section */
+.strategic-overview-section {
+  position: relative;
+  background: radial-gradient(ellipse 60% 40% at 75% 50%, rgba(245, 158, 11, 0.04), transparent 70%);
+}
+.strategy-split-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+}
+.strategy-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+}
+.strategy-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 6px var(--yellow);
+}
+.strategy-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.7rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 14px 0 12px;
+  line-height: 1.12;
+}
+.strategy-desc {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.strategy-tenets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.strategy-tenet-item {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+}
+.tenet-number {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  color: var(--yellow);
+  line-height: 1;
+  padding-top: 2px;
+}
+.tenet-title {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.tenet-text {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+.strategy-platforms-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.platform-tag {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: var(--muted);
+}
+
+/* Strategic Tactile Terminal */
+.strategy-tactile-terminal {
+  position: relative;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 var(--hard-shadow);
+  padding: 20px;
+  overflow: hidden;
+}
+.strategy-lantern-glow {
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.25) 0%, transparent 70%);
+  filter: blur(14px);
+  pointer-events: none;
+}
+.strategy-term-topbar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--line);
+  margin-bottom: 14px;
+}
+.term-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.term-circle.red { background: var(--red); }
+.term-circle.yellow { background: var(--yellow); }
+.term-circle.green { background: var(--green); }
+.strategy-term-title {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  font-weight: 700;
+  margin-left: 6px;
+}
+.strategy-term-body {
+  font-family: monospace;
+  font-size: 0.78rem;
+  line-height: 1.6;
+}
+.code-line {
+  color: var(--ink);
+}
+.code-line.indent {
+  padding-left: 18px;
+}
+.code-line.comment {
+  color: var(--muted);
+  font-style: italic;
+}
+.code-line .keyword {
+  color: var(--yellow);
+  font-weight: 700;
+}
+.code-line .fn {
+  color: var(--blue);
+}
+.code-line .str {
+  color: var(--green);
+}
+.code-line.highlight-line {
+  margin-top: 10px;
+  padding: 6px 10px;
+  background: rgba(250, 204, 21, 0.1);
+  border-left: 3px solid var(--yellow);
+  border-radius: 2px;
+}
+.strategy-term-stats-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.72rem;
+  color: var(--green);
+  font-weight: 700;
+}
+.stat-pill-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 6px var(--green);
+}
+
+/* 9. Stage 3: 3D Card Deck Carousel Showcase */
+.card-deck-showcase-section {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse 65% 45% at 50% 50%, rgba(250, 204, 21, 0.035), transparent 75%);
+}
+.deck-section-header {
+  text-align: center;
+  max-width: 760px;
+  margin: 0 auto 20px;
+}
+.deck-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+}
+.deck-indicator-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 7px var(--green);
+  animation: pulse-dot 2.5s infinite;
+}
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.deck-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.5vw, 2.75rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 12px 0 8px;
+  line-height: 1.1;
+}
+.deck-subline {
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--muted);
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* 3D Stage & Card Positioning */
+.deck-stage-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  margin: 25px auto 20px;
+  perspective: 1200px;
+  overflow: hidden;
+  padding: 15px 0 25px;
+  touch-action: pan-y pinch-zoom;
+}
+.deck-stage {
+  position: relative;
+  width: 100%;
+  height: 490px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deck-card-item {
+  position: absolute;
+  width: 330px;
+  max-width: 86vw;
+  height: 460px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  user-select: none;
+}
+.deck-card-center {
+  z-index: 10;
+  filter: drop-shadow(0 18px 32px rgba(0, 0, 0, 0.45)) drop-shadow(0 0 16px rgba(250, 204, 21, 0.12));
+}
+.deck-card-left,
+.deck-card-right {
+  z-index: 5;
+  filter: brightness(0.82) drop-shadow(0 10px 18px rgba(0, 0, 0, 0.35));
+}
+.deck-card-left:hover,
+.deck-card-right:hover {
+  filter: brightness(0.95);
+}
+
+/* 3D Flippable Core */
+.deck-card-flipper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+}
+.deck-card-face {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 8px;
+}
+
+/* Card Face: Front (Revealed Case Study) */
+.deck-card-face-front {
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--hard-shadow);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    var(--rule) 27px,
+    var(--rule) 28px
+  );
+}
+
+/* Card Face: Back (Ornate Rune Cover - Matching Video) */
+.deck-card-face-back {
+  transform: rotateY(180deg);
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 var(--hard-shadow);
+  padding: 22px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 27px,
+    var(--rule) 27px,
+    var(--rule) 28px
+  );
+}
+
+/* Ornate Crest on Back Face */
+.deck-back-top-strip {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: monospace;
+  font-size: 0.78rem;
+}
+.deck-back-status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 6px var(--red);
+}
+.deck-back-serial {
+  color: var(--yellow);
+  font-weight: 700;
+}
+.deck-back-tag {
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  color: var(--muted);
+}
+.deck-crest-stage {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+}
+.deck-crest-glow {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.22) 0%, transparent 70%);
+  filter: blur(8px);
+  z-index: 1;
+  animation: crest-pulse 3s infinite ease-in-out;
+}
+@keyframes crest-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.8; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+.deck-crest-svg {
+  position: relative;
+  z-index: 2;
+}
+.deck-back-details {
+  width: 100%;
+  text-align: center;
+}
+.deck-back-category-label {
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--yellow);
+  margin-bottom: 6px;
+}
+.deck-back-prompt {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  padding: 6px 12px;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1.5px dashed var(--line);
+  border-radius: 4px;
+  display: inline-block;
+}
+
+/* Geometric Rune Corners */
+.deck-corner-rune {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-color: var(--muted);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.rune-tl { top: 6px; left: 6px; border-top: 2px solid; border-left: 2px solid; }
+.rune-tr { top: 6px; right: 6px; border-top: 2px solid; border-right: 2px solid; }
+.rune-bl { bottom: 6px; left: 6px; border-bottom: 2px solid; border-left: 2px solid; }
+.rune-br { bottom: 6px; right: 6px; border-bottom: 2px solid; border-right: 2px solid; }
+
+/* Top bar */
+.deck-card-top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.deck-card-serial {
+  font-family: monospace;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--yellow);
+  letter-spacing: 0.08em;
+}
+.deck-card-cat {
+  font-family: var(--font-hand), 'Caveat', cursive;
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  padding: 2px 10px;
+  border: 1.5px solid var(--ink);
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+  white-space: nowrap;
+}
+
+/* Center Core Emblem */
+.deck-emblem-wrap {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 4px 0;
+}
+.deck-emblem-gem {
+  width: 48px;
+  height: 48px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 204, 21, 0.08);
+  color: var(--yellow);
+  position: relative;
+  z-index: 2;
+  box-shadow: inset 0 0 12px rgba(250, 204, 21, 0.15);
+  transition: transform 0.2s ease;
+}
+.deck-card-item:hover .deck-emblem-gem {
+  transform: rotate(5deg) scale(1.05);
+}
+.deck-emblem-glow {
+  position: absolute;
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.22) 0%, transparent 70%);
+  z-index: 1;
+  filter: blur(6px);
+}
+
+/* Title & Description */
+.deck-card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.25;
+  color: var(--ink);
+  margin-bottom: 5px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.deck-card-desc {
+  font-size: 0.8rem;
+  line-height: 1.45;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Empirical Highlight KPI Box */
+.deck-kpi-pill-box {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 12px;
+  background: rgba(0, 0, 0, 0.24);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  margin: 6px 0;
+}
+.deck-kpi-highlight-val {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--yellow);
+  line-height: 1;
+}
+.deck-kpi-highlight-lbl {
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Action Bar */
+.deck-card-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+}
+.deck-open-btn {
+  flex: 1;
+  font-size: 0.76rem !important;
+  padding: 8px 12px !important;
+  text-align: center;
+}
+.deck-flip-trigger-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+  transition: all 0.15s ease;
+}
+.deck-flip-trigger-btn:hover {
+  border-color: var(--yellow);
+  color: var(--yellow);
+  transform: translateY(-1px);
+}
+.deck-repo-link {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--muted);
+  padding: 7px 11px;
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  text-decoration: none;
+  background: var(--paper);
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+.deck-repo-link:hover {
+  color: var(--ink);
+  border-color: var(--ink);
+}
+
+/* Deck Controls Bar */
+.deck-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 8px;
+}
+.deck-nav-btn {
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
+  padding: 7px 16px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+.deck-nav-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 5px 5px 0 var(--hard-shadow);
+  background: var(--yellow);
+  color: #1a1a1a;
+}
+.deck-nav-btn:active {
+  transform: translate(2px, 2px);
+  box-shadow: 1px 1px 0 var(--hard-shadow);
+}
+.deck-nav-btn.flip-btn {
+  background: rgba(250, 204, 21, 0.12);
+  border-color: var(--yellow);
+}
+
+/* Dotted / Dashed Progress Track */
+.deck-progress-track {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.deck-dash-pill {
+  width: 14px;
+  height: 5px;
+  border-radius: 3px;
+  background: var(--line);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0;
+}
+.deck-dash-pill.active {
+  width: 32px;
+  background: var(--yellow);
+  box-shadow: 0 0 8px rgba(250, 204, 21, 0.45);
+}
+
+/* 10. Stage 4: Flagship Spotlight Section (Matching Pinterest Screen 4) */
+.flagship-spotlight-section {
+  position: relative;
+  background: radial-gradient(ellipse 65% 45% at 50% 50%, rgba(250, 204, 21, 0.04), transparent 75%);
+}
+.spotlight-split-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+.spotlight-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  box-shadow: 2px 2px 0 var(--hard-shadow);
+}
+.spotlight-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--yellow);
+  box-shadow: 0 0 7px var(--yellow);
+}
+.spotlight-headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4.2vw, 2.8rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 14px 0 12px;
+  line-height: 1.1;
+}
+.spotlight-lead {
+  font-size: 0.94rem;
+  line-height: 1.55;
+  color: var(--muted);
+  margin-bottom: 22px;
+}
+.spotlight-metric-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+.spotlight-kpi-card {
+  padding: 12px 10px;
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 var(--hard-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.spotlight-kpi-num {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--yellow);
+  line-height: 1;
+}
+.spotlight-kpi-lbl {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  line-height: 1.3;
+}
+.spotlight-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.spotlight-primary-btn {
+  font-size: 0.82rem !important;
+  padding: 10px 20px !important;
+}
+.spotlight-repo-btn {
+  font-size: 0.82rem !important;
+  padding: 10px 18px !important;
+}
+
+/* Ornate Framed Showcase */
+.spotlight-ornate-frame {
+  position: relative;
+  background: var(--paper);
+  border: 2px solid var(--ink);
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 var(--hard-shadow);
+  padding: 22px;
+  overflow: hidden;
+}
+.spotlight-glow-aura {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.15) 0%, transparent 70%);
+  filter: blur(20px);
+  pointer-events: none;
+}
+.spotlight-frame-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--line);
+  margin-bottom: 14px;
+}
+.spotlight-frame-dot-group {
+  display: flex;
+  gap: 6px;
+}
+.frame-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.frame-dot.dot-red { background: var(--red); }
+.frame-dot.dot-yellow { background: var(--yellow); }
+.frame-dot.dot-green { background: var(--green); }
+.spotlight-frame-title {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.spotlight-frame-tag {
+  font-family: monospace;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  background: rgba(105, 219, 124, 0.15);
+  border: 1px solid var(--green);
+  border-radius: 3px;
+  color: var(--green);
+  font-weight: 700;
+}
+.spotlight-checks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+.spotlight-check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 8px 10px;
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+}
+.check-status-badge {
+  font-family: monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 3px;
+  white-space: nowrap;
+}
+.check-status-badge.pass {
+  background: rgba(250, 204, 21, 0.15);
+  color: var(--yellow);
+  border: 1px solid var(--yellow);
+}
+.check-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.check-title {
+  font-family: monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.check-desc {
+  font-size: 0.72rem;
+  color: var(--muted);
+  line-height: 1.35;
+}
+.spotlight-frame-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  border-top: 1.5px solid var(--line);
+  position: relative;
+  z-index: 2;
+}
+.footer-metric-pill {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+.spotlight-inspect-link {
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  background: none;
+  border: none;
+  color: var(--yellow);
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: color 0.15s ease;
+}
+.spotlight-inspect-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments for Mobile */
+@media (max-width: 900px) {
+  .cinematic-stage {
+    min-height: auto;
+    padding: 50px 0;
+  }
+  .strategy-split-grid,
+  .spotlight-split-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .spotlight-metric-cards {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .hero-calligraphy-watermark {
+    font-size: clamp(3.2rem, 15vw, 5.5rem);
+    opacity: 0.045;
+  }
+  .card-deck-showcase-section {
+    padding: 50px 0 65px;
+  }
+  .deck-stage {
+    height: 440px;
+  }
+  .deck-card-item {
+    width: 290px;
+    height: 420px;
+  }
+  .deck-card-face-front,
+  .deck-card-face-back {
+    padding: 18px 16px;
+  }
+  .deck-card-left {
+    transform: translateX(-40%) scale(0.82) rotateY(12deg) !important;
+    opacity: 0.3 !important;
+  }
+  .deck-card-right {
+    transform: translateX(40%) scale(0.82) rotateY(-12deg) !important;
+    opacity: 0.3 !important;
+  }
+  .deck-controls-bar {
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .deck-nav-btn {
+    font-size: 0.74rem;
+    padding: 6px 12px;
+  }
+}
+
+

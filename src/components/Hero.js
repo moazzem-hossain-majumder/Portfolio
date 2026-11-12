@@ -17,9 +17,10 @@ export default function Hero({ basics, stats }) {
   const rest = basics.name.split(" ").slice(1).join(" ").toUpperCase();
 
   return (
-    <section className="hero" id="home">
+    <section className="hero cinematic-stage" id="home">
       <div className="container" style={{ position: "relative" }}>
         <motion.div className="hero-name-wrap" variants={fadeUp} initial="hidden" animate="show" custom={0}>
+          <div className="hero-calligraphy-watermark" aria-hidden="true">モアゼム</div>
           <h1 className="hero-name">
             <span className="hero-name-first">{first}</span>
             <span className="hero-name-last">{rest}</span>
@@ -54,6 +55,24 @@ export default function Hero({ basics, stats }) {
             <span className="status-dot" />
             AVAILABLE FOR ROLES
           </span>
+        </motion.div>
+
+        {/* ECOSYSTEM PLATFORMS STRIP (Pinterest Reference) */}
+        <motion.div className="hero-platforms-strip" variants={fadeUp} initial="hidden" animate="show" custom={3.5}>
+          {[
+            "Python 3.12",
+            "MySQL 8.0",
+            "PostgreSQL",
+            "Microsoft Excel",
+            "Power BI & DAX",
+            "PyTorch",
+            "Git & GitHub",
+          ].map((tech) => (
+            <span key={tech} className="hero-platform-pill">
+              <span className="hero-platform-dot" />
+              {tech}
+            </span>
+          ))}
         </motion.div>
 
         {/* CAREER TRACK SELECTION OPTION: DATA ANALYST OR AI ENGINEER */}
@@ -100,6 +119,20 @@ export default function Hero({ basics, stats }) {
             </motion.div>
           ))}
         </motion.div>
+        {/* SCROLL DISCOVERY CUE (Pinterest Reference) */}
+        <div className="hero-scroll-cue-wrap">
+          <a
+            href="#strategy"
+            className="hero-scroll-cue"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById("strategy")?.scrollIntoView({ behavior: "smooth" });
+            }}
+          >
+            <span className="scroll-cue-txt">SCROLL TO DISCOVER</span>
+            <span className="scroll-cue-arrow">↓</span>
+          </a>
+        </div>
       </div>
     </section>
   );

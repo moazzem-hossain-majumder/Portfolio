@@ -2,7 +2,10 @@ import fs from "fs";
 import path from "path";
 import DataAnalystNavbar from "@/components/DataAnalystNavbar";
 import DataAnalystHero from "@/components/DataAnalystHero";
+import StrategicOverviewSection from "@/components/StrategicOverviewSection";
 import Marquee from "@/components/Marquee";
+import CardDeckShowcase from "@/components/CardDeckShowcase";
+import FlagshipSpotlightSection from "@/components/FlagshipSpotlightSection";
 import DataAnalystProjectSection from "@/components/DataAnalystProjectSection";
 import Certifications from "@/components/Certifications";
 import Timeline from "@/components/Timeline";
@@ -40,36 +43,51 @@ function getProfile() {
 
 export default function DataAnalystPage() {
   const profile = getProfile();
+  const flagshipProject =
+    DATA_ANALYST_PROJECTS.find(
+      (p) => p.id === "flagship-olist-marketplace-intelligence"
+    ) || DATA_ANALYST_PROJECTS[0];
 
   return (
-    <div className="notebook-page-frame da-page-frame">
+    <div className="notebook-page-frame da-page-frame cinematic-page-container">
       <DataAnalystNavbar basics={profile.basics} />
+
       <main>
+        {/* STAGE 1: HERO */}
         <DataAnalystHero basics={profile.basics} />
+
+        {/* STAGE 2: STRATEGIC ANALYTICAL ENGINE */}
+        <StrategicOverviewSection currentTrack="data-analyst" />
+
         <Marquee skills={DA_SKILLS} />
 
-        {/* 4 DIVIDED SECTIONS: EXCEL, SQL, PYTHON, POWER BI */}
-        <DataAnalystProjectSection projects={DATA_ANALYST_PROJECTS} />
+        {/* STAGE 3: INTERACTIVE 3D CARD DECK */}
+        <CardDeckShowcase projects={DATA_ANALYST_PROJECTS} />
 
-        {/* ONLY DATA ANALYST CERTIFICATIONS */}
-        <Certifications
-          certs={DATA_ANALYST_CERTIFICATIONS}
-          credlyUrl={profile.basics.credlyUrl}
-        />
+        {/* STAGE 4: FLAGSHIP CAPSTONE SPOTLIGHT */}
+        <FlagshipSpotlightSection project={flagshipProject} />
 
-        {/* ACADEMIC JOURNEY */}
-        <Timeline
-          
-          title="EDUCATION"
-          items={profile.education.map((e) => ({
-            heading: e.degree,
-            org: e.institution,
-            period: e.period,
-            desc: e.description,
-          }))}
-        />
+        {/* STAGE 5: COMPREHENSIVE PROJECT ARCHIVE & CERTIFICATIONS */}
+        <div id="catalog" className="catalog-archive-wrapper">
+          <DataAnalystProjectSection projects={DATA_ANALYST_PROJECTS} />
 
-        {/* CONTACT */}
+          <Certifications
+            certs={DATA_ANALYST_CERTIFICATIONS}
+            credlyUrl={profile.basics.credlyUrl}
+          />
+
+          <Timeline
+            title="EDUCATION"
+            items={profile.education.map((e) => ({
+              heading: e.degree,
+              org: e.institution,
+              period: e.period,
+              desc: e.description,
+            }))}
+          />
+        </div>
+
+        {/* STAGE 6: CONTACT & DISPATCH */}
         <Contact basics={profile.basics} />
       </main>
 
@@ -84,4 +102,3 @@ export default function DataAnalystPage() {
     </div>
   );
 }
-

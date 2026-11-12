@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import "./globals.css";
+import AmbientParticles from "@/components/AmbientParticles";
 
 function getProfile() {
   try {
@@ -88,6 +89,7 @@ export default function RootLayout({ children }) {
         )}
       </head>
       <body>
+        <AmbientParticles />
         {children}
       </body>
     </html>
