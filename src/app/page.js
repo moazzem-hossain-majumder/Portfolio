@@ -13,8 +13,8 @@ import Certifications from "@/components/Certifications";
 import FeaturedProjects from "@/components/FeaturedProjects";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
-import BackToTop from "@/components/BackToTop";
 import RobotCompanion from "@/components/RobotCompanion";
+import CinematicPresentationDeck from "@/components/CinematicPresentationDeck";
 import { DATA_ANALYST_PROJECTS } from "@/../data/dataAnalystProjects";
 
 export const revalidate = 3600; // ISR: re-fetch GitHub data every hour
@@ -142,71 +142,86 @@ export default async function Home() {
       (p) => p.id === "flagship-olist-marketplace-intelligence"
     ) || DATA_ANALYST_PROJECTS[0];
 
-  return (
-    <div className="notebook-page-frame cinematic-page-container">
-      <Navbar basics={profile.basics} />
-
-      <main>
-        {/* STAGE 1: HERO */}
-        <Hero basics={profile.basics} stats={stats} />
-
-        {/* STAGE 2: STRATEGY & ARCHITECTURE */}
-        <StrategicOverviewSection currentTrack="main" />
-
-        {/* STAGE 3: CONSOLE & SUMMARY BOX */}
-        <ConsoleSection profile={profile} basics={profile.basics} repos={repos} stats={stats} />
-
-        <Marquee skills={profile.skills} />
-
-        {/* STAGE 4: INTERACTIVE 3D CARD DECK */}
-        <CardDeckShowcase projects={DATA_ANALYST_PROJECTS} />
-
-        {/* STAGE 5: FLAGSHIP CAPSTONE SPOTLIGHT */}
-        <FlagshipSpotlightSection project={flagshipProject} />
-
-        {/* STAGE 6: ABOUT & BACKGROUND */}
-        <About basics={profile.basics} skills={profile.skills} stats={stats} repos={repos} />
-
-        {profile.experiences?.length > 0 && (
+  const slides = [
+    {
+      id: "home",
+      label: "HERO",
+      content: <Hero basics={profile.basics} stats={stats} />,
+    },
+    {
+      id: "strategy",
+      label: "STRATEGY",
+      content: <StrategicOverviewSection currentTrack="main" />,
+    },
+    {
+      id: "console",
+      label: "CONSOLE",
+      content: <ConsoleSection profile={profile} basics={profile.basics} repos={repos} stats={stats} />,
+    },
+    {
+      id: "showcase",
+      label: "3D DECK",
+      content: <CardDeckShowcase projects={DATA_ANALYST_PROJECTS} />,
+    },
+    {
+      id: "flagship",
+      label: "FLAGSHIP",
+      content: <FlagshipSpotlightSection project={flagshipProject} />,
+    },
+    {
+      id: "projects",
+      label: "PROJECTS",
+      content: (
+        <div className="deck-internal-scroll">
+          <Marquee skills={profile.skills} />
+          <About basics={profile.basics} skills={profile.skills} stats={stats} repos={repos} />
+          {profile.experiences?.length > 0 && (
+            <Timeline
+              title="EXPERIENCE"
+              items={profile.experiences.map((e) => ({
+                heading: e.role,
+                org: e.company,
+                period: e.period,
+                desc: e.description,
+                tags: e.technologies,
+              }))}
+            />
+          )}
           <Timeline
-            title="EXPERIENCE"
-            items={profile.experiences.map((e) => ({
-              heading: e.role,
-              org: e.company,
+            title="EDUCATION"
+            items={profile.education.map((e) => ({
+              heading: e.degree,
+              org: e.institution,
               period: e.period,
               desc: e.description,
-              tags: e.technologies,
             }))}
           />
-        )}
+          <Certifications certs={profile.certifications} credlyUrl={profile.basics.credlyUrl} />
+          <FeaturedProjects pins={profile.pinnedProjects} repos={repos} githubUrl={profile.basics.githubUrl} />
+          <Projects repos={repos} languages={languages} />
+        </div>
+      ),
+    },
+    {
+      id: "contact",
+      label: "CONTACT",
+      content: (
+        <div className="deck-internal-scroll">
+          <Contact basics={profile.basics} />
+          <footer>
+            <p>
+              Moazzem Hossain • Built with Next.js &amp; GitHub API • {new Date().getFullYear()}
+            </p>
+          </footer>
+        </div>
+      ),
+    },
+  ];
 
-        <Timeline
-          title="EDUCATION"
-          items={profile.education.map((e) => ({
-            heading: e.degree,
-            org: e.institution,
-            period: e.period,
-            desc: e.description,
-          }))}
-        />
-
-        <Certifications certs={profile.certifications} credlyUrl={profile.basics.credlyUrl} />
-
-        {/* STAGE 7: FEATURED & ALL REPOS */}
-        <FeaturedProjects pins={profile.pinnedProjects} repos={repos} githubUrl={profile.basics.githubUrl} />
-        <Projects repos={repos} languages={languages} />
-
-        {/* STAGE 8: CONTACT */}
-        <Contact basics={profile.basics} />
-      </main>
-
-      <footer>
-        <p>
-          Moazzem Hossain • Built with Next.js &amp; GitHub API • {new Date().getFullYear()}
-        </p>
-      </footer>
-
-      <BackToTop />
+  return (
+    <div className="notebook-page-frame">
+      <Navbar basics={profile.basics} />
+      <CinematicPresentationDeck slides={slides} />
       <RobotCompanion />
     </div>
   );

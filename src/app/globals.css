@@ -181,8 +181,10 @@ section {
 
 /* ---------- NAVBAR ---------- */
 .nav {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: var(--bg);
   border-bottom: 2px solid var(--ink);
@@ -5130,30 +5132,151 @@ footer p {
   50% { transform: translateY(3px); }
 }
 
-/* 6. Cinematic Stage Architecture ("New Thing Showing After Every Scroll") */
-.cinematic-page-container {
-  position: relative;
+/* 6. Cinematic Presentation Deck Viewport & Vertical Track */
+.cinematic-deck-viewport {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 2;
+  background-color: var(--bg);
 }
-.cinematic-stage {
+
+.cinematic-deck-track {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  will-change: transform;
+}
+
+.cinematic-deck-slide {
+  width: 100vw;
+  height: 100vh;
   min-height: 100vh;
+  max-height: 100vh;
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  position: relative;
-  padding: 80px 0;
+  align-items: center;
   box-sizing: border-box;
+  padding: 68px 24px 20px;
+  transition: opacity 0.5s ease;
 }
 
-@media (min-width: 992px) {
-  html {
-    scroll-behavior: smooth;
+.cinematic-deck-slide.inactive-slide {
+  opacity: 0.82;
+}
+.cinematic-deck-slide.active-slide {
+  opacity: 1;
+}
+
+/* Presentation Deck Slide Content Sizing */
+.cinematic-deck-slide .hero,
+.cinematic-deck-slide .da-hero,
+.cinematic-deck-slide .strategic-overview-section,
+.cinematic-deck-slide .card-deck-showcase-section,
+.cinematic-deck-slide .flagship-spotlight-section {
+  width: 100%;
+  padding: 0;
+  min-height: auto;
+  background-image: none;
+}
+.cinematic-deck-slide .hero-name-wrap {
+  margin: 4px 0 10px;
+}
+.cinematic-deck-slide .hero-sub {
+  margin: 6px auto;
+}
+.cinematic-deck-slide .hero-desc {
+  margin: 4px auto 10px;
+}
+.cinematic-deck-slide .stats {
+  margin-top: 14px;
+}
+.cinematic-deck-slide .deck-section-header {
+  margin: 0 auto 12px;
+}
+.cinematic-deck-slide .deck-stage-wrapper {
+  margin: 10px auto;
+  padding: 5px 0 15px;
+}
+.cinematic-deck-slide .deck-stage {
+  height: 440px;
+}
+.cinematic-deck-slide .deck-card-item {
+  height: 430px;
+}
+
+/* Internally Scrollable Containers for Long Slides (e.g. Catalog Archive & Contact) */
+.deck-internal-scroll {
+  width: 100%;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 10px 16px 40px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: var(--yellow) transparent;
+}
+.deck-internal-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+.deck-internal-scroll::-webkit-scrollbar-thumb {
+  background: var(--yellow);
+  border-radius: 3px;
+}
+
+/* Minimalist Discrete Slide Indicator Dots on Right */
+.cinematic-deck-dots {
+  position: fixed;
+  top: 50%;
+  right: 18px;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 95;
+  pointer-events: auto;
+}
+.deck-dot-item {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--line);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.deck-dot-item:hover {
+  background: var(--muted);
+  transform: scale(1.3);
+}
+.deck-dot-item.active {
+  height: 22px;
+  border-radius: 4px;
+  background: var(--yellow);
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.5);
+}
+
+@media (max-width: 640px) {
+  .cinematic-deck-dots {
+    right: 8px;
+    gap: 6px;
   }
-  .cinematic-page-container {
-    scroll-snap-type: y proximity;
+  .deck-dot-item {
+    width: 5px;
+    height: 5px;
   }
-  .cinematic-stage {
-    scroll-snap-align: start;
-    scroll-snap-stop: normal;
+  .deck-dot-item.active {
+    height: 16px;
+  }
+  .cinematic-deck-slide {
+    padding: 60px 14px 16px;
   }
 }
 

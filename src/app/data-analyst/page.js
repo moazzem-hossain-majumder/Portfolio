@@ -10,8 +10,8 @@ import DataAnalystProjectSection from "@/components/DataAnalystProjectSection";
 import Certifications from "@/components/Certifications";
 import Timeline from "@/components/Timeline";
 import Contact from "@/components/Contact";
-import BackToTop from "@/components/BackToTop";
 import RobotCompanion from "@/components/RobotCompanion";
+import CinematicPresentationDeck from "@/components/CinematicPresentationDeck";
 import { DATA_ANALYST_PROJECTS, DATA_ANALYST_CERTIFICATIONS } from "@/../data/dataAnalystProjects";
 
 export const metadata = {
@@ -48,34 +48,38 @@ export default function DataAnalystPage() {
       (p) => p.id === "flagship-olist-marketplace-intelligence"
     ) || DATA_ANALYST_PROJECTS[0];
 
-  return (
-    <div className="notebook-page-frame da-page-frame cinematic-page-container">
-      <DataAnalystNavbar basics={profile.basics} />
-
-      <main>
-        {/* STAGE 1: HERO */}
-        <DataAnalystHero basics={profile.basics} />
-
-        {/* STAGE 2: STRATEGIC ANALYTICAL ENGINE */}
-        <StrategicOverviewSection currentTrack="data-analyst" />
-
-        <Marquee skills={DA_SKILLS} />
-
-        {/* STAGE 3: INTERACTIVE 3D CARD DECK */}
-        <CardDeckShowcase projects={DATA_ANALYST_PROJECTS} />
-
-        {/* STAGE 4: FLAGSHIP CAPSTONE SPOTLIGHT */}
-        <FlagshipSpotlightSection project={flagshipProject} />
-
-        {/* STAGE 5: COMPREHENSIVE PROJECT ARCHIVE & CERTIFICATIONS */}
-        <div id="catalog" className="catalog-archive-wrapper">
+  const slides = [
+    {
+      id: "home",
+      label: "HERO",
+      content: <DataAnalystHero basics={profile.basics} />,
+    },
+    {
+      id: "strategy",
+      label: "STRATEGY",
+      content: <StrategicOverviewSection currentTrack="data-analyst" />,
+    },
+    {
+      id: "showcase",
+      label: "3D DECK",
+      content: <CardDeckShowcase projects={DATA_ANALYST_PROJECTS} />,
+    },
+    {
+      id: "flagship",
+      label: "FLAGSHIP",
+      content: <FlagshipSpotlightSection project={flagshipProject} />,
+    },
+    {
+      id: "catalog",
+      label: "CATALOG",
+      content: (
+        <div className="deck-internal-scroll">
+          <Marquee skills={DA_SKILLS} />
           <DataAnalystProjectSection projects={DATA_ANALYST_PROJECTS} />
-
           <Certifications
             certs={DATA_ANALYST_CERTIFICATIONS}
             credlyUrl={profile.basics.credlyUrl}
           />
-
           <Timeline
             title="EDUCATION"
             items={profile.education.map((e) => ({
@@ -86,18 +90,28 @@ export default function DataAnalystPage() {
             }))}
           />
         </div>
+      ),
+    },
+    {
+      id: "contact",
+      label: "CONTACT",
+      content: (
+        <div className="deck-internal-scroll">
+          <Contact basics={profile.basics} />
+          <footer>
+            <p>
+              Moazzem Hossain • Data Analyst Dossier • {new Date().getFullYear()}
+            </p>
+          </footer>
+        </div>
+      ),
+    },
+  ];
 
-        {/* STAGE 6: CONTACT & DISPATCH */}
-        <Contact basics={profile.basics} />
-      </main>
-
-      <footer>
-        <p>
-          Moazzem Hossain • Data Analyst Dossier • {new Date().getFullYear()}
-        </p>
-      </footer>
-
-      <BackToTop />
+  return (
+    <div className="notebook-page-frame da-page-frame">
+      <DataAnalystNavbar basics={profile.basics} />
+      <CinematicPresentationDeck slides={slides} />
       <RobotCompanion />
     </div>
   );
