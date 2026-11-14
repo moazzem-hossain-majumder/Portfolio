@@ -24,10 +24,9 @@ export default function Timeline({ label, title, items }) {
             <motion.div
               className="tl-item"
               key={i}
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              initial={false}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.25, delay: i * 0.05 }}
             >
               <StickyNotePad
                 colorIndex={i}

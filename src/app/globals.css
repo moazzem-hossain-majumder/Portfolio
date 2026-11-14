@@ -5019,7 +5019,7 @@ footer p {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  z-index: 1;
+  z-index: 2;
 }
 
 /* 2. Dusk Twilight Atmosphere Glow on Hero Sections */
@@ -5140,8 +5140,44 @@ footer p {
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  z-index: 2;
+  z-index: 1;
   background-color: var(--bg);
+}
+
+/* Atmospheric Dynamic Background Layer (Transitions between slides) */
+.cinematic-bg-container {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+.cinematic-bg-layer {
+  position: absolute;
+  inset: -30px;
+  width: calc(100% + 60px);
+  height: calc(100% + 60px);
+  background-size: cover;
+  background-position: center;
+  will-change: opacity, transform;
+}
+.cinematic-bg-notebook-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 31px,
+    var(--rule) 31px,
+    var(--rule) 32px
+  );
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 1;
 }
 
 .cinematic-deck-track {
@@ -5149,6 +5185,8 @@ footer p {
   display: flex;
   flex-direction: column;
   will-change: transform;
+  position: relative;
+  z-index: 3;
 }
 
 .cinematic-deck-slide {

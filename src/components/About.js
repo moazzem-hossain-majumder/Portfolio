@@ -35,27 +35,16 @@ export default function About({ basics, skills, stats, repos }) {
         <PencilSketchHead title="ABOUT" doodle="star" />
 
         <div className="about-grid">
-          <motion.figure
-            className="paper about-photo tape"
-            initial={{ opacity: 0, x: -16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          >
+          <figure className="paper about-photo tape">
             <Image
               src={basics.photo || `https://github.com/${basics.githubUsername}.png`}
               alt={basics.name}
               width={320}
               height={320}
             />
-          </motion.figure>
+          </figure>
 
-          <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.2, ease: "easeOut" }}
-          >
+          <div>
             <div className="about-text">
               Specialized in applied machine learning engineering and data analytics. Focused on writing
               deterministic Python pipelines, normalized relational database schemas (MySQL, PostgreSQL, SQLite),
@@ -178,7 +167,7 @@ export default function About({ basics, skills, stats, repos }) {
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

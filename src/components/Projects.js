@@ -167,14 +167,11 @@ export default function Projects({ repos, languages }) {
                         {visibleRepos.map((r, i) => (
                           <motion.div
                             key={r.id}
-                            initial={{ opacity: 0, y: -30, rotateX: 12, scale: 0.92 }}
-                            whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-                            viewport={{ once: true, margin: "-30px" }}
+                            initial={false}
+                            animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
                             transition={{
-                              type: "spring",
-                              stiffness: 160,
-                              damping: 14,
-                              delay: Math.min((i % 3) * 0.07, 0.22),
+                              duration: 0.2,
+                              delay: Math.min((i % 3) * 0.04, 0.12),
                             }}
                           >
                             <StickyNotePad colorIndex={i}>

@@ -85,14 +85,11 @@ export default function DataAnalystProjectSection({ projects }) {
                     <motion.div
                       key={p.id}
                       className="da-card-motion"
-                      initial={{ opacity: 0, y: 35, rotateX: 8 }}
-                      whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-                      viewport={{ once: true, margin: "-40px" }}
+                      initial={false}
+                      animate={{ opacity: 1, y: 0, rotateX: 0 }}
                       transition={{
-                        type: "spring",
-                        stiffness: 140,
-                        damping: 15,
-                        delay: pIdx * 0.1,
+                        duration: 0.2,
+                        delay: pIdx * 0.05,
                       }}
                     >
                       <StickyNotePad

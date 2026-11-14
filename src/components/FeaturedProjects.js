@@ -83,14 +83,11 @@ export default function FeaturedProjects({ pins, repos, githubUrl }) {
           {cards.map((c, i) => (
             <motion.div
               key={c.key}
-              initial={{ opacity: 0, y: -36, rotateX: 14, scale: 0.92 }}
-              whileInView={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
-              viewport={{ once: true, margin: "-30px" }}
+              initial={false}
+              animate={{ opacity: 1, y: 0, rotateX: 0, scale: 1 }}
               transition={{
-                type: "spring",
-                stiffness: 160,
-                damping: 14,
-                delay: Math.min((i % 3) * 0.08, 0.25),
+                duration: 0.2,
+                delay: Math.min((i % 3) * 0.05, 0.15),
               }}
             >
               <StickyNotePad
