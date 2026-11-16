@@ -65,7 +65,7 @@ export default function CinematicPresentationDeck({ slides = [] }) {
   const playClick = useCallback(() => {
     try {
       getAudioEngine().playSwitch("clicky");
-    } catch (_) {}
+    } catch (_) { }
   }, []);
 
   const goToSlide = useCallback(
