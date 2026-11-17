@@ -4769,12 +4769,12 @@ footer p {
   }
 
   .role-switcher-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 
   .role-track-card {
-    padding: 12px 14px;
+    padding: 10px 10px;
     border-radius: 10px;
     border-width: 1.5px;
     box-shadow: 2px 2px 0 var(--hard-shadow);
@@ -4782,6 +4782,15 @@ footer p {
 
   .role-track-top {
     margin-bottom: 4px;
+  }
+
+  .role-track-title {
+    font-size: 0.95rem;
+  }
+
+  .role-track-desc {
+    font-size: 0.66rem;
+    line-height: 1.3;
   }
 
   .role-track-icon {
@@ -7403,5 +7412,379 @@ footer p {
   .jumper-card {
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   MOBILE APP EXPERIENCE & BOTTOM NAVIGATION BAR
+   Native Mobile App UI Principles:
+   - Ergonomic Below Bar (Thumb Zone)
+   - Visual Box Hierarchy (2x2 Stats, 1-Col Content Cards)
+   - Screen-Safe Boundary Spacing
+   ========================================================================== */
+
+.mobile-bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  /* 1. Sleek Mobile Top App Bar */
+  .menu-btn.tablet-only-menu-btn {
+    display: none !important;
+  }
+
+  .nav-binder-tabs {
+    display: none !important;
+  }
+
+  .tactile-nav-inner {
+    padding: 8px 14px;
+    height: 52px;
+  }
+
+  .nav-right.tactile-nav-right {
+    gap: 8px;
+  }
+
+  .nav-resume {
+    padding: 6px 12px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .theme-btn {
+    width: 34px !important;
+    height: 34px !important;
+    padding: 0 !important;
+  }
+
+  /* 2. Below Bar (Mobile App Bottom Navigation Bar) */
+  .mobile-bottom-nav {
+    display: block !important;
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+    background: rgba(14, 15, 18, 0.94);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-top: 1.5px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.65);
+    transition: background 0.2s ease, border-color 0.2s ease;
+  }
+
+  [data-theme="light"] .mobile-bottom-nav {
+    background: rgba(246, 245, 240, 0.96);
+    border-top: 1.5px solid rgba(0, 0, 0, 0.12);
+    box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.08);
+  }
+
+  [data-theme="light"] .mobile-nav-item.active {
+    color: #b45309;
+  }
+
+  [data-theme="light"] .mobile-nav-item.active svg {
+    stroke: #b45309;
+    filter: none;
+  }
+
+  [data-theme="light"] .mobile-nav-item.active .mobile-nav-label {
+    color: #b45309;
+    font-weight: 800;
+  }
+
+  [data-theme="light"] .mobile-nav-active-glow {
+    background: rgba(245, 158, 11, 0.18);
+  }
+
+  [data-theme="light"] .mobile-nav-active-dot {
+    background: #b45309;
+    box-shadow: 0 0 4px #b45309;
+  }
+
+  .mobile-bottom-nav-inner {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: center;
+    height: 60px;
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 0 4px;
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    height: 100%;
+    text-decoration: none;
+    color: var(--muted);
+    position: relative;
+    padding: 6px 0;
+    transition: color 0.15s ease, transform 0.1s ease;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  .mobile-nav-item:active {
+    transform: scale(0.9);
+  }
+
+  .mobile-nav-icon-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.15s ease;
+  }
+
+  .mobile-nav-item.active .mobile-nav-icon-wrap {
+    transform: translateY(-1px);
+    color: var(--yellow);
+  }
+
+  .mobile-nav-item.active svg {
+    stroke: var(--yellow);
+    filter: drop-shadow(0 0 4px rgba(255, 212, 59, 0.4));
+  }
+
+  .mobile-nav-active-glow {
+    position: absolute;
+    inset: -3px -10px;
+    background: rgba(255, 212, 59, 0.14);
+    border-radius: 999px;
+    z-index: -1;
+  }
+
+  .mobile-nav-label {
+    font-size: 0.62rem;
+    font-weight: 700;
+    font-family: var(--font-mono, monospace);
+    letter-spacing: 0.02em;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: color 0.15s ease;
+  }
+
+  .mobile-nav-item.active .mobile-nav-label {
+    color: var(--yellow);
+    font-weight: 800;
+  }
+
+  .mobile-nav-active-dot {
+    width: 3.5px;
+    height: 3.5px;
+    border-radius: 50%;
+    background: var(--yellow);
+    box-shadow: 0 0 6px var(--yellow);
+    margin-top: 1px;
+  }
+
+  /* 3. Global Padding Protection so bottom nav never covers content */
+  body {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 16px)) !important;
+  }
+
+  .multipage-main-container {
+    padding-bottom: calc(72px + env(safe-area-inset-bottom, 16px)) !important;
+  }
+
+  .robot-companion-dock {
+    top: auto !important;
+    left: auto !important;
+    right: 14px !important;
+    bottom: calc(68px + env(safe-area-inset-bottom, 12px)) !important;
+    width: auto !important;
+    height: auto !important;
+    pointer-events: none !important;
+  }
+
+  .robot-companion-container {
+    position: static !important;
+    left: auto !important;
+    bottom: auto !important;
+    pointer-events: auto !important;
+  }
+
+  .robot-minimized-bubble {
+    border-radius: 999px !important;
+    padding: 5px 12px !important;
+    font-size: 0.68rem !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.45) !important;
+    border: 1.5px solid var(--line) !important;
+  }
+
+  .back-top {
+    right: 14px !important;
+    bottom: calc(116px + env(safe-area-inset-bottom, 12px)) !important;
+  }
+
+  /* 4. Mobile Box Sizing & Row Allocations (Senior UI/UX Guidelines) */
+  /* STATS: Strictly 2 in a row (2x2 Grid) */
+  .stats {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+    margin-top: 24px !important;
+  }
+
+  .stat-card.retro-block-card {
+    padding: 14px 12px !important;
+    border-radius: 12px !important;
+  }
+
+  .stat-num {
+    font-size: 1.85rem !important;
+    line-height: 1.1 !important;
+    margin-bottom: 4px !important;
+  }
+
+  .stat-label {
+    font-size: 0.72rem !important;
+    letter-spacing: 0.04em !important;
+  }
+
+  /* HERO ACTIONS: 3 Clean App Buttons in a Row */
+  .hero-cta {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .hero-cta .btn {
+    padding: 10px 4px !important;
+    font-size: 0.76rem !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* RECRUITER DIRECTORY: Strictly 1 Card Per Row (Vertical Feed) */
+  .directory-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .directory-card {
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .dir-card-title {
+    font-size: 1.18rem !important;
+    margin-bottom: 6px !important;
+  }
+
+  .dir-card-desc {
+    font-size: 0.86rem !important;
+    margin-bottom: 14px !important;
+  }
+
+  /* PROJECTS & FEATURED CARDS: Strictly 1 Card Per Row */
+  .featured-grid,
+  .proj-grid,
+  .da-project-grid {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+
+  .featured-card,
+  .proj-card,
+  .da-project-card {
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  /* FLAGSHIP SPOTLIGHT KPI CARDS: Hero KPI full width + 2 in a row below */
+  .spotlight-metric-cards {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .spotlight-metric-cards .spotlight-kpi-card:first-child {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* CERTIFICATIONS: Strictly 1 Card Per Row */
+  .certs-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .cert-card {
+    padding: 16px !important;
+    border-radius: 14px !important;
+  }
+
+  /* CONTACT CHANNELS: 2 in a Row (with Primary Email full-width) */
+  .contact-cards,
+  .contact-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+
+  .contact-card:first-child {
+    grid-column: 1 / -1 !important;
+  }
+
+  .contact-card {
+    padding: 14px 12px !important;
+    border-radius: 12px !important;
+  }
+
+  /* STRATEGY SECTION: Stacked Single Column */
+  .strategy-split-grid {
+    grid-template-columns: 1fr !important;
+    gap: 24px !important;
+  }
+
+  .strategy-platforms-row {
+    gap: 6px !important;
+  }
+
+  .platform-tag {
+    font-size: 0.72rem !important;
+    padding: 4px 10px !important;
+  }
+
+  /* CROSS-PAGE JUMPER: Full-width stacked app buttons */
+  .jumper-card {
+    padding: 20px 16px !important;
+    border-radius: 14px !important;
+    gap: 16px !important;
+  }
+
+  .jumper-actions {
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 8px !important;
+  }
+
+  .jumper-actions .btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 11px 16px !important;
+  }
+
+  /* MULTIPAGE FOOTER */
+  .multipage-footer {
+    padding: 24px 0 16px !important;
+    margin-top: 36px !important;
+  }
+
+  .footer-inner {
+    flex-direction: column !important;
+    text-align: center !important;
+    gap: 12px !important;
+  }
+
+  .footer-links {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
   }
 }
