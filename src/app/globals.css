@@ -2524,7 +2524,7 @@ section {
 .console-modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 200;
+  z-index: 100000;
   background: rgba(18, 18, 18, 0.72);
   backdrop-filter: blur(8px);
   display: grid;
@@ -5136,7 +5136,7 @@ footer p {
 .da-modal-overlay {
   position: fixed;
   inset: 0;
-  z-index: 1000;
+  z-index: 100000;
   background: rgba(0, 0, 0, 0.75);
   backdrop-filter: blur(4px);
   display: flex;
@@ -5285,6 +5285,12 @@ footer p {
   padding: 10px 24px;
   background: var(--paper);
   border-bottom: 1.5px solid var(--line);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.da-modal-tabs::-webkit-scrollbar {
+  display: none;
 }
 
 .da-tab-btn {
@@ -5317,6 +5323,15 @@ footer p {
   padding: 24px;
   overflow-y: auto;
   flex-grow: 1;
+}
+
+.da-modal-body::-webkit-scrollbar {
+  width: 5px;
+}
+
+.da-modal-body::-webkit-scrollbar-thumb {
+  background: var(--line);
+  border-radius: 999px;
 }
 
 .da-tab-pane {
@@ -7786,5 +7801,164 @@ footer p {
   .footer-links {
     flex-wrap: wrap !important;
     justify-content: center !important;
+  }
+
+  /* 3D CASE STUDY DECK MOBILE APP SIZING */
+  .deck-stage-wrapper {
+    margin: 10px auto !important;
+    padding: 5px 0 15px !important;
+  }
+
+  .deck-stage {
+    height: 440px !important;
+  }
+
+  .deck-card-item {
+    width: min(310px, 86vw) !important;
+    height: 420px !important;
+  }
+
+  .deck-card-face-front,
+  .deck-card-face-back {
+    padding: 18px 16px !important;
+    border-radius: 14px !important;
+  }
+
+  .deck-controls-bar {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    margin: 14px auto 0 !important;
+    padding: 0 4px !important;
+  }
+
+  .deck-progress-track {
+    width: 100% !important;
+    order: -1 !important;
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .deck-nav-btn {
+    flex: 1 1 0 !important;
+    max-width: 105px !important;
+    font-size: 0.72rem !important;
+    padding: 8px 4px !important;
+    text-align: center !important;
+    justify-content: center !important;
+  }
+
+  /* MODALS MOBILE APP DRAWER / BOTTOM SHEET EXPERIENCE */
+  .da-modal-overlay,
+  .console-modal-overlay {
+    z-index: 100000 !important;
+    padding: 0 !important;
+    align-items: flex-end !important;
+  }
+
+  .da-modal-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: 94vh !important;
+    max-height: 94vh !important;
+    border-radius: 16px 16px 0 0 !important;
+    border-bottom: none !important;
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.7) !important;
+  }
+
+  .da-modal-header {
+    padding: 10px 14px !important;
+  }
+
+  .da-modal-title-wrap {
+    padding: 12px 14px 6px !important;
+  }
+
+  .da-modal-title {
+    font-size: 1.15rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .da-modal-subtitle {
+    font-size: 0.92rem !important;
+    line-height: 1.25 !important;
+  }
+
+  .da-modal-kpi-bar {
+    padding: 8px 14px !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 6px !important;
+  }
+
+  .da-modal-kpi-pill .kpi-label {
+    font-size: 0.6rem !important;
+  }
+
+  .da-modal-kpi-pill .kpi-val {
+    font-size: 0.98rem !important;
+  }
+
+  .da-modal-kpi-pill .kpi-note {
+    font-size: 0.6rem !important;
+  }
+
+  .da-modal-tabs {
+    padding: 6px 14px !important;
+    gap: 6px !important;
+  }
+
+  .da-tab-btn {
+    padding: 6px 10px !important;
+    font-size: 0.72rem !important;
+  }
+
+  .da-modal-body {
+    padding: 14px 14px !important;
+    overflow-x: hidden !important;
+    -webkit-overflow-scrolling: touch !important;
+  }
+
+  .da-pane-block {
+    margin-bottom: 16px !important;
+  }
+
+  .da-modal-footer {
+    padding: 10px 14px !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 8px !important;
+    border-top: 2px solid var(--hard-shadow) !important;
+  }
+
+  .da-footer-tags {
+    display: none !important;
+  }
+
+  .da-footer-buttons {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+
+  .da-footer-buttons .btn {
+    width: 100% !important;
+    text-align: center !important;
+    justify-content: center !important;
+    padding: 10px 4px !important;
+    font-size: 0.76rem !important;
+  }
+
+  .console-modal-card {
+    width: 100% !important;
+    max-width: 100% !important;
+    max-height: 94vh !important;
+    border-radius: 16px 16px 0 0 !important;
   }
 }

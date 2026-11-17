@@ -10,6 +10,16 @@ export default function CardDeckShowcase({ projects, onSelectProject }) {
   const [isFlipped, setIsFlipped] = useState(true); // true = shows front dossier, false = shows ornate cover
   const [internalModalProject, setInternalModalProject] = useState(null);
   const [touchStartX, setTouchStartX] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   // Take the top 5 high-impact capstone projects
   const showcaseList = (projects || []).slice(0, 5);
@@ -135,8 +145,20 @@ export default function CardDeckShowcase({ projects, onSelectProject }) {
                     isCenter
                       ? { x: 0, scale: 1, rotateY: 0, opacity: 1, zIndex: 10 }
                       : position === "left"
-                      ? { x: "-58%", scale: 0.85, rotateY: 18, opacity: 0.68, zIndex: 5 }
-                      : { x: "58%", scale: 0.85, rotateY: -18, opacity: 0.68, zIndex: 5 }
+                      ? {
+                          x: isMobile ? "-36%" : "-58%",
+                          scale: isMobile ? 0.76 : 0.85,
+                          rotateY: isMobile ? 6 : 18,
+                          opacity: isMobile ? 0.22 : 0.68,
+                          zIndex: 5,
+                        }
+                      : {
+                          x: isMobile ? "36%" : "58%",
+                          scale: isMobile ? 0.76 : 0.85,
+                          rotateY: isMobile ? -6 : -18,
+                          opacity: isMobile ? 0.22 : 0.68,
+                          zIndex: 5,
+                        }
                   }
                   transition={{ type: "spring", stiffness: 220, damping: 24 }}
                 >
