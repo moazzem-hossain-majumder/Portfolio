@@ -1670,14 +1670,22 @@ section {
 /* ---------- ABOUT ---------- */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.6fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.6fr);
   gap: 40px;
   align-items: start;
+  min-width: 0;
+  width: 100%;
+}
+
+.about-grid > div {
+  min-width: 0;
+  max-width: 100%;
 }
 
 @media (max-width: 860px) {
   .about-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 28px;
   }
 }
 
@@ -1713,6 +1721,8 @@ section {
 
 .skill-group {
   margin-top: 26px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .skill-group h4 {
@@ -1726,6 +1736,8 @@ section {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .chip {
@@ -1736,6 +1748,8 @@ section {
   border-radius: 4px;
   box-shadow: 2px 2px 0 var(--hard-shadow);
   transition: transform 0.15s ease;
+  max-width: 100%;
+  word-break: break-word;
 }
 
 .chip:hover {
@@ -2275,6 +2289,8 @@ section {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .gh-stats-header {
@@ -2447,6 +2463,8 @@ section {
   flex-direction: column;
   gap: 14px;
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .gh-chart-card {
@@ -2459,6 +2477,8 @@ section {
   text-decoration: none;
   transition: all 0.2s ease;
   overflow: hidden;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .gh-chart-card:hover {
@@ -2489,8 +2509,10 @@ section {
 
 .gh-heatmap-overflow {
   width: 100%;
+  max-width: 100%;
   overflow-x: auto;
   padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
 }
 
 .gh-heatmap-img {
@@ -7801,6 +7823,102 @@ footer p {
   .footer-links {
     flex-wrap: wrap !important;
     justify-content: center !important;
+  }
+
+  /* ABOUT & SKILLS MOBILE APP WRAPPING & SCREEN BOUNDARIES */
+  .about-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  .about-grid > div {
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .about-text {
+    font-size: 0.88rem !important;
+    line-height: 1.6 !important;
+    word-break: break-word !important;
+  }
+
+  .skill-group {
+    margin-top: 18px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .skill-group h4 {
+    font-size: 1.15rem !important;
+    margin-bottom: 8px !important;
+  }
+
+  .chips {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .chip {
+    font-size: 0.78rem !important;
+    padding: 4px 10px !important;
+    max-width: 100% !important;
+    word-break: break-word !important;
+  }
+
+  .gh-stats {
+    margin-top: 24px !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .gh-stats-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+  }
+
+  .gh-stats-title-group {
+    flex-wrap: wrap !important;
+    gap: 6px !important;
+  }
+
+  .gh-private-chip {
+    align-self: flex-start !important;
+    font-size: 0.68rem !important;
+    padding: 2px 8px !important;
+  }
+
+  .gh-metrics-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+
+  .gh-metric-item {
+    padding: 10px 10px !important;
+  }
+
+  .gh-metric-val {
+    font-size: 1.35rem !important;
+  }
+
+  .gh-chart-card-top {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 4px !important;
+  }
+
+  .gh-lang-labels {
+    gap: 8px !important;
+  }
+
+  .gh-lang-pill {
+    font-size: 0.7rem !important;
   }
 
   /* 3D CASE STUDY DECK MOBILE APP SIZING */
